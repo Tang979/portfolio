@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+
+  {{ partial "header.html" . }}
+
+  <div class="project-detail-wrapper">
+
+    {{/* ─── Sidebar / TOC ──────────────────────── */}}
+    <aside class="project-sidebar glass-card" aria-label="Table of contents">
+      <div class="sidebar-inner">
+
+        {{/* Sidebar header */}}
+        <div class="sidebar-header">
+          <p class="sidebar-project-title">Documentation</p>
+        </div>
+
+        {{/* TOC Navigation — built from full hierarchy of the project root ordered by weight */}}
+        <nav class="toc-nav">
+          <ul class="toc-list">
+            {{ $projectRoot := . }}
+            {{ range .Ancestors }}
+              {{ if eq .Parent $.FirstSection }}
+                {{ $projectRoot = . }}
+              {{ end }}
+            {{ end }}
+
+            {{/* Persistent Root Link */}}
+            <li class="toc-item toc-root-link {{ if eq $projectRoot.RelPermalink $.RelPermalink }}toc-active{{ end }}">
+              <a href="{{ $projectRoot.RelPermalink }}"
+                 class="toc-link"
+                 aria-current="{{ if eq $projectRoot.RelPermalink $.RelPermalink }}page{{ else }}false{{ end }}">
+                <span class="toc-title-wrap">
+                  <span class="toc-title">{{ $projectRoot.Title }}</span>
+                </span>
+              </a>
+            </li>
+
+            {{ define "toc-tree" }}
+              {{ $currentPage := .currentPage }}
+              {{ range .pages }}
+                {{ $depth := 1 }}
+                {{ if .Weight }}
+                  {{ $depth = .Weight }}
+                  {{ if gt $depth 4 }}{{ $depth = 4 }}{{ end }}
+                  {{ if lt $depth 1 }}{{ $depth = 1 }}{{ end }}
+                {{ end }}
+
+                <li class="toc-item depth-{{ $depth }}{{ if eq .RelPermalink $currentPage.RelPermalink }} toc-active{{ end }}">
+                  <a href="{{ .RelPermalink }}"
+                     class="toc-link"
+                     aria-current="{{ if eq .RelPermalink $currentPage.RelPermalink }}page{{ else }}false{{ end }}">
+                    
+                    {{ if .Params.pre }}
+                      <span class="toc-pre">{{ .Params.pre | safeHTML }}</span>
+                    {{ else if .Weight }}
+                      <span class="toc-pre">{{ .Weight }}.&nbsp;</span>
+                    {{ end }}
+
+                    <span class="toc-title-wrap">
+                      <span class="toc-title">{{ .Title }}</span>
+                    </span>
+                  </a>
+                </li>
+                {{ if .IsSection }}
+                  {{ template "toc-tree" dict "pages" (sort .Pages "Params.pre" "asc") "currentPage" $currentPage }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+
+            {{ template "toc-tree" dict "pages" (sort $projectRoot.Pages "Params.pre" "asc") "currentPage" $ }}
+          </ul>
+        </nav>
+
+      </div>
+    </aside>
+
+    {{/* ─── Main Content ─────────────────────────── */}}
+    <main class="project-content glass-card">
+
+      <header class="project-content-header">
+        <h1 class="project-page-title">{{ .Title }}</h1>
+      </header>
+
+      {{/* Rendered Markdown body */}}
+      <div class="project-body">
+        {{ .Content }}
+      </div>
+
+    </main>
+
+  </div>
+
+  {{ partial "footer.html" . }}
+
+  {{ if .Params.mermaid }}
+    {{ partial "mermaid.html" . }}
+  {{ end }}
+
+  {{/* ─── Scripts ──────────────────────────────── */}}
+  <script>
+  (function () {
+
+    /* ── Sticky Header ────────────────────────── */
+    var header = document.getElementById('site-header');
+    function onScroll() {
+      header.classList.toggle('header-scrolled', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); /* apply immediately on page load */
+
+    /* ── Mobile Menu ──────────────────────────── */
+    var menuBtn    = document.getElementById('menu-btn');
+    var menuClose  = document.getElementById('menu-close');
+    var mobileMenu = document.getElementById('mobile-menu');
+
+    function openMobileMenu() {
+      if (!mobileMenu) return;
+      mobileMenu.classList.add('open');
+      if (menuBtn) menuBtn.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    window.closeMobileMenu = function () {
+      if (!mobileMenu) return;
+      mobileMenu.classList.remove('open');
+      if (menuBtn) menuBtn.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    if (menuBtn)   menuBtn.addEventListener('click', openMobileMenu);
+    if (menuClose) menuClose.addEventListener('click', window.closeMobileMenu);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') window.closeMobileMenu();
+    });
+
+    /* ── Marquee for long TOC titles ───────────
+       On hover, measure if the title overflows its container.
+       If so, apply a CSS keyframe animation that scrolls the text. */
+    var tocLinks = document.querySelectorAll('.toc-link');
+
+    tocLinks.forEach(function (link) {
+      var wrap  = link.querySelector('.toc-title-wrap');
+      var title = link.querySelector('.toc-title');
+      if (!wrap || !title) return;
+
+      link.addEventListener('mouseenter', function () {
+        var wrapW  = wrap.offsetWidth;
+        var titleW = title.scrollWidth;
+        /* +4px tolerance to avoid triggering on near-fits */
+        if (titleW > wrapW + 4) {
+          var distance = -(titleW - wrapW + 8);
+          title.style.setProperty('--marquee-distance', distance + 'px');
+          title.classList.add('marquee-active');
+        }
+      });
+
+      link.addEventListener('mouseleave', function () {
+        title.classList.remove('marquee-active');
+        /* property is reapplied fresh on next hover; no need to remove */
+      });
+    });
+
+  }());
+  </script>
+
+</body>
+</html>

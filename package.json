@@ -1,0 +1,15 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "Game Developer Portfolio - The Growing Seed",
+  "scripts": {
+    "build:css": "tailwindcss -i assets/css/main.css -o static/css/output.css",
+    "watch:css": "tailwindcss -i assets/css/main.css -o static/css/output.css --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^3.4.0"
+  }
+}

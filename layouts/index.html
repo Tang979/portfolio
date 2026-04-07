@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+
+  {{ partial "header.html" . }}
+
+  <main>
+
+    <!-- ─── Hero ─────────────────────────────────── -->
+    {{ partial "hero.html" . }}
+
+    <!-- ─── Projects ──────────────────────────────── -->
+    <section id="work" class="py-28 relative">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Section intro -->
+        <div class="reveal mb-16">
+          {{ if eq .Site.Language.Lang "vi" }}
+            <span class="section-label">Dự Án Nổi Bật</span>
+            <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; margin-top: 0.75rem;
+                       letter-spacing: -0.03em; color: var(--text-primary);">
+              Những game tôi đã xây dựng
+            </h2>
+            <p style="color: var(--text-secondary); margin-top: 0.75rem; max-width: 520px;
+                      font-size: 1rem; line-height: 1.75;">
+              Từ ý tưởng đến sản phẩm — những dự án thể hiện kỹ năng và đam mê của tôi,
+              không ngừng mở rộng ranh giới của trải nghiệm tương tác.
+            </p>
+          {{ else }}
+            <span class="section-label">Featured Work</span>
+            <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; margin-top: 0.75rem;
+                       letter-spacing: -0.03em; color: var(--text-primary);">
+              Games I've Built
+            </h2>
+            <p style="color: var(--text-secondary); margin-top: 0.75rem; max-width: 520px;
+                      font-size: 1rem; line-height: 1.75;">
+              From concept to launch — a selection of projects that define my craft and push
+              the boundaries of interactive storytelling.
+            </p>
+          {{ end }}
+        </div>
+
+        <!-- Project grid — use language-specific data when available -->
+        {{ $projects := .Site.Data.projects }}
+        {{ if and (eq .Site.Language.Lang "vi") .Site.Data.vi.projects }}
+          {{ $projects = .Site.Data.vi.projects }}
+        {{ end }}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {{ range $projects }}
+            {{ partial "project-card.html" . }}
+          {{ end }}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── About ───────────────────────────────── -->
+    {{ partial "about.html" . }}
+
+    <!-- ─── Contact ─────────────────────────────── -->
+    {{ partial "contact.html" . }}
+
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  <!-- ─── Scripts ──────────────────────────────── -->
+  <script>
+  (function () {
+
+    /* ── Scroll Reveal ────────────────────────── */
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    /* Stagger project cards */
+    var cards = document.querySelectorAll('#work .glass-card');
+    cards.forEach(function (card, i) {
+      card.style.transitionDelay = (i * 0.1) + 's';
+      observer.observe(card);
+    });
+
+    /* Reveal all other .reveal elements */
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function (el) {
+      observer.observe(el);
+    });
+
+    /* ── Sticky Header ────────────────────────── */
+    var header = document.getElementById('site-header');
+    function onScroll() {
+      header.classList.toggle('header-scrolled', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ── Mobile Menu ──────────────────────────── */
+    var menuBtn    = document.getElementById('menu-btn');
+    var menuClose  = document.getElementById('menu-close');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var hamburger  = menuBtn ? menuBtn.querySelector('.hamburger') || menuBtn : null;
+
+    function openMobileMenu() {
+      mobileMenu.classList.add('open');
+      menuBtn.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    window.closeMobileMenu = function () {
+      mobileMenu.classList.remove('open');
+      menuBtn.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    if (menuBtn)   menuBtn.addEventListener('click', openMobileMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+
+    /* Close on ESC */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+
+    /* ── Active nav highlight on scroll ──────── */
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('.nav-link');
+    var sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (link) {
+            var href = link.getAttribute('href').replace('#', '');
+            link.style.color = href === entry.target.id
+              ? 'var(--text-primary)'
+              : 'var(--text-secondary)';
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(function (sec) { sectionObserver.observe(sec); });
+
+  }());
+  </script>
+
+</body>
+</html>

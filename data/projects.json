@@ -5,7 +5,7 @@
     "description": "A strategic mobile tower defense game with a focus on high performance and engine-agnostic architecture.",
     "tags": ["Unity", "C#", "Tower Defense", "Mobile"],
     "url": "/projects/hex-tower-defense/",
-    "image": "https://picsum.photos/seed/hex-tower-defense/800/500",
+    "image": "/images/BgProject.png",
     "year": "2026",
     "platform": "Mobile",
     "featured": true

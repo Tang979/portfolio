@@ -5,7 +5,7 @@
     "description": "Game Tower Defense chiến thuật trên mobile với kiến trúc tách biệt logic-view và tập trung tối ưu hóa hiệu năng.",
     "tags": ["Unity", "C#", "Tower Defense", "Mobile"],
     "url": "/vi/projects/hex-tower-defense/",
-    "image": "https://picsum.photos/seed/hex-tower-defense/800/500",
+    "image": "/images/BgProject.png",
     "year": "2026",
     "platform": "Mobile",
     "featured": true

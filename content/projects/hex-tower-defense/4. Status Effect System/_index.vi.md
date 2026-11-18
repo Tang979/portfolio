@@ -3,6 +3,7 @@ title: "Hệ Thống Hiệu Ứng Trạng Thái"
 layout: "project"
 weight: 1
 pre: "4. "
+draft: true
 ---
 
 <!-- NỘI DUNG TIẾNG VIỆT - DRAFT ĐỂ DỊCH SANG TIẾNG ANH -->

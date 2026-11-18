@@ -2,6 +2,7 @@
 title: "Effect Lifecycle & Tick System"
 layout: "project"
 weight: 2
+draft: true
 pre: "4.1. "
 ---
 

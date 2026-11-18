@@ -2,6 +2,7 @@
 title: "Giao Tiếp Hướng Sự Kiện (Observer Pattern)"
 layout: "project"
 weight: 2
+draft: true
 pre: "2.3. "
 ---
 

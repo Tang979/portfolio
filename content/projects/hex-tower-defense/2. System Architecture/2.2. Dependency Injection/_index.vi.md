@@ -2,6 +2,7 @@
 title: "Cơ Chế Dependency Injection"
 layout: "project"
 weight: 2
+draft: true
 pre: "2.2. "
 ---
 

@@ -3,6 +3,7 @@ title: "Quản Lý Dữ Liệu & Tài Nguyên"
 layout: "project"
 weight: 1
 pre: "5. "
+draft: true
 ---
 
 <!-- NỘI DUNG TIẾNG VIỆT - DRAFT ĐỂ DỊCH SANG TIẾNG ANH -->

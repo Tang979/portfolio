@@ -2,6 +2,7 @@
 title: "Các Chế Độ Tính Sát Thương"
 layout: "project"
 weight: 2
+draft: true
 pre: "4.2. "
 ---
 

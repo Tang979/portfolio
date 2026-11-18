@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Hồ sơ năng lực Game Designer – Tăng Nguyễn Tuấn Khoa" />
+<meta name="theme-color" content="" />
+<title>CV | Tăng Nguyễn Tuấn Khoa</title>
+
+
+<meta property="og:title" content="CV | Tăng Nguyễn Tuấn Khoa" />
+<meta property="og:description" content="Hồ sơ năng lực Game Designer – Tăng Nguyễn Tuấn Khoa" />
+<meta property="og:type" content="website" />
+
+
+<link rel="stylesheet" href="/css/output.css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/icon/favicon.svg">
+
+</head>
+<body>
+  <header id="site-header">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+    
+    <a href="/" class="flex items-center gap-2.5 group">
+      
+      <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--text-primary);
+                  display: flex; align-items: center; justify-content: center;
+                  transition: background var(--transition), box-shadow var(--transition);"
+           class="group-hover:shadow-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--bg)"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" y1="11" x2="10" y2="11"/>
+          <line x1="8" y1="9" x2="8" y2="13"/>
+          <line x1="15" y1="12" x2="15.01" y2="12"/>
+          <line x1="18" y1="10" x2="18.01" y2="10"/>
+          <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+        </svg>
+      </div>
+      <span style="font-size: 1.05rem; font-weight: 800; color: #f0f0f0; letter-spacing: -0.02em;">
+        TUANKHOA<span style="color: var(--primary-light);"></span>
+      </span>
+    </a>
+
+    
+    <nav class="hidden md:flex items-center gap-8">
+      
+        <a href="/vi/#work-personal" class="nav-link">Dự Án</a>
+        <a href="/#about"   class="nav-link">Giới Thiệu</a>
+        <a href="/#contact" class="nav-link">Liên Hệ</a>
+      
+
+      <a href="mailto:tuankhoa542003@gmail.com" class="btn-primary header-contact-link">
+        Gửi email
+      </a>
+      
+      
+      <button id="lang-toggle-btn" class="language-toggle" onclick="toggleLanguage()"
+        aria-label="Đổi ngôn ngữ">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span id="lang-label">VI</span>
+      </button>
+    </nav>
+
+    
+    <button id="menu-btn" class="md:hidden hamburger"
+      aria-label="Mở menu"
+      data-open-label="Đóng menu"
+      data-close-label="Mở menu"
+      aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+
+
+<script>
+(function () {
+  var LANG_KEY = 'preferred-lang';
+
+  
+  function getCurrentLang() {
+    return window.location.pathname.startsWith('/vi/') ||
+           window.location.pathname === '/vi'
+      ? 'vi' : 'en';
+  }
+
+  function getSavedLang() {
+    try { return localStorage.getItem(LANG_KEY) || getCurrentLang(); } catch(e) { return getCurrentLang(); }
+  }
+
+  function saveLang(lang) {
+    try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
+  }
+
+  function toViPath(path) {
+    if (path.startsWith('/vi')) return path;   
+    return '/vi' + (path === '/' ? '/' : path);
+  }
+
+  function toEnPath(path) {
+    return path.replace(/^\/vi/, '') || '/';
+  }
+
+  
+  var currentLang = getCurrentLang();
+  var savedLang   = getSavedLang();
+
+  
+  if (currentLang !== savedLang) {
+    var newPath = savedLang === 'vi'
+      ? toViPath(window.location.pathname)
+      : toEnPath(window.location.pathname);
+
+    
+    if (newPath !== window.location.pathname) {
+      window.location.replace(newPath + window.location.search + window.location.hash);
+      return; 
+    }
+  }
+
+  
+  var labelEl = document.getElementById('lang-label');
+  if (labelEl) {
+    labelEl.textContent = currentLang.toUpperCase();
+  }
+
+  
+  window.toggleLanguage = function () {
+    var lang = getCurrentLang();
+    var newLang = lang === 'en' ? 'vi' : 'en';
+    saveLang(newLang);
+
+    var newPath = newLang === 'vi'
+      ? toViPath(window.location.pathname)
+      : toEnPath(window.location.pathname);
+
+    window.location.href = newPath + window.location.search + window.location.hash;
+  };
+
+  
+  
+  function rewriteLinks() {
+    var lang = getSavedLang();
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      
+      if (!href || href.startsWith('mailto') || href.startsWith('http') || href.startsWith('#')) return;
+
+      if (lang === 'vi' && !href.startsWith('/vi')) {
+        a.setAttribute('href', toViPath(href));
+      } else if (lang === 'en' && href.startsWith('/vi')) {
+        a.setAttribute('href', toEnPath(href));
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rewriteLinks);
+  } else {
+    rewriteLinks();
+  }
+
+}());
+</script>
+
+<div id="mobile-menu" role="dialog" aria-modal="true"
+     aria-label="Điều hướng">
+  <button id="menu-close" class="absolute top-6 right-6" aria-label="Đóng menu">×</button>
+  
+    <a href="/vi/#work-personal" onclick="closeMobileMenu()">Dự án</a>
+    <a href="/vi/#about" onclick="closeMobileMenu()">Giới thiệu</a>
+    <a href="/vi/#contact" onclick="closeMobileMenu()">Liên hệ</a>
+    <a href="mailto:tuankhoa542003@gmail.com" class="btn-primary" onclick="closeMobileMenu()">Gửi email</a>
+    <button class="mobile-menu-language" onclick="closeMobileMenu(); toggleLanguage()">English · EN</button>
+  
+</div>
+
+<script>
+(function () {
+  var menuButton = document.getElementById('menu-btn');
+  var closeButton = document.getElementById('menu-close');
+  var menu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    if (!menu || !menuButton) return;
+    menu.classList.remove('open');
+    menuButton.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', menuButton.getAttribute('data-close-label'));
+    document.body.style.overflow = '';
+  }
+
+  function openMenu() {
+    if (!menu || !menuButton) return;
+    menu.classList.add('open');
+    menuButton.classList.add('open');
+    menuButton.setAttribute('aria-expanded', 'true');
+    menuButton.setAttribute('aria-label', menuButton.getAttribute('data-open-label'));
+    document.body.style.overflow = 'hidden';
+    if (closeButton) closeButton.focus();
+  }
+
+  window.closeMobileMenu = closeMenu;
+  if (menuButton) menuButton.addEventListener('click', openMenu);
+  if (closeButton) closeButton.addEventListener('click', function () {
+    closeMenu();
+    if (menuButton) menuButton.focus();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeMenu();
+      if (menuButton) menuButton.focus();
+    }
+  });
+}());
+</script>
+
+
+  <main class="cv-page">
+    <div class="cv-toolbar">
+      <a class="btn-primary" href="/cv/CV-GameDesigner-TangNguyenTuanKhoa.pdf" download>
+        Tải CV (PDF)
+      </a>
+    </div>
+    <article class="cv-content">
+      <h1 id="tăng-nguyễn-tuấn-khoa">Tăng Nguyễn Tuấn Khoa</h1>
+<p><strong>Game Designer</strong> · Thành phố Hồ Chí Minh, Việt Nam · 0336967745<br>
+<a href="mailto:tuankhoa542003@gmail.com">Email</a> · <a href="https://github.com/Tang979">GitHub</a> · <a href="https://www.linkedin.com/in/t%C4%83ng-nguy%E1%BB%85n-tu%E1%BA%A5n-khoa-38633b359/">LinkedIn</a></p>
+<hr>
+<h2 id="mục-tiêu-nghề-nghiệp">Mục tiêu nghề nghiệp</h2>
+<p>Tôi mong muốn đóng góp cho các dự án game mobile bằng kinh nghiệm thiết kế gameplay, thiết kế màn chơi và cân bằng độ khó. Với nền tảng phân tích gameplay và playtesting, tôi có thể nhận diện vấn đề trong thiết kế, hoàn thiện cơ chế và cải thiện trải nghiệm người chơi. Tôi muốn tiếp tục phát triển chuyên môn Game Design và góp phần tạo ra những trò chơi hấp dẫn, có độ cân bằng tốt.</p>
+<hr>
+<h2 id="học-vấn">Học vấn</h2>
+<p><strong>HUTECH</strong> · 2021–2025<br>
+Kỹ thuật Phần mềm<br>
+GPA: 3.0/4.0</p>
+<hr>
+<h2 id="kinh-nghiệm-làm-việc">Kinh nghiệm làm việc</h2>
+<h3 id="thực-tập-sinh-game-designer--rainbow5s">Thực tập sinh Game Designer — Rainbow5s</h3>
+<p>1/6 – 31/8/2026 · Game casual và giải đố trên mobile</p>
+<p><strong>Danh sách dự án:</strong> Tidy Room: Decor House, Boomland: Maze Escape, Tidy Out: Cozy Decor và các game mobile casual, giải đố khác.<br>
+<strong>Video dự án:</strong> <a href="https://vnshort.com/p5Bw">Xem video</a></p>
+<p><strong>Phạm vi công việc</strong></p>
+<ul>
+<li>Phân tích dữ liệu người chơi, điều chỉnh độ khó và tiến trình màn chơi; giúp chỉ số quảng cáo có thưởng ở các màn mục tiêu tăng từ 0,1 lên trên 0,8 với lượng người chơi tương đương.</li>
+<li>Đề xuất cơ chế gameplay và ý tưởng tính năng cho game mới, tạo điểm khác biệt so với ý tưởng ban đầu mà vẫn giữ cách chơi dễ tiếp cận.</li>
+<li>Thiết kế, điều chỉnh UI/UX phù hợp với cơ chế gameplay, cải thiện tính dễ sử dụng và giúp thao tác của người chơi rõ ràng hơn.</li>
+<li>Tham gia cân bằng gameplay, bao gồm độ khó màn chơi, tiến trình, kinh tế trong game và hệ thống booster.</li>
+<li>Thực hiện playtesting và kiểm thử lỗi để phát hiện vấn đề nghiêm trọng, góp phần ngăn lỗi game bị crash và cải thiện độ ổn định.</li>
+<li>Phối hợp với lập trình viên và nghệ sĩ để rà soát phần triển khai, đảm bảo tính năng gameplay đáp ứng yêu cầu thiết kế.</li>
+</ul>
+<hr>
+<h2 id="dự-án">Dự án</h2>
+<h3 id="shoe-sort-puzzle--block-puzzle--bow-hit">Shoe Sort Puzzle · Block Puzzle · Bow Hit</h3>
+<p><strong>Game Designer / Level Designer</strong> · Tháng 4–5/2026</p>
+<p><a href="https://tang979.itch.io/shoe-sort-puzzle">Shoe Sort Puzzle demo</a> · <a href="https://tang979.itch.io/block-puzzle">Block Puzzle demo</a> · <a href="https://tang979.itch.io/bow-hit">Bow Hit demo</a></p>
+<p><strong>Phạm vi công việc</strong></p>
+<ul>
+<li>Thiết kế gameplay cốt lõi, luật chơi, luồng gameplay và điều kiện thắng/thua.</li>
+<li>Lên kế hoạch tính năng gameplay, hệ thống booster và tài nguyên trong game.</li>
+<li>Điều chỉnh cơ chế và độ khó thông qua playtesting và các vòng lặp tinh chỉnh.</li>
+<li>Viết Game Design Document (GDD) để truyền đạt luật chơi và hệ thống gameplay.</li>
+</ul>
+<hr>
+<h2 id="kỹ-năng">Kỹ năng</h2>
+<p><strong>Thiết kế game:</strong> Thiết kế gameplay · Thiết kế màn chơi · Tiến trình game · Kinh tế trong game · Hệ thống booster · Playtesting · Phân tích gameplay</p>
+<p><strong>UI/UX và tài liệu:</strong> Game Design Document (GDD) · Luồng gameplay · Tài liệu thiết kế tính năng · Thiết kế UI</p>
+<p><strong>Công cụ:</strong> Unity · C# · Figma · Google Sheets · Microsoft Excel · JSON · Git · GitHub</p>
+
+    </article>
+  </main>
+
+  <footer style="background: var(--bg); border-top: 1px solid var(--glass-border);">
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+      
+      <div class="flex items-center gap-3">
+        
+        <div style="width: 24px; height: 24px; border-radius: 5px; background: var(--text-primary);
+                    display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--bg)"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="6" y1="11" x2="10" y2="11"/>
+            <line x1="8" y1="9" x2="8" y2="13"/>
+            <line x1="15" y1="12" x2="15.01" y2="12"/>
+            <line x1="18" y1="10" x2="18.01" y2="10"/>
+            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+          </svg>
+        </div>
+        <span style="font-size: 0.82rem; color: var(--text-muted);">
+          &copy; 2026 TUANKHOA
+          
+        </span>
+      </div>
+
+      
+      <a href="#" class="footer-top-link flex items-center gap-2">
+        Lên đầu trang
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

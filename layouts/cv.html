@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+
+  <main class="cv-page">
+    <div class="cv-toolbar">
+      <a class="btn-primary" href="/cv/CV-GameDesigner-TangNguyenTuanKhoa.pdf" download>
+        {{ if eq .Site.Language.Lang "vi" }}Tải CV (PDF){{ else }}Download PDF{{ end }}
+      </a>
+    </div>
+    <article class="cv-content">
+      {{ .Content }}
+    </article>
+  </main>
+
+  {{ partial "footer.html" . }}
+</body>
+</html>

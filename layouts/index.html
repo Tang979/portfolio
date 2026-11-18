@@ -12,47 +12,128 @@
     <!-- ─── Hero ─────────────────────────────────── -->
     {{ partial "hero.html" . }}
 
-    <!-- ─── Projects ──────────────────────────────── -->
-    <section id="work" class="py-28 relative">
+    {{ $projects := .Site.Data.projects }}
+    {{ if and (eq .Site.Language.Lang "vi") .Site.Data.vi.projects }}
+      {{ $projects = .Site.Data.vi.projects }}
+    {{ end }}
+    {{ $studioProjects := slice }}
+    {{ range $projects }}
+      {{ if eq .type "studio" }}
+        {{ $studioProjects = $studioProjects | append . }}
+      {{ end }}
+    {{ end }}
+
+    <!-- ─── Projects: Studio ──────────────────────────────── -->
+    {{ if $studioProjects }}
+    <section id="work-studio" class="py-28 relative project-carousel-section">
       <div class="max-w-7xl mx-auto px-6">
 
-        <!-- Section intro -->
-        <div class="reveal mb-16">
-          {{ if eq .Site.Language.Lang "vi" }}
-            <span class="section-label">Dự Án Nổi Bật</span>
-            <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; margin-top: 0.75rem;
-                       letter-spacing: -0.03em; color: var(--text-primary);">
-              Những game tôi đã xây dựng
+        <div class="reveal mb-16 project-section-header">
+          <div>
+            <span class="section-label">
+              {{ if eq .Site.Language.Lang "vi" }}Studio{{ else }}Studio{{ end }}
+            </span>
+            <h2 class="section-heading">
+              {{ if eq .Site.Language.Lang "vi" }}Dự Án Studio{{ else }}Studio Projects{{ end }}
             </h2>
-            <p style="color: var(--text-secondary); margin-top: 0.75rem; max-width: 520px;
-                      font-size: 1rem; line-height: 1.75;">
-              Từ ý tưởng đến sản phẩm — những dự án thể hiện kỹ năng và đam mê của tôi,
-              không ngừng mở rộng ranh giới của trải nghiệm tương tác.
+            <p class="section-description">
+              {{ if eq .Site.Language.Lang "vi" }}
+                Các dự án thực tế đã phát hành/phát triển tại studio — kèm link store để trải nghiệm trực tiếp.
+              {{ else }}
+                Real projects developed at studios — includes store links so you can play them directly.
+              {{ end }}
             </p>
-          {{ else }}
-            <span class="section-label">Featured Work</span>
-            <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; margin-top: 0.75rem;
-                       letter-spacing: -0.03em; color: var(--text-primary);">
-              Games I've Built
-            </h2>
-            <p style="color: var(--text-secondary); margin-top: 0.75rem; max-width: 520px;
-                      font-size: 1rem; line-height: 1.75;">
-              From concept to launch — a selection of projects that define my craft and push
-              the boundaries of interactive storytelling.
-            </p>
-          {{ end }}
+          </div>
+          <div class="project-carousel-controls" hidden>
+            <button type="button" class="project-carousel-control" data-carousel-prev disabled
+                    aria-label="{{ if eq .Site.Language.Lang "vi" }}Dự án trước{{ else }}Previous projects{{ end }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+            </button>
+            <button type="button" class="project-carousel-control" data-carousel-next
+                    aria-label="{{ if eq .Site.Language.Lang "vi" }}Dự án tiếp theo{{ else }}Next projects{{ end }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <!-- Project grid — use language-specific data when available -->
-        {{ $projects := .Site.Data.projects }}
-        {{ if and (eq .Site.Language.Lang "vi") .Site.Data.vi.projects }}
-          {{ $projects = .Site.Data.vi.projects }}
-        {{ end }}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {{ range $projects }}
-            {{ partial "project-card.html" . }}
-          {{ end }}
+        <div class="project-carousel-viewport" data-project-carousel role="region" tabindex="0"
+             aria-roledescription="carousel"
+             aria-label="{{ if eq .Site.Language.Lang "vi" }}Dự án Studio{{ else }}Studio projects{{ end }}">
+          <div class="project-carousel-track">
+            {{ range $studioProjects }}
+              {{ partial "project-card.html" (dict "project" . "site" $.Site "language" $.Site.Language.Lang) }}
+            {{ end }}
+          </div>
         </div>
+
+      </div>
+    </section>
+    {{ end }}
+
+    <!-- ─── Projects: Personal ──────────────────────────────── -->
+    <section id="work-personal" class="py-28 relative project-carousel-section">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <div class="reveal mb-16 project-section-header">
+          <div>
+            <span class="section-label">
+              {{ if eq .Site.Language.Lang "vi" }}Cá Nhân{{ else }}Personal{{ end }}
+            </span>
+            <h2 class="section-heading">
+              {{ if eq .Site.Language.Lang "vi" }}Dự Án Cá Nhân{{ else }}Personal Projects{{ end }}
+            </h2>
+            <p class="section-description">
+              {{ if eq .Site.Language.Lang "vi" }}
+                Các dự án tự phát triển — thể hiện khả năng thiết kế gameplay, hệ thống, level và cân bằng từ khái niệm đến mẫu nguyên mẫu.
+              {{ else }}
+                Self-developed projects — demonstrating gameplay, system, level design, and balancing from concept to prototype.
+              {{ end }}
+            </p>
+          </div>
+          <div class="project-carousel-controls" hidden>
+            <button type="button" class="project-carousel-control" data-carousel-prev disabled
+                    aria-label="{{ if eq .Site.Language.Lang "vi" }}Dự án trước{{ else }}Previous projects{{ end }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+            </button>
+            <button type="button" class="project-carousel-control" data-carousel-next
+                    aria-label="{{ if eq .Site.Language.Lang "vi" }}Dự án tiếp theo{{ else }}Next projects{{ end }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {{ $personalProjects := slice }}
+        {{ range $projects }}
+          {{ if eq .type "personal" }}
+            {{ $personalProjects = $personalProjects | append . }}
+          {{ end }}
+        {{ end }}
+
+        {{ if $personalProjects }}
+        <div class="project-carousel-viewport" data-project-carousel role="region" tabindex="0"
+             aria-roledescription="carousel"
+             aria-label="{{ if eq .Site.Language.Lang "vi" }}Dự án cá nhân{{ else }}Personal projects{{ end }}">
+          <div class="project-carousel-track">
+            {{ range $personalProjects }}
+              {{ partial "project-card.html" (dict "project" . "site" $.Site "language" $.Site.Language.Lang) }}
+            {{ end }}
+          </div>
+        </div>
+        {{ else }}
+          <div class="glass-card py-16 text-center">
+            <p style="color: var(--text-muted);">
+              {{ if eq .Site.Language.Lang "vi" }}Chưa có dự án cá nhân{{ else }}No personal projects yet{{ end }}
+            </p>
+          </div>
+        {{ end }}
 
       </div>
     </section>
@@ -82,10 +163,81 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
     /* Stagger project cards */
-    var cards = document.querySelectorAll('#work .glass-card');
+    var cards = document.querySelectorAll('#work-studio .glass-card, #work-personal .glass-card');
     cards.forEach(function (card, i) {
       card.style.transitionDelay = (i * 0.1) + 's';
       observer.observe(card);
+    });
+
+    /* ── Project carousels ───────────────────── */
+    document.querySelectorAll('.project-carousel-section').forEach(function (section) {
+      var viewport = section.querySelector('[data-project-carousel]');
+      var controls = section.querySelector('.project-carousel-controls');
+      var previous = controls && controls.querySelector('[data-carousel-prev]');
+      var next = controls && controls.querySelector('[data-carousel-next]');
+
+      if (!viewport || !controls || !previous || !next) return;
+
+      var carouselCards = Array.prototype.slice.call(viewport.querySelectorAll('.project-card'));
+      if (!carouselCards.length) return;
+      var overflowTargets = Array.prototype.slice.call(
+        viewport.querySelectorAll('.project-card-description, .project-card-tags')
+      );
+
+      function visibleCardCount() {
+        if (window.matchMedia('(min-width: 1024px)').matches) return 3;
+        if (window.matchMedia('(min-width: 640px)').matches) return 2;
+        return 1;
+      }
+
+      function updateTextOverflow() {
+        overflowTargets.forEach(function (element) {
+          element.classList.toggle('has-overflow', element.scrollHeight > element.clientHeight + 1);
+        });
+      }
+
+      function cardStep() {
+        if (carouselCards.length > 1) {
+          return carouselCards[1].offsetLeft - carouselCards[0].offsetLeft;
+        }
+        return carouselCards[0].getBoundingClientRect().width;
+      }
+
+      function updateCarousel() {
+        var shownCount = visibleCardCount();
+        var maxScroll = viewport.scrollWidth - viewport.clientWidth;
+        var step = cardStep();
+        var currentIndex = step > 0 ? Math.round(viewport.scrollLeft / step) : 0;
+        var canScrollBack = viewport.scrollLeft > 1;
+        var canScrollForward = maxScroll - viewport.scrollLeft > 1;
+
+        carouselCards.forEach(function (card, index) {
+          card.classList.toggle('project-card-peek', index === currentIndex + shownCount);
+        });
+
+        controls.hidden = !canScrollBack && !canScrollForward;
+        previous.disabled = !canScrollBack;
+        next.disabled = !canScrollForward;
+      }
+
+      function scrollOneCard(direction) {
+        var step = cardStep();
+        if (step <= 0) return;
+
+        viewport.scrollBy({
+          left: step * direction,
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        });
+      }
+
+      previous.addEventListener('click', function () { scrollOneCard(-1); });
+      next.addEventListener('click', function () { scrollOneCard(1); });
+      viewport.addEventListener('scroll', updateCarousel, { passive: true });
+      window.addEventListener('resize', updateCarousel);
+      window.addEventListener('resize', updateTextOverflow);
+      window.addEventListener('load', updateTextOverflow, { once: true });
+      updateTextOverflow();
+      updateCarousel();
     });
 
     /* Reveal all other .reveal elements */
@@ -99,33 +251,9 @@
       header.classList.toggle('header-scrolled', window.scrollY > 60);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); /* apply immediately on page load */
 
     /* ── Mobile Menu ──────────────────────────── */
-    var menuBtn    = document.getElementById('menu-btn');
-    var menuClose  = document.getElementById('menu-close');
-    var mobileMenu = document.getElementById('mobile-menu');
-    var hamburger  = menuBtn ? menuBtn.querySelector('.hamburger') || menuBtn : null;
-
-    function openMobileMenu() {
-      mobileMenu.classList.add('open');
-      menuBtn.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    window.closeMobileMenu = function () {
-      mobileMenu.classList.remove('open');
-      menuBtn.classList.remove('open');
-      document.body.style.overflow = '';
-    };
-
-    if (menuBtn)   menuBtn.addEventListener('click', openMobileMenu);
-    if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
-
-    /* Close on ESC */
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMobileMenu();
-    });
-
     /* ── Active nav highlight on scroll ──────── */
     var sections = document.querySelectorAll('section[id]');
     var navLinks = document.querySelectorAll('.nav-link');
@@ -133,8 +261,8 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           navLinks.forEach(function (link) {
-            var href = link.getAttribute('href').replace('#', '');
-            link.style.color = href === entry.target.id
+            var target = link.hash.slice(1);
+            link.style.color = target === entry.target.id
               ? 'var(--text-primary)'
               : 'var(--text-secondary)';
           });

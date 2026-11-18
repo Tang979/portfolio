@@ -3,6 +3,7 @@ title: "Performance & Mobile Optimization"
 layout: "project"
 weight: 1
 pre: "6. "
+draft: true
 ---
 
 Every technical decision in this project was made with **mid-range mobile device performance** in mind. The two most significant optimization strategies:

@@ -2,6 +2,7 @@
 title: "Composition Root & Lifecycle Management"
 layout: "project"
 weight: 2
+draft: true
 pre: "2.4. "
 ---
 

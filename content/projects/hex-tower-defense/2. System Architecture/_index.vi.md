@@ -2,6 +2,7 @@
 title: "Kiến Trúc Hệ Thống"
 layout: "project"
 weight: 1
+draft: true
 pre: "2. "
 ---
 

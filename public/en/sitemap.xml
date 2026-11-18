@@ -2,388 +2,184 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/3.-core-mechanics/</loc>
+    <loc>/projects/hex-tower-defense/1.-game-design-overview/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/3.-core-mechanics/"
+                href="/vi/projects/hex-tower-defense/1.-game-design-overview/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/3.-core-mechanics/"
+                href="/projects/hex-tower-defense/1.-game-design-overview/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/5.-data--resource-management/</loc>
+    <loc>/projects/hex-tower-defense/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/5.-data--resource-management/"
+                href="/vi/projects/hex-tower-defense/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/5.-data--resource-management/"
+                href="/projects/hex-tower-defense/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/1.-game-design-overview/</loc>
+    <loc>/projects/hex-tower-defense/8.-reflections--roadmap/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/1.-game-design-overview/"
+                href="/vi/projects/hex-tower-defense/8.-reflections--roadmap/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/1.-game-design-overview/"
+                href="/projects/hex-tower-defense/8.-reflections--roadmap/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/</loc>
+    <loc>/projects/hex-tower-defense/1.-game-design-overview/1.1.-core-concept--loop/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/"
+                href="/vi/projects/hex-tower-defense/1.-game-design-overview/1.1.-core-concept--loop/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/"
+                href="/projects/hex-tower-defense/1.-game-design-overview/1.1.-core-concept--loop/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/6.-performance--mobile/</loc>
+    <loc>/projects/hex-tower-defense/1.-game-design-overview/1.2.-hex-grid-as-design-tool/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/6.-performance--mobile/"
+                href="/vi/projects/hex-tower-defense/1.-game-design-overview/1.2.-hex-grid-as-design-tool/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/6.-performance--mobile/"
+                href="/projects/hex-tower-defense/1.-game-design-overview/1.2.-hex-grid-as-design-tool/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/8.-reflections--roadmap/</loc>
+    <loc>/projects/hex-tower-defense/1.-game-design-overview/1.4.-merge-mechanic/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/8.-reflections--roadmap/"
+                href="/vi/projects/hex-tower-defense/1.-game-design-overview/1.4.-merge-mechanic/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/8.-reflections--roadmap/"
+                href="/projects/hex-tower-defense/1.-game-design-overview/1.4.-merge-mechanic/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/4.-status-effect-system/</loc>
+    <loc>/projects/shoe-sort-puzzle/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/4.-status-effect-system/"
+                href="/vi/projects/shoe-sort-puzzle/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/4.-status-effect-system/"
+                href="/projects/shoe-sort-puzzle/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/2.-system-architecture/</loc>
+    <loc>/projects/hex-tower-defense/1.-game-design-overview/1.3.-tower--enemy-design/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/2.-system-architecture/"
+                href="/vi/projects/hex-tower-defense/1.-game-design-overview/1.3.-tower--enemy-design/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/2.-system-architecture/"
+                href="/projects/hex-tower-defense/1.-game-design-overview/1.3.-tower--enemy-design/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/7.-testing/</loc>
+    <loc>/projects/block-puzzle/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/7.-testing/"
+                href="/vi/projects/block-puzzle/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/7.-testing/"
+                href="/projects/block-puzzle/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/3.-core-mechanics/3.1.-a-star-pathfinding/</loc>
+    <loc>/projects/bow-hit/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/3.-core-mechanics/3.1.-a-star-pathfinding/"
+                href="/vi/projects/bow-hit/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/3.-core-mechanics/3.1.-a-star-pathfinding/"
+                href="/projects/bow-hit/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/5.-data--resource-management/5.2.-async-asset-loading/</loc>
+    <loc>/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/5.-data--resource-management/5.2.-async-asset-loading/"
+                href="/vi/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/5.-data--resource-management/5.2.-async-asset-loading/"
+                href="/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/3.-core-mechanics/3.3.-bfs-deadlock-prevention/</loc>
+    <loc>/cv/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/3.-core-mechanics/3.3.-bfs-deadlock-prevention/"
+                href="/vi/cv/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/3.-core-mechanics/3.3.-bfs-deadlock-prevention/"
+                href="/cv/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/2.-system-architecture/2.1.-clean-architecture--ddd/</loc>
+    <loc>/projects/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/2.-system-architecture/2.1.-clean-architecture--ddd/"
+                href="/vi/projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/2.-system-architecture/2.1.-clean-architecture--ddd/"
+                href="/projects/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/3.-core-mechanics/3.4.-combat-system/</loc>
+    <loc>/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/3.-core-mechanics/3.4.-combat-system/"
+                href="/vi/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/3.-core-mechanics/3.4.-combat-system/"
+                href="/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/2.-system-architecture/2.4.-composition-root/</loc>
+    <loc>/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/2.-system-architecture/2.4.-composition-root/"
+                href="/vi/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/2.-system-architecture/2.4.-composition-root/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/1.-game-design-overview/1.1.-core-concept--loop/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/1.-game-design-overview/1.1.-core-concept--loop/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/1.-game-design-overview/1.1.-core-concept--loop/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/2.-system-architecture/2.2.-dependency-injection/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/2.-system-architecture/2.2.-dependency-injection/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/2.-system-architecture/2.2.-dependency-injection/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/3.-core-mechanics/3.2.-dynamic-path-recalculation/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/3.-core-mechanics/3.2.-dynamic-path-recalculation/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/3.-core-mechanics/3.2.-dynamic-path-recalculation/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/4.-status-effect-system/4.1.-effect-lifecycle--tick/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/4.-status-effect-system/4.1.-effect-lifecycle--tick/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/4.-status-effect-system/4.1.-effect-lifecycle--tick/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/4.-status-effect-system/4.2.-effect-scaling-modes/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/4.-status-effect-system/4.2.-effect-scaling-modes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/4.-status-effect-system/4.2.-effect-scaling-modes/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/2.-system-architecture/2.3.-event-driven-communication/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/2.-system-architecture/2.3.-event-driven-communication/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/2.-system-architecture/2.3.-event-driven-communication/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/1.-game-design-overview/1.2.-hex-grid-as-design-tool/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/1.-game-design-overview/1.2.-hex-grid-as-design-tool/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/1.-game-design-overview/1.2.-hex-grid-as-design-tool/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/5.-data--resource-management/5.1.-json-driven-configuration/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/5.-data--resource-management/5.1.-json-driven-configuration/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/5.-data--resource-management/5.1.-json-driven-configuration/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/6.-performance--mobile/6.2.-logic-vs-physics-tradeoff/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/6.-performance--mobile/6.2.-logic-vs-physics-tradeoff/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/6.-performance--mobile/6.2.-logic-vs-physics-tradeoff/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/1.-game-design-overview/1.4.-merge-mechanic/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/1.-game-design-overview/1.4.-merge-mechanic/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/1.-game-design-overview/1.4.-merge-mechanic/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/5.-data--resource-management/5.3.-object-pool-system/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/5.-data--resource-management/5.3.-object-pool-system/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/5.-data--resource-management/5.3.-object-pool-system/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/6.-performance--mobile/6.1.-procedural-hexmesh/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/6.-performance--mobile/6.1.-procedural-hexmesh/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/6.-performance--mobile/6.1.-procedural-hexmesh/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/hex-tower-defense/1.-game-design-overview/1.3.-tower--enemy-design/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/hex-tower-defense/1.-game-design-overview/1.3.-tower--enemy-design/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/hex-tower-defense/1.-game-design-overview/1.3.-tower--enemy-design/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/categories/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/projects/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/projects/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/projects/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/tags/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/vi/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/"
+                href="/"
                 />
   </url>
 </urlset>

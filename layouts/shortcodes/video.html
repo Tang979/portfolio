@@ -5,6 +5,6 @@
         preload="metadata" 
         style="border-radius: 12px; display: block;">
         <source src="{{ .Get "src" }}" type="video/mp4">
-        Trình duyệt của bạn không hỗ trợ xem video trực tiếp.
+        {{ if eq .Site.Language.Lang "vi" }}Trình duyệt của bạn không hỗ trợ phát video.{{ else }}Your browser does not support video playback.{{ end }}
     </video>
 </div>

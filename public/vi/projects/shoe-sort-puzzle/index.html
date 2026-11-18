@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="theme-color" content="" />
+<title>Shoe Sort Puzzle</title>
+
+
+<meta property="og:title" content="Shoe Sort Puzzle" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+
+
+<link rel="stylesheet" href="/css/output.css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/icon/favicon.svg">
+
+</head>
+<body>
+
+  <header id="site-header">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+    
+    <a href="/" class="flex items-center gap-2.5 group">
+      
+      <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--text-primary);
+                  display: flex; align-items: center; justify-content: center;
+                  transition: background var(--transition), box-shadow var(--transition);"
+           class="group-hover:shadow-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--bg)"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" y1="11" x2="10" y2="11"/>
+          <line x1="8" y1="9" x2="8" y2="13"/>
+          <line x1="15" y1="12" x2="15.01" y2="12"/>
+          <line x1="18" y1="10" x2="18.01" y2="10"/>
+          <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+        </svg>
+      </div>
+      <span style="font-size: 1.05rem; font-weight: 800; color: #f0f0f0; letter-spacing: -0.02em;">
+        TUANKHOA<span style="color: var(--primary-light);"></span>
+      </span>
+    </a>
+
+    
+    <nav class="hidden md:flex items-center gap-8">
+      
+        <a href="/vi/#work-personal" class="nav-link">Dự Án</a>
+        <a href="/#about"   class="nav-link">Giới Thiệu</a>
+        <a href="/#contact" class="nav-link">Liên Hệ</a>
+      
+
+      <a href="mailto:tuankhoa542003@gmail.com" class="btn-primary header-contact-link">
+        Gửi email
+      </a>
+      
+      
+      <button id="lang-toggle-btn" class="language-toggle" onclick="toggleLanguage()"
+        aria-label="Đổi ngôn ngữ">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span id="lang-label">VI</span>
+      </button>
+    </nav>
+
+    
+    <button id="menu-btn" class="md:hidden hamburger"
+      aria-label="Mở menu"
+      data-open-label="Đóng menu"
+      data-close-label="Mở menu"
+      aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+
+
+<script>
+(function () {
+  var LANG_KEY = 'preferred-lang';
+
+  
+  function getCurrentLang() {
+    return window.location.pathname.startsWith('/vi/') ||
+           window.location.pathname === '/vi'
+      ? 'vi' : 'en';
+  }
+
+  function getSavedLang() {
+    try { return localStorage.getItem(LANG_KEY) || getCurrentLang(); } catch(e) { return getCurrentLang(); }
+  }
+
+  function saveLang(lang) {
+    try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
+  }
+
+  function toViPath(path) {
+    if (path.startsWith('/vi')) return path;   
+    return '/vi' + (path === '/' ? '/' : path);
+  }
+
+  function toEnPath(path) {
+    return path.replace(/^\/vi/, '') || '/';
+  }
+
+  
+  var currentLang = getCurrentLang();
+  var savedLang   = getSavedLang();
+
+  
+  if (currentLang !== savedLang) {
+    var newPath = savedLang === 'vi'
+      ? toViPath(window.location.pathname)
+      : toEnPath(window.location.pathname);
+
+    
+    if (newPath !== window.location.pathname) {
+      window.location.replace(newPath + window.location.search + window.location.hash);
+      return; 
+    }
+  }
+
+  
+  var labelEl = document.getElementById('lang-label');
+  if (labelEl) {
+    labelEl.textContent = currentLang.toUpperCase();
+  }
+
+  
+  window.toggleLanguage = function () {
+    var lang = getCurrentLang();
+    var newLang = lang === 'en' ? 'vi' : 'en';
+    saveLang(newLang);
+
+    var newPath = newLang === 'vi'
+      ? toViPath(window.location.pathname)
+      : toEnPath(window.location.pathname);
+
+    window.location.href = newPath + window.location.search + window.location.hash;
+  };
+
+  
+  
+  function rewriteLinks() {
+    var lang = getSavedLang();
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      
+      if (!href || href.startsWith('mailto') || href.startsWith('http') || href.startsWith('#')) return;
+
+      if (lang === 'vi' && !href.startsWith('/vi')) {
+        a.setAttribute('href', toViPath(href));
+      } else if (lang === 'en' && href.startsWith('/vi')) {
+        a.setAttribute('href', toEnPath(href));
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rewriteLinks);
+  } else {
+    rewriteLinks();
+  }
+
+}());
+</script>
+
+<div id="mobile-menu" role="dialog" aria-modal="true"
+     aria-label="Điều hướng">
+  <button id="menu-close" class="absolute top-6 right-6" aria-label="Đóng menu">×</button>
+  
+    <a href="/vi/#work-personal" onclick="closeMobileMenu()">Dự án</a>
+    <a href="/vi/#about" onclick="closeMobileMenu()">Giới thiệu</a>
+    <a href="/vi/#contact" onclick="closeMobileMenu()">Liên hệ</a>
+    <a href="mailto:tuankhoa542003@gmail.com" class="btn-primary" onclick="closeMobileMenu()">Gửi email</a>
+    <button class="mobile-menu-language" onclick="closeMobileMenu(); toggleLanguage()">English · EN</button>
+  
+</div>
+
+<script>
+(function () {
+  var menuButton = document.getElementById('menu-btn');
+  var closeButton = document.getElementById('menu-close');
+  var menu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    if (!menu || !menuButton) return;
+    menu.classList.remove('open');
+    menuButton.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', menuButton.getAttribute('data-close-label'));
+    document.body.style.overflow = '';
+  }
+
+  function openMenu() {
+    if (!menu || !menuButton) return;
+    menu.classList.add('open');
+    menuButton.classList.add('open');
+    menuButton.setAttribute('aria-expanded', 'true');
+    menuButton.setAttribute('aria-label', menuButton.getAttribute('data-open-label'));
+    document.body.style.overflow = 'hidden';
+    if (closeButton) closeButton.focus();
+  }
+
+  window.closeMobileMenu = closeMenu;
+  if (menuButton) menuButton.addEventListener('click', openMenu);
+  if (closeButton) closeButton.addEventListener('click', function () {
+    closeMenu();
+    if (menuButton) menuButton.focus();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeMenu();
+      if (menuButton) menuButton.focus();
+    }
+  });
+}());
+</script>
+
+
+  <div class="project-detail-wrapper">
+
+    
+    <aside class="project-sidebar glass-card" aria-label="Mục lục">
+      <div class="sidebar-inner">
+
+        
+        <div class="sidebar-header">
+          <p class="sidebar-project-title">Nội dung dự án</p>
+        </div>
+
+        
+        <nav class="toc-nav">
+          <ul class="toc-list">
+            
+            
+              
+            
+              
+            
+
+            
+            <li class="toc-item toc-root-link toc-active">
+              <a href="/vi/projects/shoe-sort-puzzle/"
+                 class="toc-link"
+                 aria-current="page">
+                <span class="toc-title-wrap">
+                  <span class="toc-title">Shoe Sort Puzzle</span>
+                </span>
+              </a>
+            </li>
+
+            
+
+            
+              
+              
+            
+          </ul>
+        </nav>
+
+      </div>
+    </aside>
+
+    
+    <main class="project-content glass-card">
+
+      <header class="project-content-header">
+        <h1 class="project-page-title">Shoe Sort Puzzle</h1>
+      </header>
+
+      <div class="project-body">
+        <p><strong>Shoe Sort Puzzle</strong> là tựa game giải đố sắp xếp trên nền tảng di động. Người chơi cần di chuyển các chiếc giày để ghép (match) 3 chiếc giống nhau vào cùng một hộp (box) nhằm loại bỏ chúng khỏi màn chơi trước khi hết thời gian.</p>
+<hr>
+<h2 id="1-tổng-quan-dự-án">1. Tổng quan Dự án</h2>
+<ul>
+<li><strong>Thể loại:</strong> Puzzle (Match-3 / Sắp xếp)</li>
+<li><strong>Nền tảng:</strong> Mobile (Android / iOS)</li>
+<li><strong>Tech Stack:</strong> Unity, C#, JSON, DOTween, PlayerPrefs</li>
+<li><strong>Liên kết:</strong> <a href="https://github.com/nguyenkhacnhat203-dev/Shoe_Sort_Puzzle">Github</a> | <a href="https://youtube.com/shorts/KJ3jWdtoe6w">Video Gameplay</a> | <a href="https://tang979.itch.io/shoe-sort-puzzle">Demo</a> | <a href="https://github.com/Tang979/GDD_APK_Shoe_Sort_Puzzle/releases">Tải APK</a></li>
+</ul>
+<h3 id="mục-tiêu-thiết-kế">Mục tiêu thiết kế</h3>
+<p>Mang lại trải nghiệm giải đố đơn giản nhưng thu hút, tập trung vào khả năng quan sát và sắp xếp. Mỗi cấp độ có giới hạn thời gian động dựa trên độ khó, mang lại sự dễ tiếp cận nhưng cũng đầy thử thách.</p>
+<hr>
+<h2 id="2-thiết-kế-trò-chơi">2. Thiết kế Trò chơi</h2>
+<h3 id="cơ-chế-cốt-lõi">Cơ chế cốt lõi</h3>
+<ul>
+<li><strong>Vòng lặp Match-3 Sắp xếp:</strong> Người chơi kéo và thả giày vào hộp, loại bỏ nhóm 3 giày giống nhau để tiến bộ.</li>
+<li><strong>Điều kiện thắng/thua:</strong> Loại bỏ tất cả giày trước khi đồng hồ hết giờ để thắng; hết giờ hoặc hết bước đi hợp lệ để thua.</li>
+<li><strong>Cong tiến độ:</strong> Giới hạn thời gian tăng theo độ khó cấp độ, thúc đẩy thách thức khi người chơi thành thạo cơ chế sắp xếp.</li>
+</ul>
+<h3 id="thiết-kế-màn-chơi">Thiết kế màn chơi</h3>
+<ul>
+<li>Các cấp độ được định nghĩa qua JSON, cho phép lặp lại nhanh chóng về số lượng hộp, phân phối giày và giới hạn thời gian mà không cần thay đổi code.</li>
+<li>Mỗi cấp độ đảm bảo ít nhất một bước đi hợp lệ đầu tiên và tránh sinh sẵn ba giày đã khớp, đảm bảo khởi đầu công bằng.</li>
+<li>Độ khó tăng dần thông qua nhiều hộp hơn, nhiều loại giày hơn và giới hạn thời gian chặt chẽ hơn.</li>
+</ul>
+<h3 id="cân-bằng-trò-chơi--kinh-tế">Cân bằng trò chơi &amp; Kinh tế</h3>
+<ul>
+<li><strong>Hệ thống Booster:</strong> Magnet, Shuffle và Add Box được thiết kế để giải quyết trạng thái kẹt mà không phá vỡ khả năng giải level.</li>
+<li><strong>Hệ thống tài nguyên:</strong> Tim (sức lực) và Vàng (tiền tệ) với phục hồi theo thời gian; Tim bị trừ khi thua hoặc thoát giữa chừng.</li>
+<li><strong>Điều chỉnh độ khó:</strong> Lặp qua các phiên playtesting để tối ưu hóa tỷ lệ hoàn thành và độ dài phiên chơi.</li>
+</ul>
+<h3 id="playtesting--lặp-lại">Playtesting &amp; Lặp lại</h3>
+<ul>
+<li>Thực hiện các phiên playtesting có cấu trúc để xác thực khả năng giải level và nhận thức độ khó.</li>
+<li>Điều chỉnh khả năng sử dụng booster và chi phí tài nguyên dựa trên hành vi người quan sát được và điểm thoát game.</li>
+<li>Tinh chỉnh cửa sổ popup UI và thời điểm gợi ý để giảm thiểu trở ngại cho người chơi mới.</li>
+</ul>
+<hr>
+<h2 id="3-công-việc-thực-hiện">3. Công việc thực hiện</h2>
+<p>Trong dự án này, tôi đã phụ trách xây dựng toàn bộ gameplay chính và các hệ thống lõi:</p>
+<ul>
+<li><strong>Khởi tạo dữ liệu màn chơi:</strong> Đọc dữ liệu level từ JSON để thiết lập số lượng hộp, giày và phân phối ngẫu nhiên vào hộp/kệ (shelf) sao cho hợp lệ.</li>
+<li><strong>Hệ thống Input:</strong> Phát triển cả cơ chế Drag &amp; Drop và Tap-to-move, xử lý xung đột linh hoạt.</li>
+<li><strong>Game State Manager:</strong> Quản lý các trạng thái game (Menu, OnGame, Pause, Win, Lose) và đồng bộ TimeScale. Input chỉ được nhận trong trạng thái OnGame.</li>
+<li><strong>Hệ thống Booster:</strong> Xây dựng logic cho các kỹ năng hỗ trợ (Magnet, Shuffle, Add Box) an toàn với trạng thái game.</li>
+<li><strong>Resource &amp; Energy System:</strong> Quản lý Timers hồi Tim, vàng (Gold), và logic trừ Tim khi thua, replay, hoặc thoát giữa chừng.</li>
+<li><strong>UI &amp; Flow:</strong> Xây dựng flow mua Tim, Booster qua popup và hệ thống tự động gợi ý (Hint).</li>
+</ul>
+<hr>
+<h2 id="4-tài-liệu-thiết-kế-trò-chơi-gdd">4. Tài liệu Thiết kế Trò chơi (GDD)</h2>
+<p>Viết Tài liệu Thiết kế Trò chơi toàn diện bao gồm:</p>
+<ul>
+<li>Vòng lặp lối chơi lõi và điều kiện thắng/thua</li>
+<li>Cấu trúc cấp độ và tham số tiến độ</li>
+<li>Định nghĩa booster, chi phí và hiệu ứng</li>
+<li>Kinh tế tài nguyên (Tim/Vàng) và tốc độ phục hồi</li>
+<li>Khung màn hình UI và sơ đồ luồng trò chơi</li>
+</ul>
+<hr>
+<h2 id="5-thử-thách-kỹ-thuật">5. Thử thách Kỹ thuật</h2>
+<h3 id="51-xử-lý-khởi-tạo-ngẫu-nhiên-hợp-lệ">5.1. Xử lý khởi tạo ngẫu nhiên hợp lệ</h3>
+<p>Thiết kế thuật toán để phân phối giày ngẫu nhiên nhưng vẫn đảm bảo:</p>
+<ul>
+<li>Không sinh sẵn 3 giày giống nhau trong cùng 1 hộp.</li>
+<li>Luôn tồn tại ít nhất 1 ô trống để người chơi có thể bắt đầu di chuyển.</li>
+</ul>
+<h3 id="52-quản-lý-luồng-dữ-liệu-box-và-shelf">5.2. Quản lý luồng dữ liệu (Box và Shelf)</h3>
+<p>Phát triển logic đồng bộ giữa khu vực Box và Shelf. Sau mỗi lần match, giày chờ từ Shelf sẽ được đẩy lên Box, kèm theo hoạt ảnh mượt mà và cập nhật hàng chờ mới mà không gây lỗi trạng thái.</p>
+<h3 id="53-xử-lý-xung-đột-input--animation">5.3. Xử lý xung đột Input &amp; Animation</h3>
+<p>Sử dụng <strong>DOTween</strong> để xử lý hoạt ảnh mượt mà. Hệ thống phải đảm bảo trạng thái logic chỉ cập nhật sau khi animation kết thúc và ngăn chặn lỗi khi người chơi thao tác quá nhanh hoặc dùng song song cả Drag &amp; Drop và Click/Tap.</p>
+<h3 id="54-thiết-kế-logic-booster-an-toàn">5.4. Thiết kế logic Booster an toàn</h3>
+<p>Các Booster (như Shuffle hay Add Box) thay đổi trực tiếp cấu trúc dữ liệu của màn chơi. Tôi phải thiết kế kiến trúc sao cho sau khi Booster chạy, trạng thái gameplay vẫn luôn hợp lệ và không gây crash game.</p>
+<hr>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/KJ3jWdtoe6w?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <footer style="background: var(--bg); border-top: 1px solid var(--glass-border);">
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+      
+      <div class="flex items-center gap-3">
+        
+        <div style="width: 24px; height: 24px; border-radius: 5px; background: var(--text-primary);
+                    display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--bg)"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="6" y1="11" x2="10" y2="11"/>
+            <line x1="8" y1="9" x2="8" y2="13"/>
+            <line x1="15" y1="12" x2="15.01" y2="12"/>
+            <line x1="18" y1="10" x2="18.01" y2="10"/>
+            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+          </svg>
+        </div>
+        <span style="font-size: 0.82rem; color: var(--text-muted);">
+          &copy; 2026 TUANKHOA
+          
+        </span>
+      </div>
+
+      
+      <a href="#" class="footer-top-link flex items-center gap-2">
+        Lên đầu trang
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</footer>
+
+
+  
+
+  
+  <script>
+  (function () {
+
+     
+    var header = document.getElementById('site-header');
+    function onScroll() {
+      header.classList.toggle('header-scrolled', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();  
+
+  }());
+  </script>
+
+</body>
+</html>

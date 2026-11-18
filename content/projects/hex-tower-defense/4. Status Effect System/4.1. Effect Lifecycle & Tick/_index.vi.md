@@ -2,6 +2,7 @@
 title: "Vòng Đời Hiệu Ứng & Hệ Thống Tick"
 layout: "project"
 weight: 2
+draft: true
 pre: "4.1. "
 ---
 

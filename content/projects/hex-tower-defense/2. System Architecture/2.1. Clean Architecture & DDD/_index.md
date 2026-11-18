@@ -2,6 +2,7 @@
 title: "Clean Architecture & Domain-Driven Design"
 layout: "project"
 weight: 2
+draft: true
 pre: "2.1. "
 ---
 

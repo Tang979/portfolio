@@ -2,6 +2,7 @@
 title: "Hệ Thống Chiến Đấu: Strategy & Modifier Pattern"
 layout: "project"
 weight: 2
+draft: true
 pre: "3.4. "
 ---
 

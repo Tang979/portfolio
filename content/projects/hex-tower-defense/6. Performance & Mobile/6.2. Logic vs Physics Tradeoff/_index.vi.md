@@ -2,6 +2,7 @@
 title: "Tối Ưu Giữa Logic và Vật Lý"
 layout: "project"
 weight: 2
+draft: true
 pre: "6.2. "
 ---
 

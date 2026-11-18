@@ -2,6 +2,7 @@
 title: "Tính Toán Lại Đường Đi Động"
 layout: "project"
 weight: 2
+draft: true
 pre: "3.2. "
 ---
 

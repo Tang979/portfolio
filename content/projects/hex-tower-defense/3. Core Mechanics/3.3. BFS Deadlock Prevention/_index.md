@@ -2,6 +2,7 @@
 title: "BFS Deadlock Prevention"
 layout: "project"
 weight: 2
+draft: true
 pre: "3.3. "
 ---
 

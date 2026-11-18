@@ -2,7 +2,7 @@
 title: "Nhìn Lại & Lộ Trình Phát Triển"
 layout: "project"
 weight: 1
-pre: "8. "
+pre: "3. "
 ---
 
 <!-- NỘI DUNG TIẾNG VIỆT - DRAFT ĐỂ DỊCH SANG TIẾNG ANH -->

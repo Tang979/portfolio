@@ -2,6 +2,7 @@
 title: "Async Asset Loading with Addressables"
 layout: "project"
 weight: 2
+draft: true
 pre: "5.2. "
 ---
 

@@ -2,6 +2,7 @@
 title: "Procedural HexMesh Generation"
 layout: "project"
 weight: 2
+draft: true
 pre: "6.1. "
 ---
 

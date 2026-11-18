@@ -2,6 +2,7 @@
 title: "Hệ Thống Object Pool"
 layout: "project"
 weight: 2
+draft: true
 pre: "5.3. "
 ---
 

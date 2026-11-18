@@ -10,12 +10,12 @@
   <div class="project-detail-wrapper">
 
     {{/* ─── Sidebar / TOC ──────────────────────── */}}
-    <aside class="project-sidebar glass-card" aria-label="Table of contents">
+    <aside class="project-sidebar glass-card" aria-label="{{ if eq .Site.Language.Lang "vi" }}Mục lục{{ else }}Table of contents{{ end }}">
       <div class="sidebar-inner">
 
         {{/* Sidebar header */}}
         <div class="sidebar-header">
-          <p class="sidebar-project-title">Documentation</p>
+          <p class="sidebar-project-title">{{ if eq .Site.Language.Lang "vi" }}Nội dung dự án{{ else }}Project contents{{ end }}</p>
         </div>
 
         {{/* TOC Navigation — built from full hierarchy of the project root ordered by weight */}}
@@ -85,7 +85,6 @@
         <h1 class="project-page-title">{{ .Title }}</h1>
       </header>
 
-      {{/* Rendered Markdown body */}}
       <div class="project-body">
         {{ .Content }}
       </div>
@@ -111,59 +110,6 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll(); /* apply immediately on page load */
-
-    /* ── Mobile Menu ──────────────────────────── */
-    var menuBtn    = document.getElementById('menu-btn');
-    var menuClose  = document.getElementById('menu-close');
-    var mobileMenu = document.getElementById('mobile-menu');
-
-    function openMobileMenu() {
-      if (!mobileMenu) return;
-      mobileMenu.classList.add('open');
-      if (menuBtn) menuBtn.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    window.closeMobileMenu = function () {
-      if (!mobileMenu) return;
-      mobileMenu.classList.remove('open');
-      if (menuBtn) menuBtn.classList.remove('open');
-      document.body.style.overflow = '';
-    };
-
-    if (menuBtn)   menuBtn.addEventListener('click', openMobileMenu);
-    if (menuClose) menuClose.addEventListener('click', window.closeMobileMenu);
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') window.closeMobileMenu();
-    });
-
-    /* ── Marquee for long TOC titles ───────────
-       On hover, measure if the title overflows its container.
-       If so, apply a CSS keyframe animation that scrolls the text. */
-    var tocLinks = document.querySelectorAll('.toc-link');
-
-    tocLinks.forEach(function (link) {
-      var wrap  = link.querySelector('.toc-title-wrap');
-      var title = link.querySelector('.toc-title');
-      if (!wrap || !title) return;
-
-      link.addEventListener('mouseenter', function () {
-        var wrapW  = wrap.offsetWidth;
-        var titleW = title.scrollWidth;
-        /* +4px tolerance to avoid triggering on near-fits */
-        if (titleW > wrapW + 4) {
-          var distance = -(titleW - wrapW + 8);
-          title.style.setProperty('--marquee-distance', distance + 'px');
-          title.classList.add('marquee-active');
-        }
-      });
-
-      link.addEventListener('mouseleave', function () {
-        title.classList.remove('marquee-active');
-        /* property is reapplied fresh on next hover; no need to remove */
-      });
-    });
 
   }());
   </script>

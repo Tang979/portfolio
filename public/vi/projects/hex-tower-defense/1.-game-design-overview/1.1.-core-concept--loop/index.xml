@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Khái Niệm Cốt Lõi &amp; Vòng Lặp Game on Tuan Khoa | Game Developer</title>
-    <link>http://localhost:1313/vi/projects/hex-tower-defense/1.-game-design-overview/1.1.-core-concept--loop/</link>
-    <description>Recent content in Khái Niệm Cốt Lõi &amp; Vòng Lặp Game on Tuan Khoa | Game Developer</description>
+    <title>Core Concept &amp; Game Loop on Tuấn Khoa | Game Designer</title>
+    <link>/vi/projects/hex-tower-defense/1.-game-design-overview/1.1.-core-concept--loop/</link>
+    <description>Recent content in Core Concept &amp; Game Loop on Tuấn Khoa | Game Designer</description>
     <generator>Hugo</generator>
     <language>vi</language>
-    <atom:link href="http://localhost:1313/vi/projects/hex-tower-defense/1.-game-design-overview/1.1.-core-concept--loop/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/vi/projects/hex-tower-defense/1.-game-design-overview/1.1.-core-concept--loop/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

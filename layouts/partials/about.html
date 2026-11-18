@@ -1,142 +1,49 @@
-<section id="about" class="py-28 relative about-bg">
-  <div class="section-divider mb-0"></div>
+<section id="about" class="py-24 relative about-bg">
+  <div class="section-divider"></div>
 
   <div class="max-w-7xl mx-auto px-6">
-    <!-- Section header -->
-    <div class="reveal mb-16">
-      {{ if eq .Site.Language.Lang "vi" }}
-        <span class="section-label">Giới Thiệu</span>
-      {{ else }}
-        <span class="section-label">About Me</span>
-      {{ end }}
-      <h2
-        style="
-          font-size: clamp(2rem, 4vw, 3.2rem);
-          font-weight: 800;
-          margin-top: 0.75rem;
-          letter-spacing: -0.03em;
-          color: var(--text-primary);
-        "
-      >
-        {{ .Params.about.section_title }}<br />
-        <span class="text-gradient"
-          >{{ .Params.about.section_title_gradient }}</span
-        >
-      </h2>
-    </div>
+    <header class="reveal mb-12">
+      <span class="section-label">{{ if eq .Site.Language.Lang "vi" }}Giới thiệu{{ else }}About me{{ end }}</span>
+      <h2 class="section-heading">{{ .Params.about.section_title }}</h2>
+      <span class="section-heading-accent" aria-hidden="true"></span>
+    </header>
 
-    <div class="grid lg:grid-cols-5 gap-16 items-start">
-      <!-- ── Left: Bio ──────────────────────────── -->
-      <div class="lg:col-span-3 reveal-left space-y-6">
+    <div class="grid lg:grid-cols-5 gap-12 items-start">
+      <div class="lg:col-span-3 reveal-left about-copy">
         {{ range .Params.about.bio }}
-        <p
-          style="
-            font-size: 1.05rem;
-            line-height: 1.85;
-            color: var(--text-secondary);
-          "
-        >
-          {{ . | markdownify }}
-        </p>
+          <p>{{ . | markdownify }}</p>
         {{ end }}
 
-        <!-- Experience highlights -->
-        <div style="margin-top: 2rem">
-          <div
-            style="
-              font-size: 0.72rem;
-              font-weight: 600;
-              letter-spacing: 0.14em;
-              text-transform: uppercase;
-              color: var(--text-muted);
-              margin-bottom: 1.1rem;
-            "
-          >
-            {{ if eq .Site.Language.Lang "vi" }}Đào tạo & Kinh nghiệm{{ else }}Experience{{ end }}
-          </div>
-
-          <div class="space-y-6">
+        <section class="about-experience">
+          <h3 class="experience-heading">
+            {{ if eq .Site.Language.Lang "vi" }}Kinh nghiệm{{ else }}Experience{{ end }}
+          </h3>
+          <div class="experience-list">
             {{ range .Params.about.experience }}
-            <div
-              style="
-                position: relative;
-                padding-left: 1.5rem;
-                border-left: 1px solid var(--glass-border);
-              "
-            >
-              <div
-                style="
-                position: absolute;
-                top: 0;
-                left: -4px;
-                width: 7px;
-                height: 7px;
-                border-radius: 50%;
-                background: {{ if .active }}var(--forest-light){{ else }}rgba(45, 90, 39, 0.3){{ end }};
-              "
-              ></div>
-              <div
-                style="
-                  font-size: 0.92rem;
-                  font-weight: 700;
-                  color: var(--text-primary);
-                "
-              >
-                {{ .title }}
-              </div>
-              <div
-                style="
-                  font-size: 0.78rem;
-                  color: var(--forest-light);
-                  margin: 2px 0;
-                "
-              >
-                {{ .company }} &mdash; {{ .period }}
-              </div>
-              <div
-                style="
-                  font-size: 0.84rem;
-                  color: var(--text-muted);
-                  line-height: 1.6;
-                  margin-top: 4px;
-                "
-              >
-                {{ .description | markdownify }}
-              </div>
-            </div>
+              <article class="experience-item{{ if .active }} is-current{{ end }}">
+                <h4 class="experience-item-title">{{ .title }}</h4>
+                <p class="experience-item-meta">{{ .company }} · {{ .period }}</p>
+                <p class="experience-item-description">{{ .description | markdownify }}</p>
+              </article>
             {{ end }}
           </div>
-        </div>
+        </section>
       </div>
 
-      <!-- ── Right: Skills ──────────────────────── -->
-      <div class="lg:col-span-2 reveal-right space-y-8">
-        <div class="lg:col-span-2 reveal-right space-y-8">
-          {{ range .Params.about.skill_groups }}
-          <div class="glass-card" style="padding: 1.5rem">
-            <div
-              style="
-                font-size: 0.68rem;
-                font-weight: 700;
-                letter-spacing: 0.16em;
-                text-transform: uppercase;
-                color: var(--text-muted);
-                margin-bottom: 1rem;
-              "
-            >
-              {{ .category }}
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+      <div class="lg:col-span-2 reveal-right skill-group-list">
+        {{ range .Params.about.skill_groups }}
+          <section class="skill-category-card">
+            <h3 class="skill-category-title">{{ .category }}</h3>
+            <div class="skill-list">
               {{ range .list }}
-              <span class="skill-pill">{{ . }}</span>
+                <span class="skill-pill">{{ . }}</span>
               {{ end }}
             </div>
-          </div>
-          {{ end }}
-        </div>
+          </section>
+        {{ end }}
       </div>
     </div>
   </div>
 
-  <div class="section-divider mt-28"></div>
+  <div class="section-divider mt-24"></div>
 </section>

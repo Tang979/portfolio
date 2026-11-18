@@ -2,6 +2,7 @@
 title: "Khởi Tạo HexMesh Bằng Code"
 layout: "project"
 weight: 2
+draft: true
 pre: "6.1. "
 ---
 

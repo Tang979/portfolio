@@ -2,6 +2,7 @@
 title: "System Architecture"
 layout: "project"
 weight: 1
+draft: true
 pre: "2. "
 ---
 

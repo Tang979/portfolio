@@ -2,6 +2,7 @@
 title: "Dynamic Path Recalculation"
 layout: "project"
 weight: 2
+draft: true
 pre: "3.2. "
 ---
 

@@ -2,6 +2,7 @@
 title: "Tải Tài Nguyên Bất Đồng Bộ Với Addressables"
 layout: "project"
 weight: 2
+draft: true
 pre: "5.2. "
 ---
 

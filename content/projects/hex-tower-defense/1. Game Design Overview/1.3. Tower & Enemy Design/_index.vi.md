@@ -1,42 +1,44 @@
 ---
-title: "Thiết Kế Tháp & Kẻ Thù"
+title: "Tower & Enemy Design"
 layout: "project"
 weight: 2
+# draft: true
 pre: "1.3. "
 ---
 
+> [!NOTE]  
+> Hệ thống Tháp và Kẻ Thù được thiết kế theo hướng **Hướng Dữ Liệu (Data-Driven)**, cho phép tất cả thông số, hiệu ứng và logic đặc biệt được tùy chỉnh qua cấu hình JSON mà không cần chạm vào mã nguồn.
 
-> [!NOTE]
-> Hệ thống Tháp và Enemy được thiết kế theo hướng **Data-Driven**, cho phép tùy chỉnh toàn bộ chỉ số, hiệu ứng và logic đặc biệt thông qua cấu hình JSON mà không cần thay đổi source code.
+### Triết lý Thiết kế & Hệ thống Thông số
 
-### Triết lý thiết kế & Hệ thống Chỉ số
+Mỗi loại tháp được xây dựng xung quanh một tập thông số cốt lõi (Sát thương, Tầm bắn, Thời gian hồi chi, Chi phí) và một hệ thống **Modifier/Hiệu ứng** linh hoạt tạo ra sự khác biệt chiến thuật rõ ràng.
 
-Mỗi loại tháp được xây dựng với một bộ chỉ số cơ bản (Damage, Range, Attack Cooldown, Cost) và một hệ thống **Modifiers/Effects** linh hoạt để tạo ra sự khác biệt về mặt chiến thuật.
+#### Danh sách Tháp & Cơ chế Ký hiệu
 
-#### Danh sách Tháp & Cơ chế đặc trưng
-
-| Loại Tháp | Cơ chế Tấn công | Hiệu ứng & Modifiers đặc biệt | Vai trò Chiến thuật |
+| Loại Tháp | Cơ chế Tấn công | Hiệu ứng Đặc biệt & Modifier | Vai trò Chiến thuật |
 |---|---|---|---|
-| **Fire** | Projectile | **DOT**: Sát thương 5% Máu tối đa mỗi 0.25s. | Diệt xe tăng (Tank buster), hiệu quả với quái máu trâu. |
-| **Ice** | Projectile | **Slow**: Giảm tốc độ chạy 15% trong 3s. | Hỗ trợ khống chế, giữ quái trong tầm bắn lâu hơn. |
-| **Poison** | AoE / Trap | **DOT (Flat)**: Gây 5 sát thương bỏ qua giáp mỗi 0.25s. | Kiểm soát đám đông (Crowd Control) tại các nút thắt. |
-| **Lightning** | Instant | **Chain Modifier**: Nảy qua 2 mục tiêu (Bounce Radius: 2). | DPS tốc độ cao (0.15s), dọn dẹp đàn quái nhỏ cực nhanh. |
-| **Rock** | Projectile | **Splash Modifier**: 30% tỷ lệ gây nổ lan (Radius: 0.5). | Sát thương đột biến, phá vỡ đội hình quái tập trung. |
+| **Lửa** | Đạn | **DOT**: 5% Máu Tối đa mỗi 0,25s | Phá Tank — hiệu quả chống kẻ máu cao |
+| **Băng** | Đạn | **Chậm**: Giảm 15% tốc độ di chuyển trong 3s | Hỗ trợ/Kiểm soát — giữ kẻ thù trong tầm bắn lâu hơn |
+| **Độc** | AoE / Bẫy | **DOT (Phẳng)**: 5 sát thương xuyên giáp mỗi 0,25s | Kiểm soát đám đông tại các điểm nghẽn |
+| **Sấm** | Phát hiện ngay | **Modifier Chuỗi**: Quay lùi đến 2 mục tiêu bổ sung (Bán kính Quay: 2) | DPS cao (thời gian hồi 0,15s), xóa nhanh nhóm |
+| **Đá** | Đạn | **Modifier Vỡ**: 30% cơ hội kích nổ vùng (Bán kính: 0,5) | Sát thương nổ — tiêu diệt các đội hình kẻ thù dày đặc |
 
-#### Tháp Hợp nhất (Hybrid Towers)
-Một điểm nhấn trong hệ thống là tháp **Fire & Ice**, minh chứng cho sự linh hoạt của `AlternatingEffectModifier`:
-- **Cơ chế**: Đạn lửa và đạn băng được bắn ra xen kẽ nhau (Visual & Logic).
-- **Hiệu ứng**: Kết hợp cả sát thương **DOT (10% HP)** và làm chậm mạnh mẽ (30%), trở thành tháp đa năng nhất trong game.
+#### Tháp Lai (Merged)
 
-### Thiết kế Enemy & Phản hồi thị giác
+Một điểm nhấn trong hệ thống là tháp **Lửa & Băng**, thể hiện sự linh hoạt của `AlternatingEffectModifier`:
+- **Cơ chế**: Đạn lửa và băng xen kẽ mỗi lần bắn (cả về mặt hình ảnh và logic).
+- **Hiệu ứng**: Kết hợp cả **DOT (10% Máu)** và hiệu ứng chậm mạnh (30%), làm nó trở thành tháp linh hoạt nhất trong trò chơi.
 
-Enemy không chỉ là các khối di chuyển vô hồn, chúng được tích hợp chặt chẽ với hệ thống logic của tháp:
+### Thiết Kế Kẻ Thù & Phản hồi Hình ảnh
 
-1. **Animation Speed Scaling**: Tốc độ animation của Enemy (di chuyển, bị trúng đòn) được đồng bộ hóa thực tế với thuộc tính `Speed`. Khi bị Ice Tower làm chậm, Enemy không chỉ đi chậm mà các chuyển động cũng trở nên nặng nề hơn, tạo cảm giác trực quan.
-2. **Cơ chế Thưởng tài nguyên (Resource Reward)**:
-    - **Tiêu diệt hoàn toàn**: Nhận 100% phần thưởng tiền (Currency).
-    - **Lọt lưới (Reach Target)**: Người chơi vẫn nhận được 50% tiền thưởng từ quái đó. Đây là một quyết định Game Design nhằm giúp người chơi vẫn có cơ hội "phục hồi" kinh tế để phòng thủ tiếp sau khi bị lọt quái, giảm bớt sự ức chế (negative feedback loop).
+Kẻ thù không chỉ là thanh máu di chuyển — chúng được liên kết chặt chẽ với hệ thống logic của tháp:
 
-### Lưu trình Cân bằng (Balancing Workflow)
-Toàn bộ thông số trên đều được quản lý tập trung trong file JSON. Quy trình tối ưu hóa:
-- **Tách biệt Dữ liệu và Logic**: Code đóng vai trò là khung vận hành (Engine) để đọc Modifier và áp dụng Effect. Việc **Cân bằng game (Game Balancing)** và điều chỉnh **Nhịp độ (Pacing)** được thực hiện hoàn toàn trên file JSON, giúp quá trình thử nghiệm và tinh chỉnh diễn ra nhanh chóng mà không cần biên dịch lại mã nguồn.
+1. **Đặt échelle Tốc độ Hoạt hình**: Tốc độ di chuyển và hoạt hình bị thương của kẻ thù được đồng bộ hóa theo thời gian thực với thuộc tính `Tốc độ`. Khi bị chậm bởi tháp Băng, kẻ thù không chỉ di chuyển chậm hơn — hoạt hình của chúng cũng trở nên nặng nề rõ rệt, tạo ra phản hồi hình ảnh làm hài lòng và trực quan.
+2. **Cơ chế Thưởng Tài nguyên**:
+    - **Bị tiêu diệt hoàn toàn**: Người chơi nhận 100% phần thưởng tiền tệ.
+    - **Đến mục tiêu (Lộn)**: Người chơi vẫn nhận 50% phần thưởng. Đây là một quyết định Thiết Kế Game có ý thức — nó cho phép người chơi "khôi phục" về mặt kinh tế sau một sự xâm phạm, giảm sự phẫn nộ và làm dịu vòng lặp phản hồi tiêu cực.
+
+### Quy trình Cân bằng
+
+Tất cả thông số trên được quản lý tập trung trong các tệp cấu hình JSON. Quy trình tối ưu là:
+- **Tách biệt Dữ liệu & Logic**: Mã nguồn đóng vai trò là engine runtime — đọc Modifier và áp dụng Hiệu ứng. **Cân bằng Game** và **Nhịp độ** được thực hiện hoàn toàn trong các tệp JSON, cho phép kiểm tra và tinh chỉnh nhanh chóng mà không cần biên dịch lại mã nguồn.

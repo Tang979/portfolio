@@ -2,27 +2,30 @@
 title: "Core Concept & Game Loop"
 layout: "project"
 weight: 2
+# draft: true
 pre: "1.1. "
 ---
 
-### Game Overview
+### Khái niệm Cốt lõi
 
-Hex Tower Defense is a tactical tower defense game played on a hexagonal grid. Its biggest differentiator from conventional TD games lies in two mutually reinforcing mechanics: **maze building** and the **merge mechanic**.
+Hex Tower Defense là một trò chơi tower defense chiến thuật trên lưới lục giác. Điểm khác biệt lớn nhất so với tower defense truyền thống nằm ở hai cơ chế cùng phản lạp: **xây mê cung** và **cơ chế hợp nhất**.
 
-### Core Game Loop
+Trong tower defense thông thường, người chơi đặt tháp bên cạnh một đường đi đã được sẵn có. Trong Hex Tower Defense, **đặt một tháp đồng nghĩa với việc xây dựng đường đi**.
 
-1. **Place defensive towers** — The player selects a tower from a 5-tower loadout and places it on the hex map
-2. **Defeat enemy waves** — Enemies move autonomously along the shortest path to the target; towers attack automatically within range
-3. **Earn currency & buy more towers** — Every enemy that dies (or even reaches the target) yields a currency reward
-4. **Merge towers for power** — Hold a tower on the map for about 1 second (long press) then drag it onto another tower, or drag a tower directly from the UI onto a map tower, to create a stronger merged tower
-5. **Win or lose** — If an enemy reaches the target: the base loses HP. Base HP hits zero = defeat. Clear all waves = victory.
+### Vòng Lặp Chơi (Core Loop)
 
-### The Differentiator: Maze Building
+1. **Xây phòng tuyến** — Người chơi chọn một tháp từ bộ sưu tập 5 tháp cơ bản và đặt lên lưới lục giác
+2. **Chống chọi các đợt tấn công** — Kẻ thù di chuyển tự hành theo đường đi ngắn nhất đến mục tiêu; tháp tấn công tự động khi trong tầm bắn
+3. **Nhận tiền & mua thêm tháp** — Mỗi kẻ thù bị tiêu diệt (hoặc thậm chí cả khi tràn mục tiêu) sẽ đưa về tiền thưởng
+4. **Hợp tháp để tăng sức mạnh** — Giữ tháp trên bản đồ trong khoảng 1 giây (nhấn giữ), sau đó kéo nó lên tháp khác, hoặc kéo tháp trực tiếp từ thanh UI lên tháp trên bản đồ, để tạo tháp hợp nhất mạnh hơn
+5. **Thắng hoặc thua** — Nếu kẻ thù đến đích: căn cứ mất máu. Máu căn cứ về صفر = thua. Xử lý hết mọi đợt tấn công = thắng.
 
-In traditional TD games, players place towers beside a pre-fixed path. In Hex Tower Defense, **placing a tower IS building the path**.
+### Điểm Nổi Bật: Xây Mê Cung
 
-Players can block enemy routes by placing towers in their way, forcing enemies to find longer detours — increasing the time enemies spend within tower range. The system guarantees at least one valid path always exists from each spawn point to the target (BFS deadlock prevention), maintaining fairness while deepening tactical possibilities.
+Trong tower defense truyền thống, người chơi đặt tháp bên cạnh đường đi đã cố định. Trong Hex Tower Defense, **mỗi tháp đặt ra cũng là xây tường**.
 
-### Design Goal
+Người chơi có thể chặn đường kẻ thù bằng cách đặt tháp trực tiếp vào đường đi, buộc chúng phải tìm đường vòng dài hơn — kéo dài thời gian kẻ thù hoạt động trong tầm bắn của tháp. Hệ thống đảm bảo luôn tồn tại ít nhất một đường đi hợp lệ từ mỗi điểm xuất phát đến mục tiêu (phòng ngừa tử vọng bằng BFS), giữ sự công bằng trong khi mở rộng không gian chiến thuật.
 
-I wanted players to feel like they are *genuinely* building a strategy, not simply dropping towers into fixed slots. Every decision — where to place a tower, which towers to merge, when to create a longer detour — carries weight and creates new situations.
+### Mục Tiêu Thiết Kế
+
+Tôi muốn người chơi cảm thấy mình *thực sự* đang xây dựng một chiến lược, chứ không chỉ đơn thuần là thả tháp vào các ô cố định. Mỗi quyết định — đặt tháp ở đâu, hợp tháp nào, khi nào tạo đường vòng dài hơn — đều có trọng lượng và tạo ra các tình huống mới.

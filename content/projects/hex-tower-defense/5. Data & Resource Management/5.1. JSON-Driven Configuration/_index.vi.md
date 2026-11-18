@@ -2,6 +2,7 @@
 title: "Cấu Hình Game Bằng JSON"
 layout: "project"
 weight: 2
+draft: true
 pre: "5.1. "
 ---
 

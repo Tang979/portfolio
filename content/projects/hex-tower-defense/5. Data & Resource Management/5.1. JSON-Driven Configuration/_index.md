@@ -2,6 +2,7 @@
 title: "JSON-Driven Game Configuration"
 layout: "project"
 weight: 2
+draft: true
 pre: "5.1. "
 ---
 

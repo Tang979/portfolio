@@ -3,6 +3,7 @@ title: "Cơ Chế Cốt Lõi"
 layout: "project"
 weight: 1
 pre: "3. "
+draft: true
 ---
 
 <!-- NỘI DUNG TIẾNG VIỆT - DRAFT ĐỂ DỊCH SANG TIẾNG ANH -->

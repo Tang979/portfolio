@@ -2,6 +2,7 @@
 title: "Tìm Đường A* Trên Lưới Hex"
 layout: "project"
 weight: 2
+draft: true
 pre: "3.1. "
 ---
 

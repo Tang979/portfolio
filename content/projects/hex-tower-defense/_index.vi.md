@@ -4,41 +4,45 @@ layout: "project"
 weight: 1
 ---
 
-<!-- NỘI DUNG TIẾNG VIỆT - DRAFT ĐỂ DỊCH SANG TIẾNG ANH -->
-**Hex Tower Defense** là một dự án game mobile chiến thuật được xây dựng với mục tiêu thể hiện kỹ năng lập trình hệ thống chuyên sâu và tư duy thiết kế game (Game Design) hiện đại. Dự án tập trung vào tính linh hoạt của cấu trúc mã nguồn (Clean Architecture) và trải nghiệm chiến thuật sâu sắc trên lưới lục giác.
+**Hex Tower Defense** là game thủ thành chiến thuật xoay quanh một câu hỏi: *Nếu người chơi tự tạo đường đi cho kẻ địch thay vì chỉ đặt tháp thì sao?* Game kết hợp cơ chế **xây mê cung** và **hợp nhất tháp** trên lưới lục giác, khiến mỗi lựa chọn đều ảnh hưởng đến diễn biến từng đợt quái.
 
 ---
 
-## Tổng quan Dự án
+## Tổng quan dự án
 
-Dự án này không chỉ là một game phòng thủ tháp thông thường, mà là một minh chứng kỹ thuật về cách xây dựng một "Game Loop" ổn định và khả năng mở rộng hệ thống mà không phụ thuộc chặt chẽ vào Game Engine.
+Trò chơi không chỉ là đặt tháp dọc theo một tuyến đường cố định; người chơi trực tiếp **định hình chiến trường**. Mỗi tháp trở thành chướng ngại vật, buộc kẻ địch đổi hướng. Hợp nhất tháp giúp tăng sức tấn công nhưng có thể làm thay đổi tuyến đường đã xây. Người chơi vừa thiết kế đường đi vừa đưa ra quyết định chiến thuật.
 
-### 1. Tư duy Thiết kế (Game Design)
-Dựa trên cảm hứng từ các bàn cờ Hex của thể loại Auto-Battler (như TFT), game mang đến cơ chế **Maze Building** — người chơi không chỉ đặt tháp mà còn là người trực tiếp định hình đường di chuyển của kẻ thù. Đi kèm là hệ thống **Merge Mechanic** cho phép kết hợp các tháp cơ bản thành những tháp chuyên biệt mạnh hơn.
+### 1. Trụ cột thiết kế
 
-### 2. Kiến trúc Hệ thống (Architecture)
-Toàn bộ logic cốt lõi được tách biệt hoàn toàn khỏi Unity (`Domain Layer` viết bằng Pure C#), áp dụng **Dependency Injection** và **Observer Pattern**. Điều này giúp mã nguồn cực kỳ dễ bảo trì và cho phép viết **Unit Test** mà không cần khởi động Editor.
+**Xây mê cung — Người chơi tự thiết kế đường đi.**
 
-### 3. Cơ chế Cốt lõi (Mechanics)
-*   **A* Pathfinding**: Thuật toán tìm đường trên lưới Hex với tie-breaker giúp đường đi trông tự nhiên.
-*   **Deadlock Prevention**: Sử dụng BFS để đảm bảo người chơi không thể nhốt quái hoàn toàn trên bản đồ.
-*   **Combat System**: Áp dụng Strategy và Modifier Pattern để tạo ra hàng chục loại hiệu ứng tấn công (Chain, Splash, Burn...) chỉ qua cấu hình JSON.
+Đặt tháp cũng đồng nghĩa tạo chướng ngại vật. Kẻ địch tìm tuyến ngắn nhất tới mục tiêu, vì vậy mỗi vị trí đặt tháp có thể tạo đường vòng, điểm nghẽn và vùng tấn công. Người chơi luôn phải giữ lại ít nhất một lối đi hợp lệ để đảm bảo công bằng.
 
-### 4. Hệ thống Hiệu ứng (Status Effects)
-Một hệ thống `ActiveEffect` chuyên sâu hỗ trợ 5 chế độ Scaling khác nhau (theo % máu tối đa, % sát thương tháp, v.v.), cho phép tạo ra sự khác biệt rõ rệt về mặt chiến thuật giữa các loại tháp Lửa, Băng, Sấm sét và Độc.
+**Hợp nhất tháp — Sức mạnh hay quyền kiểm soát?**
 
-### 5. Quản lý Dữ liệu & Tài nguyên
-Dự án áp dụng phương pháp **Data-Driven**: balance game qua JSON và quản lý asset (Model, VFX) qua **Unity Addressables**. Kết hợp với **Object Pooling** để triệt tiêu tình trạng giật lag do Garbage Collection trên mobile.
+Mỗi trận bắt đầu với năm tháp cơ bản. Hợp nhất mở khóa các tháp lai mạnh hơn, nhưng cũng lấy một tháp khỏi bản đồ và có thể làm thay đổi thế phòng thủ. Người chơi cần cân nhắc giữa giữ quyền kiểm soát đường đi và tập trung hỏa lực.
 
-### 6. Tối ưu hóa Hiệu năng
-Sử dụng **Procedural HexMesh** để render toàn bộ bản đồ chỉ với một Draw Call duy nhất và thay thế hệ thống Physics nặng nề của Unity bằng tính toán tọa độ logic để xử lý tương tác tầm bắn và va chạm.
+**Cân bằng dựa trên dữ liệu.**
+
+Thông số tháp, đợt quái và công thức hợp nhất được lưu trong JSON. Nhờ vậy, người thiết kế có thể điều chỉnh nhịp độ, đường cong độ khó và tương quan khắc chế mà không cần sửa mã nguồn, thuận tiện cho các vòng cân bằng và playtesting.
+
+### 2. Cơ chế chính
+
+- **Tìm đường A\* trên lưới lục giác** — Kẻ địch di chuyển theo sáu hướng; quy tắc xử lý các tuyến có độ dài bằng nhau giúp đường đi nhất quán và dễ đọc.
+- **Chống bế tắc** — BFS đảm bảo luôn tồn tại đường tới mục tiêu. Người chơi có thể dồn ép kẻ địch nhưng không thể khóa cứng màn chơi.
+- **Hệ thống chiến đấu** — Các mẫu `Strategy` và `Modifier` cùng cấu hình JSON cho phép kết hợp Chain, Splash, Burn, Slow và DOT mà không cần viết riêng logic cho từng tháp.
+- **Hiệu ứng trạng thái** — Năm chế độ scale tạo nên vai trò chiến thuật khác nhau: Fire gây sát thương lên kẻ địch nhiều máu, Ice kiểm soát không gian, Lightning đánh vào nhóm quái, Poison giữ các điểm nghẽn.
+- **HexMesh tạo theo quy trình** — Toàn bộ bản đồ được dựng bằng một `Draw Call`; xử lý bằng logic thay cho vật lý nặng để phù hợp với mobile.
+- **Object pooling** — Hạn chế giật khung hình do garbage collection trong các đợt quái lớn.
+
+---
+
+{{< video src="https://pub-f6cbf98bec4b4b6783bd5dad847daa28.r2.dev/Demo.mp4" >}}
 
 ---
 
-<!-- Gợi ý: Bạn có thể thêm một đoạn clip ngắn hoặc gif demo tại đây để "wow" nhà tuyển dụng ngay lập tức -->
-
-> [!IMPORTANT]  
-> **Trọng tâm Kỹ thuật (Technical Focus):**  
-> Dự án hiện tại là bản **Technical Prototype (Alpha)**. Tôi tập trung 100% nguồn lực vào việc xây dựng **Kiến trúc bền vững (Scalable Architecture)** và **Logic Gameplay thuần túy**. Vì vậy, hệ thống VFX và UI hiện đang sử dụng các thành phần cơ bản (Placeholders) để ưu tiên cho việc tối ưu hóa hiệu năng và độ sạch của mã nguồn.
-
----
+> [!IMPORTANT]
+>
+> **Ghi chú thiết kế:**
+>
+> Đây là **nguyên mẫu kỹ thuật (alpha)** nhằm kiểm chứng kiến trúc có thể mở rộng và logic gameplay. VFX và UI hiện dùng thành phần placeholder; giai đoạn này ưu tiên hiệu năng và cấu trúc mã.

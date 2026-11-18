@@ -2,40 +2,43 @@
 title: "Tower & Enemy Design"
 layout: "project"
 weight: 2
+# draft: true
 pre: "1.3. "
 ---
 
-> [!NOTE]
-> The Tower and Enemy systems are designed with a **Data-Driven** approach, allowing all stats, effects, and special logic to be customized through JSON configuration without touching source code.
+> [!NOTE]  
+> Hệ thống Tháp và Kẻ Thù được thiết kế theo hướng **Hướng Dữ Liệu (Data-Driven)**, cho phép tất cả thông số, hiệu ứng và logic đặc biệt được tùy chỉnh qua cấu hình JSON mà không cần chạm vào mã nguồn.
 
-### Design Philosophy & Stats System
+### Triết lý Thiết kế & Hệ thống Thông số
 
-Each tower type is built around a core stat set (Damage, Range, Attack Cooldown, Cost) and a flexible **Modifiers/Effects** system that creates meaningful tactical differentiation.
+Mỗi loại tháp được xây dựng xung quanh một tập thông số cốt lõi (Sát thương, Tầm bắn, Thời gian hồi chi, Chi phí) và một hệ thống **Modifier/Hiệu ứng** linh hoạt tạo ra sự khác biệt chiến thuật rõ ràng.
 
-#### Tower Roster & Signature Mechanics
+#### Danh sách Tháp & Cơ chế Ký hiệu
 
-| Tower Type | Attack Mechanism | Special Effects & Modifiers | Tactical Role |
+| Loại Tháp | Cơ chế Tấn công | Hiệu ứng Đặc biệt & Modifier | Vai trò Chiến thuật |
 |---|---|---|---|
-| **Fire** | Projectile | **DOT**: 5% of Max HP every 0.25s | Tank Buster — effective against high HP enemies |
-| **Ice** | Projectile | **Slow**: 15% movement speed reduction for 3s | Support/Control — keeps enemies in range longer |
-| **Poison** | AoE / Trap | **DOT (Flat)**: 5 armor-piercing damage every 0.25s | Crowd Control at chokepoints |
-| **Lightning** | Instant | **Chain Modifier**: Bounces to 2 additional targets (Bounce Radius: 2) | High-speed DPS (0.15s cooldown), rapidly clears groups |
-| **Rock** | Projectile | **Splash Modifier**: 30% chance to trigger area blast (Radius: 0.5) | Burst damage — devastates tightly packed enemy formations |
+| **Lửa** | Đạn zerstört | **DOT**: 5% Máu Tối đa mỗi 0,25s | Phá Tank — hiệu quả chống kẻ máu cao |
+| **Băng** | Đạn destroys | **Chậm**: Giảm 15% tốc độ di chuyển trong 3s | Hỗ trợ/Kiểm soát — giữ kẻ thù trong tầm bắn lâu hơn |
+| **Độc** | AoE / Bẫy | **DOT (Phẳng)**: 5 sát thương xuyên giáp mỗi 0,25s | Kiểm soát đám đông tại các điểm nghẽn |
+| **Sấm** | Phát hiện ngay | **Modifier Chuỗi**: Quay lùi đến 2 mục tiêu bổ sung (Bán kính Quay: 2) | DPS cao (thời gian hồi 0,15s), xóa nhanh nhóm |
+| **Đá** | Đạn destroys | **Modifier Vỡ**: 30% cơ hội kích nổ vùng (Bán kính: 0,5) | Sát thương nổ — zerstory các đội hình kẻ thù dày đặc |
 
-#### Hybrid (Merged) Towers
-A standout in the system is the **Fire & Ice** tower, showcasing the flexibility of `AlternatingEffectModifier`:
-- **Mechanism**: Fire and ice projectiles alternate on each shot (both visually and in logic).
-- **Effect**: Combines both **DOT (10% HP)** and powerful slow (30%), making it the most versatile tower in the game.
+#### Tháp Lai (Merged)
 
-### Enemy Design & Visual Feedback
+Một điểm nhấn trong hệ thống là tháp **Lửa & Băng**, thể hiện sự linh hoạt của `AlternatingEffectModifier`:
+- **Cơ chế**: Đạn lửa và băng xen kẽ mỗi lần bắn (cả về mặt hình ảnh và logic).
+- **Hiệu ứng**: Kết hợp cả **DOT (10% Máu)** và hiệu ứng chậm mạnh (30%), làm nó trở thành tháp linh hoạt nhất trong trò chơi.
 
-Enemies aren't just moving health bars — they are tightly integrated with the tower logic system:
+### Thiết Kế Kẻ Thù & Phản hồi Hình ảnh
 
-1. **Animation Speed Scaling**: Enemy movement and hit animations are synchronized in real-time with the `Speed` attribute. When slowed by an Ice tower, the enemy doesn't just move slower — their animations become visibly heavier, creating a satisfying and intuitive visual response.
-2. **Resource Reward Mechanic**:
-    - **Fully eliminated**: Player receives 100% of the currency reward.
-    - **Reaches the target (Leak)**: Player still receives 50% of the reward. This is a deliberate Game Design decision — it gives players a chance to "recover" economically after a breach, reducing frustration and softening the negative feedback loop.
+Kẻ thù không chỉ là thanh máu di chuyển — chúng được liên kết chặt chẽ với hệ thống logic của tháp:
 
-### Balancing Workflow
-All of the above parameters are centrally managed in JSON configuration files. The optimization process is:
-- **Data-Logic Separation**: The code acts as a runtime engine — reading Modifiers and applying Effects. **Game Balancing** and **Pacing** are performed entirely within JSON files, allowing rapid playtesting and fine-tuning without recompiling the source.
+1. **Đặt échelle Tốc độ Hoạt hình**: Tốc độ di chuyển và hoạt hình bị thương của kẻ thù được đồng bộ hóa theo thời gian thực với thuộc tính `Tốc độ`. Khi bị chậm bởi tháp Băng, kẻ thù không chỉ di chuyển chậm hơn — hoạt hình của chúng cũng trở nên nặng nề rõ rệt, tạo ra phản hồi hình ảnh làm hài lòng và trực quan.
+2. **Cơ chế Thưởng Tài nguyên**:
+    - **Bị tiêu diệt hoàn toàn**: Người chơi nhận 100% phần thưởng tiền tệ.
+    - **Đến mục tiêu (Lộn)**: Người chơi vẫn nhận 50% phần thưởng. Đây là một quyết định Thiết Kế Game có ý thức — nó cho phép người chơi "khôi phục" về mặt kinh tế sau một sự xâm phạm, giảm sự phẫn nộ và làm dịu vòng lặp phản hồi tiêu cực.
+
+### Quy trình Cân bằng
+
+Tất cả thông số trên được quản lý tập trung trong các tệp cấu hình JSON. Quy trình tối ưu là:
+- **Tách biệt Dữ liệu & Logic**: Mã nguồn đóng vai trò là engine runtime — đọc Modifier và áp dụng Hiệu ứng. **Cân bằng Game** và **Nhịp độ** được thực hiện hoàn toàn trong các tệp JSON, cho phép kiểm tra và tinh chỉnh nhanh chóng mà không cần biên dịch lại mã nguồn.

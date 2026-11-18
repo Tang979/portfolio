@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="theme-color" content="" />
+<title>Shoe Sort Puzzle</title>
+
+
+<meta property="og:title" content="Shoe Sort Puzzle" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+
+
+<link rel="stylesheet" href="/css/output.css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/icon/favicon.svg">
+
+</head>
+<body>
+
+  <header id="site-header">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+    
+    <a href="/" class="flex items-center gap-2.5 group">
+      
+      <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--text-primary);
+                  display: flex; align-items: center; justify-content: center;
+                  transition: background var(--transition), box-shadow var(--transition);"
+           class="group-hover:shadow-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--bg)"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" y1="11" x2="10" y2="11"/>
+          <line x1="8" y1="9" x2="8" y2="13"/>
+          <line x1="15" y1="12" x2="15.01" y2="12"/>
+          <line x1="18" y1="10" x2="18.01" y2="10"/>
+          <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+        </svg>
+      </div>
+      <span style="font-size: 1.05rem; font-weight: 800; color: #f0f0f0; letter-spacing: -0.02em;">
+        TUANKHOA<span style="color: var(--primary-light);"></span>
+      </span>
+    </a>
+
+    
+    <nav class="hidden md:flex items-center gap-8">
+      
+        <a href="/#work-personal" class="nav-link">Work</a>
+        <a href="/#about"   class="nav-link">About</a>
+        <a href="/#contact" class="nav-link">Contact</a>
+      
+
+      <a href="mailto:tuankhoa542003@gmail.com" class="btn-primary header-contact-link">
+        Email me
+      </a>
+      
+      
+      <button id="lang-toggle-btn" class="language-toggle" onclick="toggleLanguage()"
+        aria-label="Switch language">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span id="lang-label">EN</span>
+      </button>
+    </nav>
+
+    
+    <button id="menu-btn" class="md:hidden hamburger"
+      aria-label="Open menu"
+      data-open-label="Close menu"
+      data-close-label="Open menu"
+      aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+
+
+<script>
+(function () {
+  var LANG_KEY = 'preferred-lang';
+
+  
+  function getCurrentLang() {
+    return window.location.pathname.startsWith('/vi/') ||
+           window.location.pathname === '/vi'
+      ? 'vi' : 'en';
+  }
+
+  function getSavedLang() {
+    try { return localStorage.getItem(LANG_KEY) || getCurrentLang(); } catch(e) { return getCurrentLang(); }
+  }
+
+  function saveLang(lang) {
+    try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
+  }
+
+  function toViPath(path) {
+    if (path.startsWith('/vi')) return path;   
+    return '/vi' + (path === '/' ? '/' : path);
+  }
+
+  function toEnPath(path) {
+    return path.replace(/^\/vi/, '') || '/';
+  }
+
+  
+  var currentLang = getCurrentLang();
+  var savedLang   = getSavedLang();
+
+  
+  if (currentLang !== savedLang) {
+    var newPath = savedLang === 'vi'
+      ? toViPath(window.location.pathname)
+      : toEnPath(window.location.pathname);
+
+    
+    if (newPath !== window.location.pathname) {
+      window.location.replace(newPath + window.location.search + window.location.hash);
+      return; 
+    }
+  }
+
+  
+  var labelEl = document.getElementById('lang-label');
+  if (labelEl) {
+    labelEl.textContent = currentLang.toUpperCase();
+  }
+
+  
+  window.toggleLanguage = function () {
+    var lang = getCurrentLang();
+    var newLang = lang === 'en' ? 'vi' : 'en';
+    saveLang(newLang);
+
+    var newPath = newLang === 'vi'
+      ? toViPath(window.location.pathname)
+      : toEnPath(window.location.pathname);
+
+    window.location.href = newPath + window.location.search + window.location.hash;
+  };
+
+  
+  
+  function rewriteLinks() {
+    var lang = getSavedLang();
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      
+      if (!href || href.startsWith('mailto') || href.startsWith('http') || href.startsWith('#')) return;
+
+      if (lang === 'vi' && !href.startsWith('/vi')) {
+        a.setAttribute('href', toViPath(href));
+      } else if (lang === 'en' && href.startsWith('/vi')) {
+        a.setAttribute('href', toEnPath(href));
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rewriteLinks);
+  } else {
+    rewriteLinks();
+  }
+
+}());
+</script>
+
+<div id="mobile-menu" role="dialog" aria-modal="true"
+     aria-label="Navigation">
+  <button id="menu-close" class="absolute top-6 right-6" aria-label="Close menu">×</button>
+  
+    <a href="/#work-personal" onclick="closeMobileMenu()">Work</a>
+    <a href="/#about" onclick="closeMobileMenu()">About</a>
+    <a href="/#contact" onclick="closeMobileMenu()">Contact</a>
+    <a href="mailto:tuankhoa542003@gmail.com" class="btn-primary" onclick="closeMobileMenu()">Email me</a>
+    <button class="mobile-menu-language" onclick="closeMobileMenu(); toggleLanguage()">Tiếng Việt · VI</button>
+  
+</div>
+
+<script>
+(function () {
+  var menuButton = document.getElementById('menu-btn');
+  var closeButton = document.getElementById('menu-close');
+  var menu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    if (!menu || !menuButton) return;
+    menu.classList.remove('open');
+    menuButton.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', menuButton.getAttribute('data-close-label'));
+    document.body.style.overflow = '';
+  }
+
+  function openMenu() {
+    if (!menu || !menuButton) return;
+    menu.classList.add('open');
+    menuButton.classList.add('open');
+    menuButton.setAttribute('aria-expanded', 'true');
+    menuButton.setAttribute('aria-label', menuButton.getAttribute('data-open-label'));
+    document.body.style.overflow = 'hidden';
+    if (closeButton) closeButton.focus();
+  }
+
+  window.closeMobileMenu = closeMenu;
+  if (menuButton) menuButton.addEventListener('click', openMenu);
+  if (closeButton) closeButton.addEventListener('click', function () {
+    closeMenu();
+    if (menuButton) menuButton.focus();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeMenu();
+      if (menuButton) menuButton.focus();
+    }
+  });
+}());
+</script>
+
+
+  <div class="project-detail-wrapper">
+
+    
+    <aside class="project-sidebar glass-card" aria-label="Table of contents">
+      <div class="sidebar-inner">
+
+        
+        <div class="sidebar-header">
+          <p class="sidebar-project-title">Project contents</p>
+        </div>
+
+        
+        <nav class="toc-nav">
+          <ul class="toc-list">
+            
+            
+              
+            
+              
+            
+
+            
+            <li class="toc-item toc-root-link toc-active">
+              <a href="/projects/shoe-sort-puzzle/"
+                 class="toc-link"
+                 aria-current="page">
+                <span class="toc-title-wrap">
+                  <span class="toc-title">Shoe Sort Puzzle</span>
+                </span>
+              </a>
+            </li>
+
+            
+
+            
+              
+              
+            
+          </ul>
+        </nav>
+
+      </div>
+    </aside>
+
+    
+    <main class="project-content glass-card">
+
+      <header class="project-content-header">
+        <h1 class="project-page-title">Shoe Sort Puzzle</h1>
+      </header>
+
+      <div class="project-body">
+        <p><strong>Shoe Sort Puzzle</strong> is a mobile sorting puzzle game. Players must move and match three identical shoes into a single box to clear them from the level before time runs out.</p>
+<hr>
+<h2 id="1-project-overview">1. Project Overview</h2>
+<ul>
+<li><strong>Genre:</strong> Puzzle (Match-3 / Sorting)</li>
+<li><strong>Platform:</strong> Mobile (Android / iOS)</li>
+<li><strong>Tech Stack:</strong> Unity, C#, JSON, DOTween, PlayerPrefs</li>
+<li><strong>Links:</strong> <a href="https://github.com/nguyenkhacnhat203-dev/Shoe_Sort_Puzzle">Github</a> | <a href="https://youtube.com/shorts/KJ3jWdtoe6w">Gameplay Video</a> | <a href="https://tang979.itch.io/shoe-sort-puzzle">Demo</a> | <a href="https://github.com/Tang979/GDD_APK_Shoe_Sort_Puzzle/releases">Download APK</a></li>
+</ul>
+<h3 id="design-goals">Design Goals</h3>
+<p>To provide a simple yet engaging puzzle experience focused on observation and organization. Each level features a dynamic time limit based on difficulty, making it accessible yet challenging.</p>
+<hr>
+<h2 id="2-game-design">2. Game Design</h2>
+<h3 id="core-mechanics">Core Mechanics</h3>
+<ul>
+<li><strong>Match-3 Sorting Loop:</strong> Players drag and drop shoes into boxes, clearing groups of three identical shoes to progress.</li>
+<li><strong>Win/Lose Conditions:</strong> Clear all shoes before the timer expires to win; run out of time or valid moves to lose.</li>
+<li><strong>Progression Curve:</strong> Dynamic time limits scale with level difficulty, ramping challenge as players master the sorting mechanic.</li>
+</ul>
+<h3 id="level-design">Level Design</h3>
+<ul>
+<li>Levels are defined via JSON, enabling rapid iteration on box counts, shoe distributions, and time limits without code changes.</li>
+<li>Each level guarantees at least one valid first move and avoids spawning pre-matched triples, ensuring a fair start.</li>
+<li>Difficulty increases through additional boxes, more shoe types, and tighter time constraints.</li>
+</ul>
+<h3 id="game-balancing--economy">Game Balancing &amp; Economy</h3>
+<ul>
+<li><strong>Booster System:</strong> Magnet, Shuffle, and Add Box boosters designed to resolve stuck states without breaking level solvability.</li>
+<li><strong>Resource System:</strong> Heart (stamina) and Gold (currency) with time-based recovery; hearts deducted on loss or mid-level quit.</li>
+<li><strong>Difficulty Tuning:</strong> Iterated through playtesting sessions to optimize completion rates and session length.</li>
+</ul>
+<h3 id="playtesting--iteration">Playtesting &amp; Iteration</h3>
+<ul>
+<li>Conducted structured playtesting to validate level solvability and difficulty perception.</li>
+<li>Adjusted booster availability and resource costs based on observed player behavior and drop-off points.</li>
+<li>Refined UI popups and hint timing to reduce friction for new players.</li>
+</ul>
+<hr>
+<h2 id="3-key-contributions">3. Key Contributions</h2>
+<p>I was responsible for developing the core gameplay and overarching systems:</p>
+<ul>
+<li><strong>Level Initialization:</strong> Implemented a system to read level data from JSON, generating boxes and shoes, and randomizing their distribution safely.</li>
+<li><strong>Input System:</strong> Developed robust Drag &amp; Drop and Tap-to-Move mechanics, handling input conflicts gracefully.</li>
+<li><strong>Game State Manager:</strong> Managed game states (Menu, OnGame, Pause, Win, Lose) and synchronized TimeScale, ensuring inputs are only processed during active gameplay.</li>
+<li><strong>Booster System:</strong> Engineered logic for in-game assists (Magnet, Shuffle, Add Box) that strictly maintain valid gameplay states.</li>
+<li><strong>Resource &amp; Energy Manager:</strong> Built a stamina (Heart) and currency (Gold) system with time-based recovery, penalizing players correctly for quitting or losing.</li>
+<li><strong>UI &amp; Game Flow:</strong> Created intuitive popups for purchasing resources and an automated Hint system.</li>
+</ul>
+<hr>
+<h2 id="4-game-design-document-gdd">4. Game Design Document (GDD)</h2>
+<p>Authored a comprehensive GDD covering:</p>
+<ul>
+<li>Core gameplay loop and win/lose conditions</li>
+<li>Level structure and progression parameters</li>
+<li>Booster definitions, costs, and effects</li>
+<li>Resource economy (Heart/Gold) and recovery rates</li>
+<li>UI wireframes and game flow diagrams</li>
+</ul>
+<hr>
+<h2 id="5-technical-challenges">5. Technical Challenges</h2>
+<h3 id="51-valid-random-generation">5.1. Valid Random Generation</h3>
+<p>Designed an algorithm to distribute shoes randomly while guaranteeing:</p>
+<ul>
+<li>No box spawns with three identical shoes already matched.</li>
+<li>At least one empty slot is always available for the first move.</li>
+</ul>
+<h3 id="52-data-flow-management-box--shelf">5.2. Data Flow Management (Box &amp; Shelf)</h3>
+<p>Developed synchronous logic between the active Boxes and the waiting Shelves. After a successful match, waiting shoes from the shelf are pushed to the box with seamless animations, shifting the queue without breaking state.</p>
+<h3 id="53-input--animation-synchronization">5.3. Input &amp; Animation Synchronization</h3>
+<p>Utilized <strong>DOTween</strong> for smooth transitions. The system ensures that logic states only update after animations conclude, preventing bugs caused by rapid inputs or using both Drag &amp; Drop and Tap controls simultaneously.</p>
+<h3 id="54-state-safe-boosters">5.4. State-Safe Boosters</h3>
+<p>Boosters like Shuffle or Add Box directly manipulate the level&rsquo;s data structure. I architected these abilities so that they always leave the game in a mathematically valid and playable state without causing logical errors.</p>
+<hr>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/KJ3jWdtoe6w?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <footer style="background: var(--bg); border-top: 1px solid var(--glass-border);">
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+      
+      <div class="flex items-center gap-3">
+        
+        <div style="width: 24px; height: 24px; border-radius: 5px; background: var(--text-primary);
+                    display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--bg)"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="6" y1="11" x2="10" y2="11"/>
+            <line x1="8" y1="9" x2="8" y2="13"/>
+            <line x1="15" y1="12" x2="15.01" y2="12"/>
+            <line x1="18" y1="10" x2="18.01" y2="10"/>
+            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+          </svg>
+        </div>
+        <span style="font-size: 0.82rem; color: var(--text-muted);">
+          &copy; 2026 TUANKHOA
+          
+        </span>
+      </div>
+
+      
+      <a href="#" class="footer-top-link flex items-center gap-2">
+        Back to Top
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</footer>
+
+
+  
+
+  
+  <script>
+  (function () {
+
+     
+    var header = document.getElementById('site-header');
+    function onScroll() {
+      header.classList.toggle('header-scrolled', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();  
+
+  }());
+  </script>
+
+</body>
+</html>

@@ -2,12 +2,45 @@
   {
     "title": "Hex Tower Defense",
     "slug": "hex-tower-defense",
-    "description": "Game Tower Defense chiến thuật trên mobile với kiến trúc tách biệt logic-view và tập trung tối ưu hóa hiệu năng.",
-    "tags": ["Unity", "C#", "Tower Defense", "Mobile"],
+    "description": "Nguyên mẫu game thủ thành chiến thuật, tập trung vào cơ chế người chơi tự tạo đường đi, xây mê cung và hợp nhất tháp trên lưới lục giác.",
+    "tags": ["Thiết kế game", "Thủ thành", "Thiết kế màn chơi", "Hệ thống gameplay", "Mobile"],
     "url": "/vi/projects/hex-tower-defense/",
-    "image": "/images/BgProject.png",
     "year": "2026",
     "platform": "Mobile",
-    "featured": true
+    "featured": true,
+    "type": "personal"
+  },
+  {
+    "title": "Shoe Sort Puzzle",
+    "slug": "shoe-sort-puzzle",
+    "description": "Game giải đố sắp xếp trên mobile với màn chơi cấu hình bằng JSON, hệ thống booster và kinh tế trong game được cân bằng qua playtesting.",
+    "tags": ["Unity", "C#", "Giải đố", "Mobile", "Thiết kế game", "Thiết kế màn chơi"],
+    "url": "/vi/projects/shoe-sort-puzzle/",
+    "year": "2025",
+    "platform": "Mobile",
+    "featured": true,
+    "type": "personal"
+  },
+  {
+    "title": "Block Puzzle",
+    "slug": "block-puzzle",
+    "description": "Game xếp khối cổ điển với tiến trình màn chơi, độ khó tăng dần và booster được thiết kế, cân bằng qua nhiều vòng playtesting.",
+    "tags": ["Unity", "C#", "Giải đố", "Mobile", "Thiết kế game", "Cân bằng game"],
+    "url": "/vi/projects/block-puzzle/",
+    "year": "2025",
+    "platform": "Mobile",
+    "featured": false,
+    "type": "personal"
+  },
+  {
+    "title": "Bow Hit",
+    "slug": "bow-hit",
+    "description": "Game bắn cung arcade với cơ chế ngắm bắn chính xác, điều kiện thắng/thua và nhịp độ gameplay được điều chỉnh dựa trên dữ liệu.",
+    "tags": ["Unity", "C#", "Arcade", "Mobile", "Thiết kế game", "Cơ chế gameplay"],
+    "url": "/vi/projects/bow-hit/",
+    "year": "2025",
+    "platform": "Mobile",
+    "featured": false,
+    "type": "personal"
   }
 ]

@@ -2,26 +2,27 @@
 title: "Merge Mechanic"
 layout: "project"
 weight: 2
+# draft: true
 pre: "1.4. "
 ---
 
-### How It Works
+### Cách Hoạt động
 
-Players have 2 ways to merge towers:
+Người chơi có 2 cách để hợp tháp:
 
-1. **Map to Map drag**: Hold a tower already placed on the map for about **1 second** (long press) → the tower enters a draggable state → drag it onto the target tower to merge
-2. **UI to Map drag**: Drag a tower directly from the tower bar in the UI onto a tower already placed on the map
+1. **Kéo từ Bản đồ sang Bản đồ**: Giữ một tháp đã đặt trên bản đồ trong khoảng **1 giây** (nhấn giữ) → tháp chuyển vào trạng thái có thể kéo → kéo nó lên tháp mục tiêu để hợp nhất
+2. **Kéo từ Giao diện sang Bản đồ**: Kéo một tháp trực tiếp từ thanh tháp trong giao diện lên một tháp đã đặt trên bản đồ
 
-The merge result is predetermined by **MergeRecipeData** (JSON) — each pair of towers A + B can produce a stronger tower C. Players can only execute a merge when they have the required components in their loadout.
+Kết quả hợp nhất được xác định trước bởi **MergeRecipeData** (JSON) — mỗi cặp tháp A + B có thể tạo ra một tháp mạnh hơn C. Người chơi chỉ có thể thực hiện hợp nhất khi họ có các thành phần yêu cầu trong kho đồ.
 
-### Tactical Impact
+### Ảnh hưởng Chiến thuật
 
-With 5 basic towers carried into each match, players aren't limited to just those 5 types. Through merging, a **new tower tree** opens up:
+Với 5 tháp cơ bản mang vào mỗi trận, người chơi không bị giới hạn chỉ ở 5 loại đó. Qua việc hợp nhất, một **cây tháp mới** mở ra:
 
-- **Power vs. Path Control**: Merged towers have superior stats, but come with a resource cost and tactical risk. When two towers on the map are combined, the player loses one **Blocker** — this can completely change the enemy's path and break the established maze structure.
-- **The Core Dilemma**: *Should you maintain tower count to control pathing, or sacrifice a strategic position to create concentrated high firepower at a single point?*
-- **Recipe Discovery**: Not every tower pair has a merge formula — this encourages exploration and experimentation in every match.
+- **Lực Tấn Công vs Kiểm soát Đường đi**: Tháp hợp nhất có thông số vượt trội, nhưng đi kèm chi phí tài nguyên và rủi ro chiến thuật. Khi hai tháp trên bản đồ được kết hợp, người chơi mất đi một **Băn Chắn** — điều này có thể hoàn toàn thay đổi đường đi của kẻ thù và phá vỡ cấu trúc mê cung đã thiết lập.
+- **Mâu thuắn cốt lõi**: *Bạn nên duy trì số lượng tháp để kiểm soát đường đi, hay hy sinh một vị trí chiến lược để tạo lực apprend tập trung tại một điểm duy nhất?*
+- **Khám phá Công thức**: Không phải mọi cặp tháp đều có công thức hợp nhất — điều này khuyến khích sự khám phá và thử nghiệm trong mỗi trận.
 
-### Technical Challenge
+### Thách thức Kỹ thuật
 
-The long-press + drag mechanic requires clear disambiguation between: a normal tap (select tower), a long press (begin drag), and drag release (execute merge or cancel). The entire state machine is handled by `GameController.cs` and `CrystalPlacementController.cs`.
+Cơ chế nhấn giữ + kéo yêu cầu phân biệt rõ ràng giữa: nhấn bình thường (chọn tháp), nhấn giữ (bắt đầu kéo), và thả kéo (thực hiện hợp nhất hoặc hủy bỏ). Toàn bộ máy trạng thái được xử lý bởi `GameController.cs` và `CrystalPlacementController.cs`.

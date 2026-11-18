@@ -3,6 +3,7 @@ title: "Core Mechanics Implementation"
 layout: "project"
 weight: 1
 pre: "3. "
+draft: true
 ---
 
 This section dives deep into the algorithms and core mechanics that power Hex Tower Defense gameplay. This is where the design decisions from Game Design Overview are translated into working code.

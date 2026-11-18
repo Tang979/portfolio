@@ -2,6 +2,7 @@
 title: "A* Pathfinding on Hex Grid"
 layout: "project"
 weight: 2
+draft: true
 pre: "3.1. "
 ---
 

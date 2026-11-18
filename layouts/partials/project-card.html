@@ -1,89 +1,73 @@
-{{/* Project Card Partial — receives a single project object as context.
-     Each project in data/projects.json should have a "slug" matching the content file
-     in content/project/<slug>.md (e.g. slug "my-game" → content/project/my-game.md → /project/my-game/). */}}
+{{ $project := .project }}
+{{ $site := .site }}
+{{ $language := .language }}
 {{ $projectPage := false }}
-{{ if .slug }}
-  {{ $projectPage = $.Site.GetPage (printf "project/%s" .slug) }}
+{{ if $project.slug }}
+  {{ $projectPage = $site.GetPage (printf "projects/%s" $project.slug) }}
 {{ end }}
-
+{{ $projectURL := $project.url }}
 {{ if $projectPage }}
-  <a href="{{ $projectPage.RelPermalink }}" class="project-card-link">
+  {{ $projectURL = $projectPage.RelPermalink }}
 {{ end }}
-<article class="glass-card reveal group">
 
-  <!-- Image -->
-  <div class="card-img-wrap">
-    <img
-      src="{{ .image }}"
-      alt="{{ .title }}"
-      loading="lazy"
-      width="800"
-      height="500"
-    />
-    <div class="card-img-overlay"></div>
+<article class="glass-card reveal project-card">
+  {{ if and (eq $project.type "studio") $project.image }}
+    <a class="project-card-image-link" href="{{ $projectURL }}" aria-label="{{ $project.title }}">
+      <div class="card-img-wrap">
+        <img src="{{ $project.image }}" alt="{{ $project.title }}" loading="lazy" width="800" height="500" />
+      </div>
+    </a>
+  {{ end }}
 
-    <!-- Tags overlay -->
-    <div class="absolute bottom-3 left-3 flex flex-wrap gap-1.5" style="z-index: 2;">
-      {{ range .tags }}
+  <div class="project-card-body">
+    <div class="project-card-topline">
+      <div class="project-card-labels">
+        <span class="type-badge">
+          {{ if eq $language "vi" }}
+            {{ if eq $project.type "studio" }}Studio{{ else }}Cá nhân{{ end }}
+          {{ else }}
+            {{ if eq $project.type "studio" }}Studio{{ else }}Personal{{ end }}
+          {{ end }}
+        </span>
+        {{ if $project.featured }}
+          <span class="featured-badge">{{ if eq $language "vi" }}Nổi bật{{ else }}Featured{{ end }}</span>
+        {{ end }}
+      </div>
+      <span class="project-year">{{ $project.year }}</span>
+    </div>
+
+    <h3 class="project-card-title">
+      <a class="project-card-title-link" href="{{ $projectURL }}">{{ $project.title }}</a>
+    </h3>
+
+    <p class="project-card-description">{{ $project.description }}</p>
+
+    <div class="project-card-tags">
+      {{ range $project.tags }}
         <span class="tag-pill">{{ . }}</span>
       {{ end }}
     </div>
 
-    <!-- Featured badge -->
-    {{ if .featured }}
-    <div class="absolute top-3 right-3" style="z-index: 2;">
-      <span style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em;
-                   text-transform: uppercase; color: var(--forest-light);
-                   background: rgba(10,10,10,0.75); padding: 0.25rem 0.65rem;
-                   border-radius: 999px; border: 1px solid rgba(45,90,39,0.5);
-                   backdrop-filter: blur(6px);">{{ if eq $.Site.Language.Lang "vi" }}Nổi Bật{{ else }}Featured{{ end }}</span>
-    </div>
-    {{ end }}
-  </div>
-
-  <!-- Body -->
-  <div style="padding: 1.4rem 1.5rem 1.5rem;">
-
-    <!-- Title + year -->
-    <div class="flex items-start justify-between gap-2 mb-2.5">
-      <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; line-height: 1.3;">
-        {{ .title }}
-      </h3>
-      <span style="font-size: 0.72rem; font-weight: 500; color: var(--text-muted); white-space: nowrap; margin-top: 2px;">
-        {{ .year }}
-      </span>
-    </div>
-
-    <!-- Description -->
-    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;
-              display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-      {{ .description }}
-    </p>
-
-    <!-- Footer: platform + link -->
-    <div class="flex items-center justify-between">
-      <span style="font-size: 0.72rem; color: var(--text-muted);">
-        <!-- Platform icon -->
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2" style="display:inline; margin-right:4px; vertical-align: middle;">
+    <div class="project-card-footer">
+      <span class="project-platform">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
           <rect x="2" y="3" width="20" height="14" rx="2"/>
           <path d="M8 21h8M12 17v4"/>
         </svg>
-        {{ .platform }}
+        {{ $project.platform }}
       </span>
 
-      <a href="{{ .url }}"
-         style="font-size: 0.8rem; font-weight: 600; color: var(--forest-light);
-                display: flex; align-items: center; gap: 0.3rem;
-                transition: color 0.3s ease, gap 0.3s ease;"
-         onmouseover="this.style.color='#f0f0f0'; this.style.gap='0.5rem'"
-         onmouseout="this.style.color='var(--forest-light)'; this.style.gap='0.3rem'">
-        {{ if eq $.Site.Language.Lang "vi" }}Xem Dự Án{{ else }}View Project{{ end }}
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
+      <div class="project-card-actions">
+        {{ if and (eq $project.type "studio") $project.store_link }}
+          <a href="{{ $project.store_link }}" target="_blank" rel="noopener noreferrer" class="store-btn">itch.io</a>
+        {{ end }}
+        <a href="{{ $projectURL }}" class="project-card-cta">
+          {{ if eq $language "vi" }}Xem dự án{{ else }}View project{{ end }}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
     </div>
-
   </div>
 </article>

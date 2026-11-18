@@ -3,6 +3,7 @@ title: "Data & Resource Management"
 layout: "project"
 weight: 1
 pre: "5. "
+draft: true
 ---
 
 A key principle of this project is the **strict separation of data from game logic**. Game data is divided into two clear categories:

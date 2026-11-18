@@ -3,6 +3,7 @@ title: "Hiệu Năng & Tối Ưu Mobile"
 layout: "project"
 weight: 1
 pre: "6. "
+draft: true
 ---
 
 <!-- NỘI DUNG TIẾNG VIỆT - DRAFT ĐỂ DỊCH SANG TIẾNG ANH -->

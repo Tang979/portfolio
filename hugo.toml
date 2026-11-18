@@ -1,7 +1,7 @@
-baseURL = 'https://example.org/'
+baseURL = '/'
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = false
-title = 'Alex Nguyen | Game Developer'
+title = 'Tuan Khoa | Game Designer'
 
 [languages]
   [languages.en]
@@ -13,17 +13,16 @@ title = 'Alex Nguyen | Game Developer'
     languageCode = 'vi'
     languageName = 'Tiếng Việt'
     weight = 2
-    title = 'Tuan Khoa | Game Developer'
+    title = 'Tuấn Khoa | Game Designer'
 
 [params]
-  name        = "Alex Nguyen"
-  tagline     = "Crafting Worlds, Breathing Life Into Pixels"
-  description = "Game Developer with 7+ years building immersive experiences with Unity & Unreal Engine. Passionate about procedural generation, physics systems, and storytelling through gameplay."
-  email       = "hello@alexnguyen.dev"
-  github      = "https://github.com/alexnguyen"
-  linkedin    = "https://linkedin.com/in/alexnguyen"
-  itchio      = "https://alexnguyen.itch.io"
-  twitter     = "https://twitter.com/alexnguyen_dev"
+  name        = "Tuan Khoa"
+  tagline     = "Game design for mobile casual and puzzle games"
+  description = "Game Designer focused on mobile casual and puzzle games, gameplay systems, playtesting, and Unity prototyping."
+  email       = "tuankhoa542003@gmail.com"
+  github      = "https://github.com/Tang979"
+  linkedin    = "https://www.linkedin.com/in/t%C4%83ng-nguy%E1%BB%85n-tu%E1%BA%A5n-khoa-38633b359/"
+  itchio      = "https://tang979.itch.io"
 
 [markup.goldmark.renderer]
   unsafe = true

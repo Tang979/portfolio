@@ -1,13 +1,46 @@
 [
   {
-    "title": "Hex Tower Defense",
-    "slug": "hex-tower-defense",
-    "description": "A strategic mobile tower defense game with a focus on high performance and engine-agnostic architecture.",
-    "tags": ["Unity", "C#", "Tower Defense", "Mobile"],
-    "url": "/projects/hex-tower-defense/",
-    "image": "/images/BgProject.png",
+    "title": "Shoe Sort Puzzle",
+    "slug": "shoe-sort-puzzle",
+    "description": "Mobile match-3 sorting puzzle with JSON-driven levels, booster systems, and a balanced in-game economy designed through playtesting.",
+    "tags": ["Unity", "C#", "Puzzle", "Mobile", "Game Design", "Level Design"],
+    "url": "/projects/shoe-sort-puzzle/",
     "year": "2026",
     "platform": "Mobile",
-    "featured": true
+    "featured": false,
+    "type": "personal"
+  },
+  {
+    "title": "Block Puzzle",
+    "slug": "block-puzzle",
+    "description": "Classic block puzzle game featuring level progression, difficulty scaling, and booster mechanics designed and balanced through iterative playtesting.",
+    "tags": ["Unity", "C#", "Puzzle", "Mobile", "Game Design", "Game Balancing"],
+    "url": "/projects/block-puzzle/",
+    "year": "2026",
+    "platform": "Mobile",
+    "featured": false,
+    "type": "personal"
+  },
+  {
+    "title": "Bow Hit",
+    "slug": "bow-hit",
+    "description": "Arcade archery game with precision-based mechanics, win/lose condition design, and gameplay flow tuned through data-driven iteration.",
+    "tags": ["Unity", "C#", "Arcade", "Mobile", "Game Design", "Gameplay Mechanics"],
+    "url": "/projects/bow-hit/",
+    "year": "2026",
+    "platform": "Mobile",
+    "featured": false,
+    "type": "personal"
+  },
+  {
+    "title": "Hex Tower Defense",
+    "slug": "hex-tower-defense",
+    "description": "A tactical tower-defense prototype built around player-shaped paths, maze-building, and tower merging on a hex grid.",
+    "tags": ["Game Design", "Tower Defense", "Level Design", "Gameplay Systems", "Mobile"],
+    "url": "/projects/hex-tower-defense/",
+    "year": "2026",
+    "platform": "Mobile",
+    "featured": true,
+    "type": "personal"
   }
 ]

@@ -1,35 +1,28 @@
 ---
-title: "Cơ Chế Hợp Nhất (Merge)"
+title: "Cơ chế Hợp Tháp"
 layout: "project"
 weight: 2
+# draft: true
 pre: "1.4. "
 ---
 
-<!-- NỘI DUNG TIẾNG VIỆT - DRAFT ĐỂ DỊCH SANG TIẾNG ANH -->
-<!-- Bạn có thể chỉnh sửa và bổ sung phần này trước khi mình dịch -->
+### Cách Hoạt động
 
-### Ý tưởng & Nguồn cảm hứng
+Người chơi có 2 cách để hợp tháp:
 
-<!-- BỔ SUNG: Merge mechanic lấy cảm hứng từ đâu? (Auto Chess? Puzzle games? Merge Dragons?) -->
-<!-- BỔ SUNG: Vấn đề gì bạn muốn giải quyết khi thiết kế cơ chế này? -->
+1. **Kéo từ Bản đồ sang Bản đồ**: Giữ một tháp đã đặt trên bản đồ trong khoảng **1 giây** (nhấn giữ) → tháp chuyển vào trạng thái có thể kéo → kéo nó lên tháp mục tiêu để hợp nhất
+2. **Kéo từ Giao diện sang Bản đồ**: Kéo một tháp trực tiếp từ thanh tháp trong giao diện lên một tháp đã đặt trên bản đồ
 
-### Cơ chế hoạt động
+Kết quả hợp nhất được xác định trước bởi **MergeRecipeData** (JSON) — mỗi cặp tháp A + B có thể tạo ra một tháp mạnh hơn C. Người chơi chỉ có thể thực hiện hợp nhất khi họ có các thành phần yêu cầu trong kho đồ.
 
-Người chơi có 2 cách để merge tháp:
+### Ảnh hưởng Chiến thuật
 
-1. **Kéo từ map sang map**: Giữ tháp đang đặt trên bản đồ khoảng **1 giây** (long press) → tháp chuyển sang trạng thái có thể kéo → kéo về ô đặt tháp muốn merge
-2. **Kéo từ UI vào map**: Kéo tháp trực tiếp từ thanh tháp ở UI vào một tháp đang đặt trên bản đồ
+Với 5 tháp cơ bản mang vào mỗi trận, người chơi không bị giới hạn chỉ ở 5 loại đó. Qua việc hợp nhất, một **cây tháp mới** mở ra:
 
-Kết quả merge được xác định trước thông qua **MergeRecipeData** (JSON) — mỗi cặp tháp A + B có thể cho ra một tháp C mạnh hơn. Người chơi chỉ có thể thực hiện merge khi mang đủ nguyên liệu trong loadout.
+- **Lực Tấn Công vs Kiểm soát Đường đi**: Tháp hợp nhất có thông số vượt trội, nhưng đi kèm chi phí tài nguyên và rủi ro chiến thuật. Khi hai tháp trên bản đồ được kết hợp, người chơi mất đi một **Băn Chắn** — điều này có thể hoàn toàn thay đổi đường đi của kẻ thù và phá vỡ cấu trúc mê cung đã thiết lập.
+- **Mâu thuắn cốt lõi**: *Bạn nên duy trì số lượng tháp để kiểm soát đường đi, hay hy sinh một vị trí chiến lược để tạo lực tập trung tại một điểm duy nhất?*
+- **Khám phá Công thức**: Không phải mọi cặp tháp đều có công thức hợp nhất — điều này khuyến khích sự khám phá và thử nghiệm trong mỗi trận.
 
-### Tác động đến chiến thuật
+### Thách thức Kỹ thuật
 
-Với 5 tháp cơ bản mang theo vào mỗi ván, người chơi không bị giới hạn chỉ ở 5 loại đó. Thông qua merge, một **cây tháp mới** mở ra:
-
-- **Sức mạnh vs. Kiểm soát Lộ trình**: Tháp Merge có chỉ số vượt trội nhưng đi kèm chi phí tài nguyên và rủi ro chiến thuật. Khi gộp hai tháp trên bản đồ, người chơi sẽ mất đi một "vật cản" (Blocking), việc này có thể làm thay đổi hoàn toàn đường đi của Enemy và phá vỡ cấu trúc mê cung đã thiết lập.
-- **Bài toán Cân não**: *Nên duy trì số lượng tháp để kiểm soát đường đi, hay hy sinh một vị trí chiến lược để tạo ra hỏa lực cực mạnh tập trung tại một điểm?*
-- **Khám phá Recipe**: Không phải mọi cặp tháp đều có công thức kết hợp — điều này thúc đẩy sự tìm tòi và thử nghiệm trong mỗi ván chơi.
-
-### Thách thức kỹ thuật
-
-Cơ chế long-press + drag đặt ra yêu cầu phân biệt rõ ràng giữa: tap thông thường (select tower), long press (bắt đầu drag), và drag kết thúc (thực hiện merge hoặc hủy). Toàn bộ state machine này được xử lý trong `GameController.cs` và `CrystalPlacementController.cs`.
+Cơ chế nhấn giữ + kéo yêu cầu phân biệt rõ ràng giữa: nhấn bình thường (chọn tháp), nhấn giữ (bắt đầu kéo), và thả kéo (thực hiện hợp nhất hoặc hủy bỏ). Toàn bộ máy trạng thái được xử lý bởi `GameController.cs` và `CrystalPlacementController.cs`.

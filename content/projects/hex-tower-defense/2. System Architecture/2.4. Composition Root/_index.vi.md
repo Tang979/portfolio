@@ -2,6 +2,7 @@
 title: "Composition Root & Quản Lý Vòng Đời"
 layout: "project"
 weight: 2
+draft: true
 pre: "2.4. "
 ---
 

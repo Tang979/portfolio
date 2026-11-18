@@ -13,13 +13,11 @@
 <meta property="og:type" content="website" />
 
 
-<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/output.css" />
 
 
 <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
-<link rel="shortcut icon" href="/icon/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/icon/favicon.svg">
 
 </head>
 <body>
@@ -30,11 +28,11 @@
     
     <a href="/" class="flex items-center gap-2.5 group">
       
-      <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--forest);
+      <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--text-primary);
                   display: flex; align-items: center; justify-content: center;
                   transition: background var(--transition), box-shadow var(--transition);"
            class="group-hover:shadow-lg">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8f5e5"
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--bg)"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="6" y1="11" x2="10" y2="11"/>
           <line x1="8" y1="9" x2="8" y2="13"/>
@@ -44,32 +42,25 @@
         </svg>
       </div>
       <span style="font-size: 1.05rem; font-weight: 800; color: #f0f0f0; letter-spacing: -0.02em;">
-        TUANKHOA<span style="color: var(--forest-light);"></span>
+        TUANKHOA<span style="color: var(--primary-light);"></span>
       </span>
     </a>
 
     
     <nav class="hidden md:flex items-center gap-8">
       
-        <a href="/#work"    class="nav-link">Dự Án</a>
+        <a href="/vi/#work-personal" class="nav-link">Dự Án</a>
         <a href="/#about"   class="nav-link">Giới Thiệu</a>
         <a href="/#contact" class="nav-link">Liên Hệ</a>
       
 
-      <a href="mailto:hello@alexnguyen.dev" class="btn-primary" style="padding: 0.55rem 1.25rem; font-size: 0.82rem;">
-        Tuyển dụng tôi
+      <a href="mailto:tuankhoa542003@gmail.com" class="btn-primary header-contact-link">
+        Gửi email
       </a>
       
       
-      <button id="lang-toggle-btn" onclick="toggleLanguage()"
-        style="display: flex; align-items: center; gap: 0.4rem;
-               padding: 0.45rem 0.9rem; font-size: 0.8rem; font-weight: 600;
-               border: 1.5px solid var(--forest-light); border-radius: 8px;
-               background: transparent; color: var(--forest-light);
-               cursor: pointer; transition: all 0.2s ease; letter-spacing: 0.03em;"
-        onmouseover="this.style.background='var(--forest)'; this.style.color='#e8f5e5';"
-        onmouseout="this.style.background='transparent'; this.style.color='var(--forest-light)';"
-        aria-label="Switch language">
+      <button id="lang-toggle-btn" class="language-toggle" onclick="toggleLanguage()"
+        aria-label="Đổi ngôn ngữ">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
         </svg>
@@ -78,7 +69,11 @@
     </nav>
 
     
-    <button id="menu-btn" class="md:hidden hamburger" aria-label="Toggle menu">
+    <button id="menu-btn" class="md:hidden hamburger"
+      aria-label="Mở menu"
+      data-open-label="Đóng menu"
+      data-close-label="Mở menu"
+      aria-expanded="false" aria-controls="mobile-menu">
       <span></span>
       <span></span>
       <span></span>
@@ -100,7 +95,7 @@
   }
 
   function getSavedLang() {
-    try { return localStorage.getItem(LANG_KEY) || 'en'; } catch(e) { return 'en'; }
+    try { return localStorage.getItem(LANG_KEY) || getCurrentLang(); } catch(e) { return getCurrentLang(); }
   }
 
   function saveLang(lang) {
@@ -149,7 +144,7 @@
       ? toViPath(window.location.pathname)
       : toEnPath(window.location.pathname);
 
-    window.location.href = newPath;
+    window.location.href = newPath + window.location.search + window.location.hash;
   };
 
   
@@ -178,26 +173,68 @@
 }());
 </script>
 
-<div id="mobile-menu" role="dialog" aria-modal="true">
-  <button id="menu-close" class="absolute top-6 right-6" aria-label="Close menu" style="color: #5a5a5a; font-size: 1.5rem;">✕</button>
+<div id="mobile-menu" role="dialog" aria-modal="true"
+     aria-label="Điều hướng">
+  <button id="menu-close" class="absolute top-6 right-6" aria-label="Đóng menu">×</button>
   
-    <a href="/#work"    onclick="closeMobileMenu()">Dự Án</a>
-    <a href="/#about"   onclick="closeMobileMenu()">Giới Thiệu</a>
-    <a href="/#contact" onclick="closeMobileMenu()">Liên Hệ</a>
-    <a href="mailto:hello@alexnguyen.dev" class="btn-primary" onclick="closeMobileMenu()">Tuyển dụng tôi</a>
+    <a href="/vi/#work-personal" onclick="closeMobileMenu()">Dự án</a>
+    <a href="/vi/#about" onclick="closeMobileMenu()">Giới thiệu</a>
+    <a href="/vi/#contact" onclick="closeMobileMenu()">Liên hệ</a>
+    <a href="mailto:tuankhoa542003@gmail.com" class="btn-primary" onclick="closeMobileMenu()">Gửi email</a>
+    <button class="mobile-menu-language" onclick="closeMobileMenu(); toggleLanguage()">English · EN</button>
   
 </div>
+
+<script>
+(function () {
+  var menuButton = document.getElementById('menu-btn');
+  var closeButton = document.getElementById('menu-close');
+  var menu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    if (!menu || !menuButton) return;
+    menu.classList.remove('open');
+    menuButton.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', menuButton.getAttribute('data-close-label'));
+    document.body.style.overflow = '';
+  }
+
+  function openMenu() {
+    if (!menu || !menuButton) return;
+    menu.classList.add('open');
+    menuButton.classList.add('open');
+    menuButton.setAttribute('aria-expanded', 'true');
+    menuButton.setAttribute('aria-label', menuButton.getAttribute('data-open-label'));
+    document.body.style.overflow = 'hidden';
+    if (closeButton) closeButton.focus();
+  }
+
+  window.closeMobileMenu = closeMenu;
+  if (menuButton) menuButton.addEventListener('click', openMenu);
+  if (closeButton) closeButton.addEventListener('click', function () {
+    closeMenu();
+    if (menuButton) menuButton.focus();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeMenu();
+      if (menuButton) menuButton.focus();
+    }
+  });
+}());
+</script>
 
 
   <div class="project-detail-wrapper">
 
     
-    <aside class="project-sidebar glass-card" aria-label="Table of contents">
+    <aside class="project-sidebar glass-card" aria-label="Mục lục">
       <div class="sidebar-inner">
 
         
         <div class="sidebar-header">
-          <p class="sidebar-project-title">Documentation</p>
+          <p class="sidebar-project-title">Nội dung dự án</p>
         </div>
 
         
@@ -272,7 +309,7 @@
                     
 
                     <span class="toc-title-wrap">
-                      <span class="toc-title">Khái Niệm Cốt Lõi &amp; Vòng Lặp Game</span>
+                      <span class="toc-title">Core Concept &amp; Game Loop</span>
                     </span>
                   </a>
                 </li>
@@ -300,7 +337,7 @@
                     
 
                     <span class="toc-title-wrap">
-                      <span class="toc-title">Lưới Hex như một Công Cụ Thiết Kế</span>
+                      <span class="toc-title">Hex Grid as a Design Tool</span>
                     </span>
                   </a>
                 </li>
@@ -328,7 +365,7 @@
                     
 
                     <span class="toc-title-wrap">
-                      <span class="toc-title">Thiết Kế Tháp &amp; Kẻ Thù</span>
+                      <span class="toc-title">Tower &amp; Enemy Design</span>
                     </span>
                   </a>
                 </li>
@@ -356,567 +393,7 @@
                     
 
                     <span class="toc-title-wrap">
-                      <span class="toc-title">Cơ Chế Hợp Nhất (Merge)</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-1">
-                  <a href="/vi/projects/hex-tower-defense/2.-system-architecture/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">2. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Kiến Trúc Hệ Thống</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/2.-system-architecture/2.1.-clean-architecture--ddd/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">2.1. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Kiến Trúc Sạch &amp; Thiết Kế Hướng Tên Miền (DDD)</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/2.-system-architecture/2.2.-dependency-injection/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">2.2. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Cơ Chế Dependency Injection</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/2.-system-architecture/2.3.-event-driven-communication/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">2.3. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Giao Tiếp Hướng Sự Kiện (Observer Pattern)</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/2.-system-architecture/2.4.-composition-root/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">2.4. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Composition Root &amp; Quản Lý Vòng Đời</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-1">
-                  <a href="/vi/projects/hex-tower-defense/3.-core-mechanics/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">3. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Cơ Chế Cốt Lõi</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/3.-core-mechanics/3.1.-a-star-pathfinding/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">3.1. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Tìm Đường A* Trên Lưới Hex</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/3.-core-mechanics/3.2.-dynamic-path-recalculation/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">3.2. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Tính Toán Lại Đường Đi Động</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/3.-core-mechanics/3.3.-bfs-deadlock-prevention/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">3.3. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Ngăn Chặn Bế Tắc Bằng BFS</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/3.-core-mechanics/3.4.-combat-system/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">3.4. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Hệ Thống Chiến Đấu: Strategy &amp; Modifier Pattern</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-1">
-                  <a href="/vi/projects/hex-tower-defense/4.-status-effect-system/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">4. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Hệ Thống Hiệu Ứng Trạng Thái</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/4.-status-effect-system/4.1.-effect-lifecycle--tick/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">4.1. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Vòng Đời Hiệu Ứng &amp; Hệ Thống Tick</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/4.-status-effect-system/4.2.-effect-scaling-modes/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">4.2. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Các Chế Độ Tính Sát Thương</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-1">
-                  <a href="/vi/projects/hex-tower-defense/5.-data--resource-management/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">5. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Quản Lý Dữ Liệu &amp; Tài Nguyên</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/5.-data--resource-management/5.1.-json-driven-configuration/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">5.1. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Cấu Hình Game Bằng JSON</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/5.-data--resource-management/5.2.-async-asset-loading/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">5.2. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Tải Tài Nguyên Bất Đồng Bộ Với Addressables</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/5.-data--resource-management/5.3.-object-pool-system/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">5.3. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Hệ Thống Object Pool</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-1">
-                  <a href="/vi/projects/hex-tower-defense/6.-performance--mobile/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">6. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Hiệu Năng &amp; Tối Ưu Mobile</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/6.-performance--mobile/6.1.-procedural-hexmesh/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">6.1. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Khởi Tạo HexMesh Bằng Code</span>
-                    </span>
-                  </a>
-                </li>
-                
-                  
-              
-              
-            
-                
-              
-                
-                
-                  
-                  
-                  
-                
-
-                <li class="toc-item depth-2">
-                  <a href="/vi/projects/hex-tower-defense/6.-performance--mobile/6.2.-logic-vs-physics-tradeoff/"
-                     class="toc-link"
-                     aria-current="false">
-                    
-                    
-                      <span class="toc-pre">6.2. </span>
-                    
-
-                    <span class="toc-title-wrap">
-                      <span class="toc-title">Tối Ưu Giữa Logic và Vật Lý</span>
+                      <span class="toc-title">Cơ chế Hợp Tháp</span>
                     </span>
                   </a>
                 </li>
@@ -943,7 +420,7 @@
                      aria-current="page">
                     
                     
-                      <span class="toc-pre">7. </span>
+                      <span class="toc-pre">2. </span>
                     
 
                     <span class="toc-title-wrap">
@@ -971,7 +448,7 @@
                      aria-current="false">
                     
                     
-                      <span class="toc-pre">8. </span>
+                      <span class="toc-pre">3. </span>
                     
 
                     <span class="toc-title-wrap">
@@ -1000,7 +477,6 @@
         <h1 class="project-page-title">Kiểm Thử Unit Test</h1>
       </header>
 
-      
       <div class="project-body">
         <h3 id="đảm-bảo-chất-lượng-qua-unit-tests-domain-layer">Đảm bảo chất lượng qua Unit Tests (Domain Layer)</h3>
 <p>Một trong những lợi ích lớn nhất của việc tách biệt <strong>Logic (Domain)</strong> và <strong>Hiển thị (Unity)</strong> là khả năng kiểm tra độ chính xác của game hoàn toàn tự động, không cần mở Unity Editor hay chạy thử tay từng trường hợp.</p>
@@ -1042,9 +518,9 @@
       
       <div class="flex items-center gap-3">
         
-        <div style="width: 24px; height: 24px; border-radius: 5px; background: var(--forest);
+        <div style="width: 24px; height: 24px; border-radius: 5px; background: var(--text-primary);
                     display: flex; align-items: center; justify-content: center;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e8f5e5"
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--bg)"
                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="6" y1="11" x2="10" y2="11"/>
             <line x1="8" y1="9" x2="8" y2="13"/>
@@ -1054,18 +530,13 @@
           </svg>
         </div>
         <span style="font-size: 0.82rem; color: var(--text-muted);">
-          &copy; 2026 TUANKHOA<span style="color: var(--forest-light);"></span>
+          &copy; 2026 TUANKHOA
           
         </span>
       </div>
 
       
-      <a href="#"
-         style="font-size: 0.78rem; font-weight: 500; color: var(--text-muted);
-                display: flex; align-items: center; gap: 0.4rem;
-                transition: color 0.3s ease;"
-         onmouseover="this.style.color='var(--forest-light)'"
-         onmouseout="this.style.color='var(--text-muted)'">
+      <a href="#" class="footer-top-link flex items-center gap-2">
         Lên đầu trang
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 19V5M5 12l7-7 7 7"/>
@@ -1090,58 +561,6 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();  
-
-     
-    var menuBtn    = document.getElementById('menu-btn');
-    var menuClose  = document.getElementById('menu-close');
-    var mobileMenu = document.getElementById('mobile-menu');
-
-    function openMobileMenu() {
-      if (!mobileMenu) return;
-      mobileMenu.classList.add('open');
-      if (menuBtn) menuBtn.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    window.closeMobileMenu = function () {
-      if (!mobileMenu) return;
-      mobileMenu.classList.remove('open');
-      if (menuBtn) menuBtn.classList.remove('open');
-      document.body.style.overflow = '';
-    };
-
-    if (menuBtn)   menuBtn.addEventListener('click', openMobileMenu);
-    if (menuClose) menuClose.addEventListener('click', window.closeMobileMenu);
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') window.closeMobileMenu();
-    });
-
-    
-
-    var tocLinks = document.querySelectorAll('.toc-link');
-
-    tocLinks.forEach(function (link) {
-      var wrap  = link.querySelector('.toc-title-wrap');
-      var title = link.querySelector('.toc-title');
-      if (!wrap || !title) return;
-
-      link.addEventListener('mouseenter', function () {
-        var wrapW  = wrap.offsetWidth;
-        var titleW = title.scrollWidth;
-         
-        if (titleW > wrapW + 4) {
-          var distance = -(titleW - wrapW + 8);
-          title.style.setProperty('--marquee-distance', distance + 'px');
-          title.classList.add('marquee-active');
-        }
-      });
-
-      link.addEventListener('mouseleave', function () {
-        title.classList.remove('marquee-active');
-         
-      });
-    });
 
   }());
   </script>

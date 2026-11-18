@@ -2,6 +2,7 @@
 title: "Event-Driven Communication (Observer Pattern)"
 layout: "project"
 weight: 2
+draft: true
 pre: "2.3. "
 ---
 

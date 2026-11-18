@@ -2,6 +2,7 @@
 title: "Effect Scaling Modes"
 layout: "project"
 weight: 2
+draft: true
 pre: "4.2. "
 ---
 

@@ -1,27 +1,25 @@
 ---
-title: "Lưới Hex như một Công Cụ Thiết Kế"
+title: "Hex Grid as a Design Tool"
 layout: "project"
 weight: 2
+# draft: true
 pre: "1.2. "
 ---
 
-<!-- NỘI DUNG TIẾNG VIỆT - DRAFT ĐỂ DỊCH SANG TIẾNG ANH -->
-<!-- Bạn có thể chỉnh sửa phần này trước khi mình dịch -->
+### Tại sao chọn Lục Giác?
 
-### Tại sao chọn lưới Hex?
+Ý tưởng sử dụng lưới lục giác lấy cảm hứng từ chiến trường của **Teamfight Tactics (TFT)** — nơi các ô lục giác tạo ra chuyển động mượt mà và tự nhiên hơn so với lưới vuông chuẩn.
 
-Ý tưởng sử dụng lưới hex xuất phát từ cảm hứng từ sàn đấu của game **Teamfight Tactics (TFT)** — nơi các ô hex tạo ra cảm giác chuyển động mượt mà và tự nhiên hơn rất nhiều so với lưới ô vuông thông thường.
+Thuộc tính quan trọng nhất của một ô lục giác là **khoảng cách đến tất cả 6 hàng xóm đều bằng nhau**. Điều này có nghĩa là khi một đối tượng thay đổi hướng di chuyển trên lưới lục giác, chuyển động sẽ trông hợp lý và thẳng tắp — khác hẳn lưới vuông nơi di chuyển chéo thường cảm thấy "không ổn" về mặt nhận thức.
 
-Điểm quan trọng nhất của ô hex là **khoảng cách đến tất cả 6 ô lân cận đều bằng nhau**. Điều này có nghĩa là khi một đối tượng thay đổi hướng trên lưới hex, chuyển động trông hợp lý và tuyến tính hơn so với lưới vuông (nơi chuyển động đường chéo bị "lệch" về mặt cảm nhận).
+### Ảnh hưởng đến Gameplay
 
-### Ảnh hưởng đến gameplay
+Với **6 hướng** thay vì 4 hướng trên lưới vuông, các ý nghĩa thiết kế rõ ràng:
 
-Với **6 hướng** thay vì 4 hướng trên lưới vuông, hệ quả thiết kế rõ ràng:
+- **Mê cung phức tạp hơn**: Người chơi có 2 hướng bổ sung để chặn — mê cung có thể co cong, zigzag, và tạo ra các tình huống đáng ngạc nhiên hơn nhiều so với lưới vuông cho phép
+- **Hình dạng bản đồ đa dạng hơn**: Lưới lục giác cho phép các hình dạng bản đồ độc đáo không bị giới hạn bởi hình chữ nhật
+- **Hiển thị tầm bắn trực quan hơn**: Tầm bán kính vòng tròn của một tháp tự nhiên phù hợp với hình lục giác, tránh được các trường hợp "góc chết" lạ lẫm của lưới vuông
 
-- **Mê cung phức tạp hơn**: Người chơi có thêm 2 hướng để chặn — mê cung có thể uốn lượn, zigzag và tạo ra những tình huống bất ngờ hơn nhiều so với lưới vuông
-- **Hình dạng bản đồ đa dạng hơn**: Lưới hex cho phép tạo ra các bản đồ có hình dạng độc đáo, không bị giới hạn bởi hình chữ nhật
-- **Tính trực quan hơn khi tính tầm bắn**: Vòng tầm bắn hình tròn của tháp khớp tự nhiên hơn với hình dạng hex, tránh các trường hợp "góc chết" kỳ lạ của lưới vuông
+### Thách thức Kỹ thuật từ Quyết định Thiết kế này
 
-### Thách thức kỹ thuật từ quyết định thiết kế
-
-Việc chọn hex grid kéo theo một loạt thách thức kỹ thuật — từ cách tính tọa độ offset (odd/even columns), thiết kế thuật toán A* trên hex, đến việc tạo procedural mesh — tất cả sẽ được trình bày chi tiết trong các phần tiếp theo.
+Việc chọn lưới lục giác đã đưa ra một loạt thách thức kỹ thuật — từ tính toán toạ độ chênh lệch (cột chẵn/lẻ) và thiết kế thuật toán A* cho hình học lục giác, đến tạo lưới thủ tục — tất cả được giải quyết chi tiết trong các phần sau.

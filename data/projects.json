@@ -4,9 +4,10 @@
     "slug": "tidy-room-decor-house",
     "description": "A cozy room-design puzzle about sorting everyday items and transforming messy spaces into decorated rooms.",
     "tags": [
-      "Cozy Puzzle",
-      "Room Design",
-      "Level Design"
+      "Player Data Analysis",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting"
     ],
     "url": "/projects/tidy-room-decor-house/",
     "platform": "Android & iOS",
@@ -33,19 +34,23 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/amvbIpVl3sX5L3rJtwLPLW5UCInv9YyU0aUsMzuA6so-5tIKqYdLbzS5xVM469hGISD3Xv64q6-ep_qOrJP4AA=w526-h296",
-      "https://play-lh.googleusercontent.com/Udn-w4BuDH10Mf3gaJlE8AjMqhaBbsWu0NEB0jreelfKN4ONo9lUSYR9mdGuVjh-Ng3TGztWNRfbTycJqDr9=w526-h296",
-      "https://play-lh.googleusercontent.com/-HmzhFNgfdWhaKek954rpmSoDC4_Gk8tgoCcZkWKvnhyEgDz-WhlHNqFtg5lDa8HIk8A_F69dAA9HKtSFztIMA=w526-h296"
-    ]
+      "/images/projects/tidy-room-decor-house/screenshot-1.jpg",
+      "/images/projects/tidy-room-decor-house/screenshot-2.jpg",
+      "/images/projects/tidy-room-decor-house/screenshot-3.jpg"
+    ],
+    "genre": "Decor & Puzzle",
+    "status": "Released"
   },
   {
     "title": "Boomland: Maze Escape",
     "slug": "boomland-maze-escape",
     "description": "A bomb-action maze game where players clear obstacles, battle monsters, collect upgrades, and escape each stage.",
     "tags": [
-      "Action Puzzle",
-      "Maze",
-      "Power-ups"
+      "Playtesting",
+      "Game Balancing",
+      "Player Data Analysis",
+      "Level Design",
+      "Bug Reporting"
     ],
     "url": "/projects/boomland-maze-escape/",
     "platform": "Android",
@@ -68,19 +73,23 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/-2GqtNlmlc5zlonLAxFqEcOMletZ9V01xsITOskzu7FPacmjtMOXWDsomYUIoHLlgNjtBqmkRP3IIwUpVEjRyA=w526-h296",
-      "https://play-lh.googleusercontent.com/M465skxbCj9IguxaAaVlLwX0_3vWwTtrrFUn4nziX9Y_-cO4W1HmwdsIP1h_erfiVQKQO6DmGp3Erw-qC1St=w526-h296",
-      "https://play-lh.googleusercontent.com/RH8gVBLsS2aRni7QSRdNlqHjA6pE8KtycrwyuQufVQXg8avqSWfY0qlhc2WM9kFzgl-Pra3r1d_XWGtqz9cZ=w526-h296"
-    ]
+      "/images/projects/boomland-maze-escape/screenshot-1.jpg",
+      "/images/projects/boomland-maze-escape/screenshot-2.jpg",
+      "/images/projects/boomland-maze-escape/screenshot-3.jpg"
+    ],
+    "genre": "Action Maze",
+    "status": "Released"
   },
   {
     "title": "Tidy Out: Cozy Decor",
     "slug": "tidy-out-cozy-decor",
     "description": "A block-escape puzzle that combines careful move planning with cozy room decoration.",
     "tags": [
-      "Block Puzzle",
-      "Escape",
-      "Room Design"
+      "Brainstorming",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting",
+      "Player Data Analysis"
     ],
     "url": "/projects/tidy-out-cozy-decor/",
     "platform": "Android & iOS",
@@ -107,19 +116,23 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/BxMB83qNdTrubVxZwgQqugiyp_Id51HXntAoh0o0TP3MH-Lwk8KyEBfv1MzJACLw2c8lXqLUjgsPTZoZ6eBxd3w=w526-h296",
-      "https://play-lh.googleusercontent.com/Y6eZUkrZcM-7Ds9dSgGB185a6PCcqJGLZp7hjR2dtGKae67DzrhSjqNwqSYmJ98PY5DKwZTiR-1x6yp7CXCBSw=w526-h296",
-      "https://play-lh.googleusercontent.com/bN0fVdNih8qbHxFPmFbp-vIeJEpWRCKcNCKkapBVchnXFEeC_zU-2ifUBTzsiokY4bn9ao2JTLlXTAVlSZVFriI=w526-h296"
-    ]
+      "/images/projects/tidy-out-cozy-decor/screenshot-1.jpg",
+      "/images/projects/tidy-out-cozy-decor/screenshot-2.jpg",
+      "/images/projects/tidy-out-cozy-decor/screenshot-3.jpg"
+    ],
+    "genre": "Block Puzzle",
+    "status": "Released"
   },
   {
     "title": "Maze Dash Classic",
     "slug": "maze-dash-classic",
     "description": "An arcade maze runner focused on collecting energy, avoiding monsters, and finding a route through each level.",
     "tags": [
-      "Arcade",
-      "Maze Runner",
-      "Mobile"
+      "Brainstorming",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting",
+      "Player Data Analysis"
     ],
     "url": "/projects/maze-dash-classic/",
     "platform": "Android",
@@ -142,19 +155,23 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/jiagWfxpm7chHNuHdFnB1ukGN846FRRU5mk5f1K6LPpgV0-uV0BQQPR7HV4acJGkxOM7OhkkT6kWar6CHLRg=w526-h296",
-      "https://play-lh.googleusercontent.com/jO4Ryrx23dEy2kcZjpsZW1FGwIPAAO8XcblXzer86tCjVTc1xODIULuUGpC5LWTWZLf6xTADEHnhUhX8DDM5m0k=w526-h296",
-      "https://play-lh.googleusercontent.com/Bs1ZQHcr4WV1-Uj4VjPMDERcvPLyddR6QQLfQ3WNaNvQ4CbEyPNIcefPXM0PA-ireKCbcXcx7Kw-aF-7NnHONg=w526-h296"
-    ]
+      "/images/projects/maze-dash-classic/screenshot-1.jpg",
+      "/images/projects/maze-dash-classic/screenshot-2.jpg",
+      "/images/projects/maze-dash-classic/screenshot-3.jpg"
+    ],
+    "genre": "Arcade Maze",
+    "status": "Released"
   },
   {
     "title": "Capy Clue: Missing Piece",
     "slug": "capy-clue-missing-piece",
     "description": "A picture-puzzle adventure that combines shape placement, jigsaw scenes, and clue-finding.",
     "tags": [
-      "Puzzle",
-      "Jigsaw",
-      "Investigation"
+      "Brainstorming",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting",
+      "Player Data Analysis"
     ],
     "url": "/projects/capy-clue-missing-piece/",
     "platform": "Android & iOS",
@@ -181,19 +198,23 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/VHzYcBNPigx4TlU9GN3Gt1egKzwvNMEcOZxlQ3z0zFtLYWSMqn5Kup9iPzIiRp9T5KI9Mv6zjKNlkEAehCwZXpE=w526-h296",
-      "https://play-lh.googleusercontent.com/ZbOXAYyI_ZTGXGgHF1AzpHrRoxZbbhxMsVhuEr8MnO-xG6mwXKQxQN-2Y45-lyJjmgLiqaBFyERJ2DiaKt5DjQ=w526-h296",
-      "https://play-lh.googleusercontent.com/Av4JH_o6JpNlyGDK97weUnbkMkM6glpcfZ5mwqcbpEvuQzJhSyh3SpV-AOGswhOwPTBp7BBA8YgCJ8jmlWbMyA=w526-h296"
-    ]
+      "/images/projects/capy-clue-missing-piece/screenshot-1.jpg",
+      "/images/projects/capy-clue-missing-piece/screenshot-2.jpg",
+      "/images/projects/capy-clue-missing-piece/screenshot-3.jpg"
+    ],
+    "genre": "Puzzle Adventure",
+    "status": "Released"
   },
   {
     "title": "Capy Color Run",
     "slug": "capy-color-run",
     "description": "A color-matching puzzle about freeing food pieces, managing a moving tray, and choosing the right move order.",
     "tags": [
-      "Color Match",
-      "Puzzle",
-      "Strategy"
+      "Brainstorming",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting",
+      "Player Data Analysis"
     ],
     "url": "/projects/capy-color-run/",
     "platform": "Android & iOS",
@@ -220,19 +241,23 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/f6O5AWEY40eof-Ybfj8Lt174Ho31uIP1xu-sOsJYWopQ__xqQwEF7u6HVGMd0wZO-_eUwBL_Z8piGoiQTOj-JQ=w526-h296",
-      "https://play-lh.googleusercontent.com/5wdYSDAT3m8ktRA6-DKI1VRfyLu-ZllRVqT_MmKAj-AR6x21_POgaEyJ_wHD56KK6H02VGaqzjpLqDalUUsMwWc=w526-h296",
-      "https://play-lh.googleusercontent.com/MiaCECppYNq0jGp9M7WzepMnouMTDf75NwerufDhMN4zaTbJ90hzRQqeusM47JpFN3BGEVeosi0oLhXsgRFuzQ=w526-h296"
-    ]
+      "/images/projects/capy-color-run/screenshot-1.jpg",
+      "/images/projects/capy-color-run/screenshot-2.jpg",
+      "/images/projects/capy-color-run/screenshot-3.jpg"
+    ],
+    "genre": "Casual Puzzle",
+    "status": "Released"
   },
   {
     "title": "Cozy Cake: Tasty Slices",
     "slug": "cozy-cake-tasty-slices",
     "description": "A relaxing cake puzzle with two modes for placing plates, matching slices, and completing dessert boards.",
     "tags": [
-      "Casual",
-      "Puzzle",
-      "Two Game Modes"
+      "Brainstorming",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting",
+      "Player Data Analysis"
     ],
     "url": "/projects/cozy-cake-tasty-slices/",
     "platform": "iOS",
@@ -255,19 +280,23 @@
       }
     ],
     "store_screenshots": [
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/bd/fa/65/bdfa6585-a225-4633-6d72-9c48f32f384f/1__U00285_U0029.png/320x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/ef/1c/dfef1c5c-785f-cd0b-c194-f7951ea9aee4/6__U00287_U0029.png/320x480bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/8a/50/c3/8a50c39e-d266-2de1-f268-3d4d2cb779ec/5__U00286_U0029.png/320x480bb.jpg"
-    ]
+      "/images/projects/cozy-cake-tasty-slices/screenshot-1.jpg",
+      "/images/projects/cozy-cake-tasty-slices/screenshot-2.jpg",
+      "/images/projects/cozy-cake-tasty-slices/screenshot-3.jpg"
+    ],
+    "genre": "Sorting Puzzle",
+    "status": "Released"
   },
   {
     "title": "Cozy Pieces: Satisfy Fit",
     "slug": "cozy-pieces-satisfy-fit",
     "description": "A shape-placement puzzle with layered boards that reveal cozy pictures as each level is cleared.",
     "tags": [
-      "Shape Puzzle",
-      "Layered Boards",
-      "Collection"
+      "Brainstorming",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting",
+      "Player Data Analysis"
     ],
     "url": "/projects/cozy-pieces-satisfy-fit/",
     "platform": "Android & iOS",
@@ -294,19 +323,23 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/ZWpYULYJJMLZfX8aMk6kMP-JeYj-XMB_ch5LhwMm1iAtPUWRE744bfUAvAUIVa2d1yQ9dYWPMsODij2PY69uSA=w526-h296",
-      "https://play-lh.googleusercontent.com/CvtRl17ztH-o4R10pWIm3E5ZkQKvgzwnNHpZSB_XwRh82pnGKtJX7AGQiAojhgidumUHF7Hl3Lfp8D77iYKCOA=w526-h296",
-      "https://play-lh.googleusercontent.com/TpF-14K9gc19QR1v0AyroNbu9bx1m3AJbUzEykoQFDaCuky-b0x5AFPjRRSI23J_lEALMo1exPFm6lMQAvx0Mw=w526-h296"
-    ]
+      "/images/projects/cozy-pieces-satisfy-fit/screenshot-1.jpg",
+      "/images/projects/cozy-pieces-satisfy-fit/screenshot-2.jpg",
+      "/images/projects/cozy-pieces-satisfy-fit/screenshot-3.jpg"
+    ],
+    "genre": "Fit Puzzle",
+    "status": "Released"
   },
   {
     "title": "Escape Out: Arrows Run",
     "slug": "escape-out-arrows-run",
     "description": "A path-planning puzzle where players release arrows through clear routes to escape colorful mazes.",
     "tags": [
-      "Logic Puzzle",
-      "Maze",
-      "Path Planning"
+      "Brainstorming",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting",
+      "Player Data Analysis"
     ],
     "url": "/projects/escape-out-arrows-run/",
     "platform": "Android",
@@ -329,19 +362,23 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/lHfswHJUhna1qFUeZcs74dJWt7gb52IzhdLZHsJLP60z4EDuM_1xB06Z8HI2kaYAOI37TuUiFOlayxkWhu2L=w526-h296",
-      "https://play-lh.googleusercontent.com/EkgpnTLO1UsUgXn44NZvIGDzOTsMei2_XnwFXIpY1xAJ2IwHLq_UWjs4hT2S0CeFxOZvRjcRSGUHda5Xipsf88Y=w526-h296",
-      "https://play-lh.googleusercontent.com/e6yPck9vo7ybkr0QCJybZb4WZaY95YebA3den_JyfYl5RrYzWUStjSiaIr2neUsokAM1PeQ7olQoeZ2eJFLY_A=w526-h296"
-    ]
+      "/images/projects/escape-out-arrows-run/screenshot-1.jpg",
+      "/images/projects/escape-out-arrows-run/screenshot-2.jpg",
+      "/images/projects/escape-out-arrows-run/screenshot-3.jpg"
+    ],
+    "genre": "Puzzle Escape",
+    "status": "Released"
   },
   {
     "title": "Hungry Capy: Delivery Run",
     "slug": "hungry-capy-delivery-run",
     "description": "A cozy food-delivery game about preparing orders, meeting timers, earning rewards, and decorating a shop.",
     "tags": [
-      "Cooking",
-      "Simulation",
-      "Decor"
+      "Brainstorming",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting",
+      "Player Data Analysis"
     ],
     "url": "/projects/hungry-capy-delivery-run/",
     "platform": "Android & iOS",
@@ -368,19 +405,23 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/5KpKxX0tzU5YXiKQ6U29x9C32vTREgOV9xVVL-Uu_wzYX_qLPqooL2JVW4DPTBq0hr_Bqq4ex2yt-x1_989A32Q=w526-h296",
-      "https://play-lh.googleusercontent.com/TkB1E8mbgOnLRP4-hsuFYdLRB4WDwtQscY6r6d8IlQJGyikenEosicSmEgOtJ2-aqM2MYnF0gS9Eds2t70N28g=w526-h296",
-      "https://play-lh.googleusercontent.com/nJ8PmcF8oNQkJUluuC85qPI8REGuF_kc9PZffk0ey4IP2slMMqfUdxtZVSFSMsrr30hk-uvsL6RMpEuj-ecj4YQ=w526-h296"
-    ]
+      "/images/projects/hungry-capy-delivery-run/screenshot-1.jpg",
+      "/images/projects/hungry-capy-delivery-run/screenshot-2.jpg",
+      "/images/projects/hungry-capy-delivery-run/screenshot-3.jpg"
+    ],
+    "genre": "Runner",
+    "status": "Released"
   },
   {
     "title": "Snake Maze: Escape Runner",
     "slug": "snake-maze-escape-runner",
     "description": "A snake-themed maze adventure with food collection, keys, traps, and timed escape challenges.",
     "tags": [
-      "Maze",
-      "Arcade Puzzle",
-      "Snake"
+      "Brainstorming",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting",
+      "Player Data Analysis"
     ],
     "url": "/projects/snake-maze-escape-runner/",
     "platform": "Android & iOS",
@@ -407,19 +448,23 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/oK8o1cN4WbsyuX1TkJ6y-CXlduzvz8QG03Y0-wg_V75Ukig4bkGExAvCF_RemPQOlEjrJj1H8uuwNnf9gwFOgA=w526-h296",
-      "https://play-lh.googleusercontent.com/Kba_DczMySLQhRraeN_BzTZFWj0UCOQXuEA4OqGrL-w60Gv4Ju2yTE8MDLAO-N30KRcsTCcVU7Vm9yWT0bqejQ=w526-h296",
-      "https://play-lh.googleusercontent.com/_AG53vTQYdT97OlkJn2XwQTZ7U31rXNYN0FIPaidTWVMU5o3FnZ-ofXnikgx-qXJWZRG0xo6mQ_R7MMxaSoLnw=w526-h296"
-    ]
+      "/images/projects/snake-maze-escape-runner/screenshot-1.jpg",
+      "/images/projects/snake-maze-escape-runner/screenshot-2.jpg",
+      "/images/projects/snake-maze-escape-runner/screenshot-3.jpg"
+    ],
+    "genre": "Arcade Maze",
+    "status": "Released"
   },
   {
     "title": "TidyDoku: Cozy Decor",
     "slug": "tidydoku-cozy-decor",
     "description": "A cozy logic puzzle about placing pieces under row, column, and region rules to complete boards and collect stickers.",
     "tags": [
-      "Logic Puzzle",
-      "Collection",
-      "Cozy"
+      "Brainstorming",
+      "Playtesting",
+      "Level Design",
+      "Bug Reporting",
+      "Player Data Analysis"
     ],
     "url": "/projects/tidydoku-cozy-decor/",
     "platform": "Android & iOS",
@@ -446,10 +491,12 @@
       }
     ],
     "store_screenshots": [
-      "https://play-lh.googleusercontent.com/2FxCTEb0EIVrAhPRBVxcJG9y4vxhzoLDhXR7Z1X_dMSdsdMYHyaRBj3kWkBg72_J92qJ9vj2KMu6rq_DFqpDAY0=w526-h296",
-      "https://play-lh.googleusercontent.com/y9JbpmB3MEwpeWeCh0sXV1BQMFzyoIpGXGOWm_kOK3qM9dis-LmLBLgLqhXVU6Sadv9Hg6GXT2bjTniUx3YMwcQ=w526-h296",
-      "https://play-lh.googleusercontent.com/ufbmmskTN67v52TYOPTQ1t5BbHrX8Gm0tcCKXL3zkVBK6n-r21zAIYBGXAZ4m4WAKLB-QLTbXO73qFqkqcwn=w526-h296"
-    ]
+      "/images/projects/tidydoku-cozy-decor/screenshot-1.jpg",
+      "/images/projects/tidydoku-cozy-decor/screenshot-2.jpg",
+      "/images/projects/tidydoku-cozy-decor/screenshot-3.jpg"
+    ],
+    "genre": "Logic Puzzle",
+    "status": "Released"
   },
   {
     "title": "Shoe Sort Puzzle",
@@ -459,7 +506,6 @@
       "Unity",
       "C#",
       "Puzzle",
-      "Mobile",
       "Game Design",
       "Level Design"
     ],
@@ -467,7 +513,9 @@
     "year": "2026",
     "platform": "Mobile",
     "featured": false,
-    "type": "personal"
+    "type": "personal",
+    "genre": "Sorting Puzzle",
+    "status": "Released"
   },
   {
     "title": "Block Puzzle",
@@ -477,7 +525,6 @@
       "Unity",
       "C#",
       "Puzzle",
-      "Mobile",
       "Game Design",
       "Game Balancing"
     ],
@@ -485,7 +532,9 @@
     "year": "2026",
     "platform": "Mobile",
     "featured": false,
-    "type": "personal"
+    "type": "personal",
+    "genre": "Block Puzzle",
+    "status": "Released"
   },
   {
     "title": "Bow Hit",
@@ -495,7 +544,6 @@
       "Unity",
       "C#",
       "Arcade",
-      "Mobile",
       "Game Design",
       "Gameplay Mechanics"
     ],
@@ -503,7 +551,9 @@
     "year": "2026",
     "platform": "Mobile",
     "featured": false,
-    "type": "personal"
+    "type": "personal",
+    "genre": "Arcade Archery",
+    "status": "Released"
   },
   {
     "title": "Hex Tower Defense",
@@ -513,13 +563,14 @@
       "Game Design",
       "Tower Defense",
       "Level Design",
-      "Gameplay Systems",
-      "Mobile"
+      "Gameplay Systems"
     ],
     "url": "/projects/hex-tower-defense/",
     "year": "2026",
     "platform": "Mobile",
     "featured": true,
-    "type": "personal"
+    "type": "personal",
+    "genre": "Tower Defense",
+    "status": "Released"
   }
 ]

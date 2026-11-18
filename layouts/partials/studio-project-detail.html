@@ -12,6 +12,14 @@
 {{ end }}
 
 <main class="studio-project-page">
+  {{ if not $project }}
+    <section class="studio-project-section studio-project-overview">
+      <h1 class="studio-project-title">{{ $project.title }}</h1>
+      <p class="studio-project-overview-copy">
+        {{ if eq $language "vi" }}Thông tin project chưa được bổ sung{{ else }}Project information is not available yet{{ end }}
+      </p>
+    </section>
+  {{ else }}
   <a class="studio-project-back" href="{{ .Site.Home.RelPermalink }}#work-studio">
     {{ if eq $language "vi" }}← Quay lại dự án Studio{{ else }}← Back to Studio projects{{ end }}
   </a>
@@ -35,7 +43,7 @@
       <div class="studio-project-labels">
         <span class="type-badge">Studio</span>
       </div>
-      <h1 class="studio-project-title">{{ .Title }}</h1>
+      <h1 class="studio-project-title">{{ $project.title }}</h1>
       <p class="studio-project-summary">{{ $project.description }}</p>
       <div class="studio-project-actions">
         {{ range $project.store_links }}
@@ -49,6 +57,23 @@
   </header>
 
   <dl class="studio-project-facts">
+    {{ with $project.genre }}
+      <div class="studio-project-fact">
+        <dt>{{ if eq $language "vi" }}Thể loại{{ else }}Genre{{ end }}</dt>
+        <dd>{{ . }}</dd>
+      </div>
+    {{ end }}
+    {{ with $project.status }}
+      <div class="studio-project-fact">
+        <dt>{{ if eq $language "vi" }}Trạng thái{{ else }}Status{{ end }}</dt>
+        <dd>{{ . }}</dd>
+      </div>
+    {{ else }}
+      <div class="studio-project-fact">
+        <dt>{{ if eq $language "vi" }}Trạng thái{{ else }}Status{{ end }}</dt>
+        <dd>{{ if eq $language "vi" }}Đã phát hành{{ else }}Released{{ end }}</dd>
+      </div>
+    {{ end }}
     {{ with $project.studio }}
       <div class="studio-project-fact">
         <dt>Studio</dt>
@@ -75,19 +100,85 @@
     {{ end }}
   </dl>
 
-  {{ with $project.highlights }}
-    <section class="studio-project-section studio-project-story">
-      <h2 class="studio-project-section-title">{{ if eq $language "vi" }}Điểm nổi bật{{ else }}Highlights{{ end }}</h2>
-      <ul class="studio-project-highlights">
-        {{ range . }}<li>{{ . }}</li>{{ end }}
-      </ul>
+  {{ with $project.tags }}
+    <section class="studio-project-section studio-project-overview" aria-labelledby="studio-project-overview-title">
+      <div class="studio-project-section-heading">
+        <span class="studio-project-section-number">01</span>
+        <div>
+          <h2 class="studio-project-section-title" id="studio-project-overview-title">
+            {{ if eq $language "vi" }}Tổng quan dự án{{ else }}Project overview{{ end }}
+          </h2>
+          <p class="studio-project-section-kicker">
+            {{ if eq $language "vi" }}Thông tin nền tảng và phạm vi vai trò{{ else }}Project context and role scope{{ end }}
+          </p>
+        </div>
+      </div>
+      <p class="studio-project-overview-copy">{{ $project.description }}</p>
+      {{ with $project.highlights }}
+        <ul class="studio-project-overview-list">
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      {{ end }}
     </section>
   {{ end }}
 
-  <section class="studio-project-section" aria-labelledby="studio-project-media-title">
-    <h2 class="studio-project-section-title" id="studio-project-media-title">
-      {{ if eq $language "vi" }}Hình ảnh & video{{ else }}Screenshots & videos{{ end }}
-    </h2>
+  <section class="studio-project-section" aria-labelledby="studio-project-responsibilities-title">
+    <div class="studio-project-section-heading">
+      <span class="studio-project-section-number">02</span>
+      <div>
+        <h2 class="studio-project-section-title" id="studio-project-responsibilities-title">
+          {{ if eq $language "vi" }}Trách nhiệm của tôi{{ else }}My responsibilities{{ end }}
+        </h2>
+        <p class="studio-project-section-kicker">
+          {{ if eq $language "vi" }}Các công việc trực tiếp thực hiện trong dự án{{ else }}Work performed directly on this project{{ end }}
+        </p>
+      </div>
+    </div>
+    <div class="studio-project-responsibility-grid">
+      {{ $responsibilities := $project.responsibilities }}
+      {{ if not $responsibilities }}
+        {{ if eq $language "vi" }}
+          {{ $responsibilities = slice "Thiết kế gameplay" "Thiết kế màn chơi" "Cân bằng độ khó" "Phân tích dữ liệu gameplay" "Thiết kế UI" "Playtesting & kiểm thử lỗi" }}
+        {{ else }}
+          {{ $responsibilities = slice "Gameplay Design" "Level Design" "Difficulty Balancing" "Gameplay Data Analysis" "UI Design" "Playtesting & Bug Testing" }}
+        {{ end }}
+      {{ end }}
+      {{ range $index, $responsibility := $responsibilities }}
+        <article class="studio-project-responsibility">
+          <span>{{ printf "%02d" (add $index 1) }}</span>
+          <h3>{{ $responsibility }}</h3>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="studio-project-section" aria-labelledby="studio-project-showcase-title">
+    <div class="studio-project-section-heading">
+      <span class="studio-project-section-number">03</span>
+      <div>
+        <h2 class="studio-project-section-title" id="studio-project-showcase-title">
+          {{ if eq $language "vi" }}Gameplay showcase{{ else }}Gameplay showcase{{ end }}
+        </h2>
+        <p class="studio-project-section-kicker">
+          {{ if eq $language "vi" }}Video minh họa trải nghiệm và tính năng đã tham gia{{ else }}Gameplay and feature demonstration{{ end }}
+        </p>
+      </div>
+    </div>
+    <div class="studio-project-video">
+      <div class="studio-project-media-card">
+        <div class="studio-project-media-frame">
+          {{ with $project.video_embed }}
+            <iframe src="{{ . }}" title="{{ $project.video_title }}" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+          {{ else }}
+            <div class="studio-media-placeholder">
+              {{ if eq $language "vi" }}Video chức năng sẽ hiển thị tại đây.{{ else }}Feature video will appear here.{{ end }}
+            </div>
+          {{ end }}
+        </div>
+        {{ with $project.video_title }}<p class="studio-project-media-caption">{{ . }}</p>{{ end }}
+      </div>
+    </div>
+
     <div class="studio-project-media-grid studio-project-screenshots">
       {{ range $index, $screenshot := $project.store_screenshots }}
         {{ $number := add $index 1 }}
@@ -106,20 +197,58 @@
         {{ end }}
       {{ end }}
     </div>
+  </section>
 
-    <div class="studio-project-video">
-      <div class="studio-project-media-card">
-        <div class="studio-project-media-frame">
-          {{ with $project.video_embed }}
-            <iframe src="{{ . }}" title="{{ $project.video_title }}" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-          {{ else }}
-            <div class="studio-media-placeholder">
-              {{ if eq $language "vi" }}Video chức năng sẽ hiển thị tại đây.{{ else }}Feature video will appear here.{{ end }}
-            </div>
-          {{ end }}
-        </div>
-        {{ with $project.video_title }}<p class="studio-project-media-caption">{{ . }}</p>{{ end }}
+  <section class="studio-project-section" aria-labelledby="studio-project-contributions-title">
+    <div class="studio-project-section-heading">
+      <span class="studio-project-section-number">04</span>
+      <div>
+        <h2 class="studio-project-section-title" id="studio-project-contributions-title">
+          {{ if eq $language "vi" }}Đóng góp thiết kế{{ else }}Design contributions{{ end }}
+        </h2>
+        <p class="studio-project-section-kicker">
+          {{ if eq $language "vi" }}Thay đổi cụ thể được đưa vào dự án{{ else }}Specific changes contributed to the project{{ end }}
+        </p>
       </div>
+    </div>
+    {{ $contributions := $project.contributions }}
+    {{ if not $contributions }}
+      {{ if eq $language "vi" }}
+        {{ $contributions = slice "Thiết kế và điều chỉnh level cùng luồng gameplay" "Tham gia cân bằng độ khó và tiến trình màn chơi" "Kiểm tra trải nghiệm qua playtesting và dữ liệu gameplay" "Rà soát UI/UX liên quan đến thao tác và luồng người chơi" "Ghi nhận lỗi và theo dõi kết quả sau khi triển khai" }}
+      {{ else }}
+        {{ $contributions = slice "Designed and refined levels and gameplay flow" "Balanced level difficulty and player progression" "Reviewed player experience through playtesting and gameplay data" "Adjusted UI/UX around gameplay actions and player flow" "Reported bugs and verified fixes after implementation" }}
+      {{ end }}
+    {{ end }}
+    <div class="studio-project-contribution-grid">
+      {{ range $contribution := $contributions }}
+        <article class="studio-project-contribution">
+          <span aria-hidden="true"></span>
+          <p>{{ $contribution }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="studio-project-section" aria-labelledby="studio-project-collaboration-title">
+    <div class="studio-project-section-heading">
+      <span class="studio-project-section-number">05</span>
+      <div>
+        <h2 class="studio-project-section-title" id="studio-project-collaboration-title">
+          {{ if eq $language "vi" }}Phối hợp nhóm{{ else }}Team collaboration{{ end }}
+        </h2>
+        <p class="studio-project-section-kicker">
+          {{ if eq $language "vi" }}Cách làm việc trong quy trình phát triển game{{ else }}How the work moved through the development process{{ end }}
+        </p>
+      </div>
+    </div>
+    <div class="studio-project-collaboration-list">
+      {{ if eq $language "vi" }}
+        <p><strong>Developer</strong><span>Chuyển yêu cầu thiết kế, thống nhất cách triển khai và rà soát gameplay sau tích hợp</span></p>
+        <p><strong>Artist</strong><span>Phối hợp bố trí UI, hình ảnh và yếu tố trực quan phù hợp với thao tác chơi</span></p>
+      {{ else }}
+        <p><strong>Developer</strong><span>Communicated design requirements and reviewed gameplay after implementation</span></p>
+        <p><strong>Artist</strong><span>Aligned UI, artwork, and visual feedback with player actions</span></p>
+      {{ end }}
     </div>
   </section>
 
@@ -127,5 +256,6 @@
     <section class="studio-project-section studio-project-story">
       <div class="project-body">{{ . }}</div>
     </section>
+  {{ end }}
   {{ end }}
 </main>

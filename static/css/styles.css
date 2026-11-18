@@ -2739,3 +2739,24 @@ blockquote {
   border: 1px solid rgba(139, 92, 246, 0.4);
   box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
 }
+
+/* Project card link */
+.project-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Store button hover */
+.store-btn:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, var(--primary) 100%);
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Project card cta hover */
+.project-card-cta:hover {
+  color: #fff;
+  gap: 0.5rem;
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.5);
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+
+  {{ partial "header.html" . }}
+
+  {{ partial "studio-project-detail.html" . }}
+
+  {{ partial "footer.html" . }}
+
+  <script>
+  (function () {
+    var header = document.getElementById('site-header');
+    function onScroll() {
+      header.classList.toggle('header-scrolled', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }());
+  </script>
+
+</body>
+</html>

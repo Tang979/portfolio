@@ -25,11 +25,11 @@
     <!-- Desktop nav -->
     <nav class="hidden md:flex items-center gap-8">
       {{ if eq .Site.Language.Lang "vi" }}
-        <a href="/vi/#work-personal" class="nav-link">Dự Án</a>
+        <a href="/vi/#work-studio" class="nav-link">Dự Án</a>
         <a href="/#about"   class="nav-link">Giới Thiệu</a>
         <a href="/#contact" class="nav-link">Liên Hệ</a>
       {{ else }}
-        <a href="/#work-personal" class="nav-link">Work</a>
+        <a href="/#work-studio" class="nav-link">Work</a>
         <a href="/#about"   class="nav-link">About</a>
         <a href="/#contact" class="nav-link">Contact</a>
       {{ end }}
@@ -157,13 +157,13 @@
      aria-label="{{ if eq .Site.Language.Lang "vi" }}Điều hướng{{ else }}Navigation{{ end }}">
   <button id="menu-close" class="absolute top-6 right-6" aria-label="{{ if eq .Site.Language.Lang "vi" }}Đóng menu{{ else }}Close menu{{ end }}">×</button>
   {{ if eq .Site.Language.Lang "vi" }}
-    <a href="/vi/#work-personal" onclick="closeMobileMenu()">Dự án</a>
+    <a href="/vi/#work-studio" onclick="closeMobileMenu()">Dự án</a>
     <a href="/vi/#about" onclick="closeMobileMenu()">Giới thiệu</a>
     <a href="/vi/#contact" onclick="closeMobileMenu()">Liên hệ</a>
     <a href="mailto:{{ .Site.Params.email }}" class="btn-primary" onclick="closeMobileMenu()">Gửi email</a>
     <button class="mobile-menu-language" onclick="closeMobileMenu(); toggleLanguage()">English · EN</button>
   {{ else }}
-    <a href="/#work-personal" onclick="closeMobileMenu()">Work</a>
+    <a href="/#work-studio" onclick="closeMobileMenu()">Work</a>
     <a href="/#about" onclick="closeMobileMenu()">About</a>
     <a href="/#contact" onclick="closeMobileMenu()">Contact</a>
     <a href="mailto:{{ .Site.Params.email }}" class="btn-primary" onclick="closeMobileMenu()">Email me</a>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="theme-color" content="" />
+<title>Tidy Room: Decor House</title>
+
+
+<meta property="og:title" content="Tidy Room: Decor House" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+
+
+<link rel="stylesheet" href="/css/output.css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/icon/favicon.svg">
+
+</head>
+<body>
+
+  <header id="site-header">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+    
+    <a href="/" class="flex items-center gap-2.5 group">
+      
+      <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--text-primary);
+                  display: flex; align-items: center; justify-content: center;
+                  transition: background var(--transition), box-shadow var(--transition);"
+           class="group-hover:shadow-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--bg)"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" y1="11" x2="10" y2="11"/>
+          <line x1="8" y1="9" x2="8" y2="13"/>
+          <line x1="15" y1="12" x2="15.01" y2="12"/>
+          <line x1="18" y1="10" x2="18.01" y2="10"/>
+          <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+        </svg>
+      </div>
+      <span style="font-size: 1.05rem; font-weight: 800; color: #f0f0f0; letter-spacing: -0.02em;">
+        TUANKHOA<span style="color: var(--primary-light);"></span>
+      </span>
+    </a>
+
+    
+    <nav class="hidden md:flex items-center gap-8">
+      
+        <a href="/#work-studio" class="nav-link">Work</a>
+        <a href="/#about"   class="nav-link">About</a>
+        <a href="/#contact" class="nav-link">Contact</a>
+      
+
+      <a href="mailto:tuankhoa542003@gmail.com" class="btn-primary header-contact-link">
+        Email me
+      </a>
+      
+      
+      <button id="lang-toggle-btn" class="language-toggle" onclick="toggleLanguage()"
+        aria-label="Switch language">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span id="lang-label">EN</span>
+      </button>
+    </nav>
+
+    
+    <button id="menu-btn" class="md:hidden hamburger"
+      aria-label="Open menu"
+      data-open-label="Close menu"
+      data-close-label="Open menu"
+      aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+
+
+<script>
+(function () {
+  var LANG_KEY = 'preferred-lang';
+
+  
+  function getCurrentLang() {
+    return window.location.pathname.startsWith('/vi/') ||
+           window.location.pathname === '/vi'
+      ? 'vi' : 'en';
+  }
+
+  function getSavedLang() {
+    try { return localStorage.getItem(LANG_KEY) || getCurrentLang(); } catch(e) { return getCurrentLang(); }
+  }
+
+  function saveLang(lang) {
+    try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
+  }
+
+  function toViPath(path) {
+    if (path.startsWith('/vi')) return path;   
+    return '/vi' + (path === '/' ? '/' : path);
+  }
+
+  function toEnPath(path) {
+    return path.replace(/^\/vi/, '') || '/';
+  }
+
+  
+  var currentLang = getCurrentLang();
+  var savedLang   = getSavedLang();
+
+  
+  if (currentLang !== savedLang) {
+    var newPath = savedLang === 'vi'
+      ? toViPath(window.location.pathname)
+      : toEnPath(window.location.pathname);
+
+    
+    if (newPath !== window.location.pathname) {
+      window.location.replace(newPath + window.location.search + window.location.hash);
+      return; 
+    }
+  }
+
+  
+  var labelEl = document.getElementById('lang-label');
+  if (labelEl) {
+    labelEl.textContent = currentLang.toUpperCase();
+  }
+
+  
+  window.toggleLanguage = function () {
+    var lang = getCurrentLang();
+    var newLang = lang === 'en' ? 'vi' : 'en';
+    saveLang(newLang);
+
+    var newPath = newLang === 'vi'
+      ? toViPath(window.location.pathname)
+      : toEnPath(window.location.pathname);
+
+    window.location.href = newPath + window.location.search + window.location.hash;
+  };
+
+  
+  
+  function rewriteLinks() {
+    var lang = getSavedLang();
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      
+      if (!href || href.startsWith('mailto') || href.startsWith('http') || href.startsWith('#')) return;
+
+      if (lang === 'vi' && !href.startsWith('/vi')) {
+        a.setAttribute('href', toViPath(href));
+      } else if (lang === 'en' && href.startsWith('/vi')) {
+        a.setAttribute('href', toEnPath(href));
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rewriteLinks);
+  } else {
+    rewriteLinks();
+  }
+
+}());
+</script>
+
+<div id="mobile-menu" role="dialog" aria-modal="true"
+     aria-label="Navigation">
+  <button id="menu-close" class="absolute top-6 right-6" aria-label="Close menu">×</button>
+  
+    <a href="/#work-studio" onclick="closeMobileMenu()">Work</a>
+    <a href="/#about" onclick="closeMobileMenu()">About</a>
+    <a href="/#contact" onclick="closeMobileMenu()">Contact</a>
+    <a href="mailto:tuankhoa542003@gmail.com" class="btn-primary" onclick="closeMobileMenu()">Email me</a>
+    <button class="mobile-menu-language" onclick="closeMobileMenu(); toggleLanguage()">Tiếng Việt · VI</button>
+  
+</div>
+
+<script>
+(function () {
+  var menuButton = document.getElementById('menu-btn');
+  var closeButton = document.getElementById('menu-close');
+  var menu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    if (!menu || !menuButton) return;
+    menu.classList.remove('open');
+    menuButton.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', menuButton.getAttribute('data-close-label'));
+    document.body.style.overflow = '';
+  }
+
+  function openMenu() {
+    if (!menu || !menuButton) return;
+    menu.classList.add('open');
+    menuButton.classList.add('open');
+    menuButton.setAttribute('aria-expanded', 'true');
+    menuButton.setAttribute('aria-label', menuButton.getAttribute('data-open-label'));
+    document.body.style.overflow = 'hidden';
+    if (closeButton) closeButton.focus();
+  }
+
+  window.closeMobileMenu = closeMenu;
+  if (menuButton) menuButton.addEventListener('click', openMenu);
+  if (closeButton) closeButton.addEventListener('click', function () {
+    closeMenu();
+    if (menuButton) menuButton.focus();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeMenu();
+      if (menuButton) menuButton.focus();
+    }
+  });
+}());
+</script>
+
+
+  
+
+
+
+
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+<main class="studio-project-page">
+  <a class="studio-project-back" href="/#work-studio">
+    ← Back to Studio projects
+  </a>
+
+  <header class="studio-project-hero">
+    <div class="studio-project-cover studio-project-cover-icon">
+      
+        <img src="https://play-lh.googleusercontent.com/IPNlLtPEEKT7_T_XWSnbyuBMmTaR4LafQFWS1Y30JOkIijA8TyN61AesTvCUWVynJvDFAgGUk-EtvkyJJqsh64c=s0-br30" alt="Tidy Room: Decor House app icon" />
+      
+    </div>
+
+    <div class="studio-project-hero-copy">
+      <div class="studio-project-labels">
+        <span class="type-badge">Studio</span>
+      </div>
+      <h1 class="studio-project-title">Tidy Room: Decor House</h1>
+      <p class="studio-project-summary">A cozy room-design puzzle about sorting everyday items and transforming messy spaces into decorated rooms.</p>
+      <div class="studio-project-actions">
+        
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.unpacking.rooms.decor.makeover" target="_blank" rel="noopener noreferrer">Google Play</a>
+        
+          <a class="store-btn" href="https://apps.apple.com/us/app/room-decor-asmr/id6751947697" target="_blank" rel="noopener noreferrer">App Store</a>
+        
+        <a class="project-card-cta" href="/#work-studio">
+          All projects
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <dl class="studio-project-facts">
+    
+      <div class="studio-project-fact">
+        <dt>Studio</dt>
+        <dd>Rainbow 5s Co., Ltd</dd>
+      </div>
+    
+    
+      <div class="studio-project-fact">
+        <dt>My role</dt>
+        <dd>Game Designer Intern</dd>
+      </div>
+    
+    
+      <div class="studio-project-fact">
+        <dt>Platform</dt>
+        <dd>Android &amp; iOS</dd>
+      </div>
+    
+    
+  </dl>
+
+  
+    <section class="studio-project-section studio-project-story">
+      <h2 class="studio-project-section-title">Highlights</h2>
+      <ul class="studio-project-highlights">
+        <li>Organize room items with simple drag-and-place interactions.</li><li>Complete short room puzzles and unlock new decoration styles.</li>
+      </ul>
+    </section>
+  
+
+  <section class="studio-project-section" aria-labelledby="studio-project-media-title">
+    <h2 class="studio-project-section-title" id="studio-project-media-title">
+      Screenshots & videos
+    </h2>
+    <div class="studio-project-media-grid studio-project-screenshots">
+      
+        
+        <div class="studio-project-media-card">
+          <div class="studio-project-media-frame">
+            <img src="https://play-lh.googleusercontent.com/amvbIpVl3sX5L3rJtwLPLW5UCInv9YyU0aUsMzuA6so-5tIKqYdLbzS5xVM469hGISD3Xv64q6-ep_qOrJP4AA=w526-h296" alt="Tidy Room: Decor House gameplay screenshot 1" loading="lazy" />
+          </div>
+        </div>
+      
+        
+        <div class="studio-project-media-card">
+          <div class="studio-project-media-frame">
+            <img src="https://play-lh.googleusercontent.com/Udn-w4BuDH10Mf3gaJlE8AjMqhaBbsWu0NEB0jreelfKN4ONo9lUSYR9mdGuVjh-Ng3TGztWNRfbTycJqDr9=w526-h296" alt="Tidy Room: Decor House gameplay screenshot 2" loading="lazy" />
+          </div>
+        </div>
+      
+        
+        <div class="studio-project-media-card">
+          <div class="studio-project-media-frame">
+            <img src="https://play-lh.googleusercontent.com/-HmzhFNgfdWhaKek954rpmSoDC4_Gk8tgoCcZkWKvnhyEgDz-WhlHNqFtg5lDa8HIk8A_F69dAA9HKtSFztIMA=w526-h296" alt="Tidy Room: Decor House gameplay screenshot 3" loading="lazy" />
+          </div>
+        </div>
+      
+    </div>
+
+    <div class="studio-project-video">
+      <div class="studio-project-media-card">
+        <div class="studio-project-media-frame">
+          
+            <iframe src="https://drive.google.com/file/d/1Zf5jnz8CBLSe3Lq4AeCE3PvyTFiwrS8m/preview" title="Gameplay feature recording" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+          
+        </div>
+        <p class="studio-project-media-caption">Gameplay feature recording</p>
+      </div>
+    </div>
+  </section>
+
+  
+</main>
+
+
+  <footer style="background: var(--bg); border-top: 1px solid var(--glass-border);">
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+      
+      <div class="flex items-center gap-3">
+        
+        <div style="width: 24px; height: 24px; border-radius: 5px; background: var(--text-primary);
+                    display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--bg)"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="6" y1="11" x2="10" y2="11"/>
+            <line x1="8" y1="9" x2="8" y2="13"/>
+            <line x1="15" y1="12" x2="15.01" y2="12"/>
+            <line x1="18" y1="10" x2="18.01" y2="10"/>
+            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+          </svg>
+        </div>
+        <span style="font-size: 0.82rem; color: var(--text-muted);">
+          &copy; 2026 TUANKHOA
+          
+        </span>
+      </div>
+
+      
+      <a href="#" class="footer-top-link flex items-center gap-2">
+        Back to Top
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+  (function () {
+    var header = document.getElementById('site-header');
+    function onScroll() {
+      header.classList.toggle('header-scrolled', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }());
+  </script>
+
+</body>
+</html>

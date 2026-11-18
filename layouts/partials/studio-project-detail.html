@@ -1,0 +1,131 @@
+{{ $page := . }}
+{{ $language := .Site.Language.Lang }}
+{{ $projects := .Site.Data.projects }}
+{{ if eq $language "vi" }}
+  {{ $projects = .Site.Data.vi.projects }}
+{{ end }}
+{{ $project := false }}
+{{ range $projects }}
+  {{ if eq .slug $page.Params.project_slug }}
+    {{ $project = . }}
+  {{ end }}
+{{ end }}
+
+<main class="studio-project-page">
+  <a class="studio-project-back" href="{{ .Site.Home.RelPermalink }}#work-studio">
+    {{ if eq $language "vi" }}← Quay lại dự án Studio{{ else }}← Back to Studio projects{{ end }}
+  </a>
+
+  <header class="studio-project-hero">
+    <div class="studio-project-cover{{ if $project.icon }} studio-project-cover-icon{{ end }}">
+      {{ if $project.icon }}
+        <img src="{{ $project.icon }}" alt="{{ $page.Title }} app icon" />
+      {{ else }}
+        {{ with $project.image }}
+          <img src="{{ . }}" alt="{{ $page.Title }}" />
+        {{ else }}
+          <div class="studio-media-placeholder">
+            {{ if eq $language "vi" }}Ảnh dự án sẽ được bổ sung{{ else }}Project artwork will be added here{{ end }}
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+
+    <div class="studio-project-hero-copy">
+      <div class="studio-project-labels">
+        <span class="type-badge">Studio</span>
+      </div>
+      <h1 class="studio-project-title">{{ .Title }}</h1>
+      <p class="studio-project-summary">{{ $project.description }}</p>
+      <div class="studio-project-actions">
+        {{ range $project.store_links }}
+          <a class="store-btn" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }}</a>
+        {{ end }}
+        <a class="project-card-cta" href="{{ .Site.Home.RelPermalink }}#work-studio">
+          {{ if eq $language "vi" }}Tất cả dự án{{ else }}All projects{{ end }}
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <dl class="studio-project-facts">
+    {{ with $project.studio }}
+      <div class="studio-project-fact">
+        <dt>Studio</dt>
+        <dd>{{ . }}</dd>
+      </div>
+    {{ end }}
+    {{ with $project.role }}
+      <div class="studio-project-fact">
+        <dt>{{ if eq $language "vi" }}Vai trò{{ else }}My role{{ end }}</dt>
+        <dd>{{ . }}</dd>
+      </div>
+    {{ end }}
+    {{ with $project.platform }}
+      <div class="studio-project-fact">
+        <dt>{{ if eq $language "vi" }}Nền tảng{{ else }}Platform{{ end }}</dt>
+        <dd>{{ . }}</dd>
+      </div>
+    {{ end }}
+    {{ with $project.year }}
+      <div class="studio-project-fact">
+        <dt>{{ if eq $language "vi" }}Năm{{ else }}Year{{ end }}</dt>
+        <dd>{{ . }}</dd>
+      </div>
+    {{ end }}
+  </dl>
+
+  {{ with $project.highlights }}
+    <section class="studio-project-section studio-project-story">
+      <h2 class="studio-project-section-title">{{ if eq $language "vi" }}Điểm nổi bật{{ else }}Highlights{{ end }}</h2>
+      <ul class="studio-project-highlights">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </section>
+  {{ end }}
+
+  <section class="studio-project-section" aria-labelledby="studio-project-media-title">
+    <h2 class="studio-project-section-title" id="studio-project-media-title">
+      {{ if eq $language "vi" }}Hình ảnh & video{{ else }}Screenshots & videos{{ end }}
+    </h2>
+    <div class="studio-project-media-grid studio-project-screenshots">
+      {{ range $index, $screenshot := $project.store_screenshots }}
+        {{ $number := add $index 1 }}
+        <div class="studio-project-media-card">
+          <div class="studio-project-media-frame">
+            <img src="{{ $screenshot }}" alt="{{ $page.Title }} {{ if eq $language "vi" }}- ảnh gameplay {{ $number }}{{ else }}gameplay screenshot {{ $number }}{{ end }}" loading="lazy" />
+          </div>
+        </div>
+      {{ else }}
+        {{ with $project.image }}
+          <div class="studio-project-media-card">
+            <div class="studio-project-media-frame">
+              <img src="{{ . }}" alt="{{ $page.Title }} {{ if eq $language "vi" }}- ảnh gameplay{{ else }}gameplay image{{ end }}" loading="lazy" />
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+
+    <div class="studio-project-video">
+      <div class="studio-project-media-card">
+        <div class="studio-project-media-frame">
+          {{ with $project.video_embed }}
+            <iframe src="{{ . }}" title="{{ $project.video_title }}" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+          {{ else }}
+            <div class="studio-media-placeholder">
+              {{ if eq $language "vi" }}Video chức năng sẽ hiển thị tại đây.{{ else }}Feature video will appear here.{{ end }}
+            </div>
+          {{ end }}
+        </div>
+        {{ with $project.video_title }}<p class="studio-project-media-caption">{{ . }}</p>{{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{ with .Content }}
+    <section class="studio-project-section studio-project-story">
+      <div class="project-body">{{ . }}</div>
+    </section>
+  {{ end }}
+</main>

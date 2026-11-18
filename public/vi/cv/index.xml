@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CV | Tăng Nguyễn Tuấn Khoa on Tuấn Khoa | Game Designer</title>
-    <link>/vi/cv/</link>
+    <link>//localhost:1313/vi/cv/</link>
     <description>Recent content in CV | Tăng Nguyễn Tuấn Khoa on Tuấn Khoa | Game Designer</description>
     <generator>Hugo</generator>
     <language>vi</language>
-    <atom:link href="/vi/cv/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/vi/cv/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

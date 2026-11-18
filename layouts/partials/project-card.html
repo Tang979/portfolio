@@ -10,11 +10,17 @@
   {{ $projectURL = $projectPage.RelPermalink }}
 {{ end }}
 
-<article class="glass-card reveal project-card">
-  {{ if and (eq $project.type "studio") $project.image }}
+<article class="glass-card reveal project-card{{ if eq $project.type "studio" }} project-card-studio{{ end }}">
+  {{ if and (eq $project.type "studio") (or $project.icon $project.image) }}
     <a class="project-card-image-link" href="{{ $projectURL }}" aria-label="{{ $project.title }}">
       <div class="card-img-wrap">
-        <img src="{{ $project.image }}" alt="{{ $project.title }}" loading="lazy" width="800" height="500" />
+        {{ $cardImage := $project.image }}
+        {{ $imageClass := "" }}
+        {{ if $project.icon }}
+          {{ $cardImage = $project.icon }}
+          {{ $imageClass = "project-card-icon" }}
+        {{ end }}
+        <img src="{{ $cardImage }}" class="{{ $imageClass }}" alt="{{ $project.title }}" loading="lazy" width="512" height="512" />
       </div>
     </a>
   {{ end }}
@@ -33,7 +39,7 @@
           <span class="featured-badge">{{ if eq $language "vi" }}Nổi bật{{ else }}Featured{{ end }}</span>
         {{ end }}
       </div>
-      <span class="project-year">{{ $project.year }}</span>
+      {{ with $project.year }}<span class="project-year">{{ . }}</span>{{ end }}
     </div>
 
     <h3 class="project-card-title">
@@ -41,6 +47,10 @@
     </h3>
 
     <p class="project-card-description">{{ $project.description }}</p>
+
+    {{ with $project.role }}
+      <p class="project-card-role">{{ . }}</p>
+    {{ end }}
 
     <div class="project-card-tags">
       {{ range $project.tags }}
@@ -58,8 +68,15 @@
       </span>
 
       <div class="project-card-actions">
-        {{ if and (eq $project.type "studio") $project.store_link }}
-          <a href="{{ $project.store_link }}" target="_blank" rel="noopener noreferrer" class="store-btn">itch.io</a>
+        {{ if and (eq $project.type "studio") $project.store_links }}
+          {{ $primaryStore := index $project.store_links 0 }}
+          <a href="{{ $primaryStore.url }}" target="_blank" rel="noopener noreferrer" class="store-btn">
+            {{ $primaryStore.label }}
+          </a>
+        {{ else if and (eq $project.type "studio") $project.store_link }}
+          <a href="{{ $project.store_link }}" target="_blank" rel="noopener noreferrer" class="store-btn">
+            {{ with $project.store_label }}{{ . }}{{ else }}Store{{ end }}
+          </a>
         {{ end }}
         <a href="{{ $projectURL }}" class="project-card-cta">
           {{ if eq $language "vi" }}Xem dự án{{ else }}View project{{ end }}

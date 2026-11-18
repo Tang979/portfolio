@@ -1,9 +1,467 @@
 [
   {
+    "title": "Tidy Room: Decor House",
+    "slug": "tidy-room-decor-house",
+    "description": "Game giải đố sắp xếp đồ vật và trang trí phòng, biến những không gian bừa bộn thành căn phòng gọn gàng.",
+    "tags": [
+      "Giải đố thư giãn",
+      "Trang trí phòng",
+      "Thiết kế màn chơi"
+    ],
+    "url": "/vi/projects/tidy-room-decor-house/",
+    "platform": "Android & iOS",
+    "featured": true,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=1Zf5jnz8CBLSe3Lq4AeCE3PvyTFiwrS8m&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/IPNlLtPEEKT7_T_XWSnbyuBMmTaR4LafQFWS1Y30JOkIijA8TyN61AesTvCUWVynJvDFAgGUk-EtvkyJJqsh64c=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/1Zf5jnz8CBLSe3Lq4AeCE3PvyTFiwrS8m/preview",
+    "highlights": [
+      "Sắp xếp đồ vật bằng thao tác kéo thả đơn giản.",
+      "Hoàn thành câu đố để mở khóa kiểu trang trí mới."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.unpacking.rooms.decor.makeover"
+      },
+      {
+        "label": "App Store",
+        "url": "https://apps.apple.com/us/app/room-decor-asmr/id6751947697"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/amvbIpVl3sX5L3rJtwLPLW5UCInv9YyU0aUsMzuA6so-5tIKqYdLbzS5xVM469hGISD3Xv64q6-ep_qOrJP4AA=w526-h296",
+      "https://play-lh.googleusercontent.com/Udn-w4BuDH10Mf3gaJlE8AjMqhaBbsWu0NEB0jreelfKN4ONo9lUSYR9mdGuVjh-Ng3TGztWNRfbTycJqDr9=w526-h296",
+      "https://play-lh.googleusercontent.com/-HmzhFNgfdWhaKek954rpmSoDC4_Gk8tgoCcZkWKvnhyEgDz-WhlHNqFtg5lDa8HIk8A_F69dAA9HKtSFztIMA=w526-h296"
+    ]
+  },
+  {
+    "title": "Boomland: Maze Escape",
+    "slug": "boomland-maze-escape",
+    "description": "Game hành động mê cung với cơ chế đặt bom phá chướng ngại, chiến đấu với quái và tìm đường thoát.",
+    "tags": [
+      "Giải đố hành động",
+      "Mê cung",
+      "Nâng cấp"
+    ],
+    "url": "/vi/projects/boomland-maze-escape/",
+    "platform": "Android",
+    "featured": true,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=1NRbijRn7zdsqZo9cHzsutQYrYzd36dQc&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/szeQZeiaiF5mZmRO6Jy_eGKMix326LCFS_zl-MsplDEaJ1QZRSz4RuTS3xs6N1DbOurXWghnVbpFdmmWRKn5JxQ=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/1NRbijRn7zdsqZo9cHzsutQYrYzd36dQc/preview",
+    "highlights": [
+      "Đặt bom để phá khối và đánh bại kẻ địch.",
+      "Thu thập vật phẩm nâng cấp và tìm lối thoát."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.bomber.game.classic.bombman"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/-2GqtNlmlc5zlonLAxFqEcOMletZ9V01xsITOskzu7FPacmjtMOXWDsomYUIoHLlgNjtBqmkRP3IIwUpVEjRyA=w526-h296",
+      "https://play-lh.googleusercontent.com/M465skxbCj9IguxaAaVlLwX0_3vWwTtrrFUn4nziX9Y_-cO4W1HmwdsIP1h_erfiVQKQO6DmGp3Erw-qC1St=w526-h296",
+      "https://play-lh.googleusercontent.com/RH8gVBLsS2aRni7QSRdNlqHjA6pE8KtycrwyuQufVQXg8avqSWfY0qlhc2WM9kFzgl-Pra3r1d_XWGtqz9cZ=w526-h296"
+    ]
+  },
+  {
+    "title": "Tidy Out: Cozy Decor",
+    "slug": "tidy-out-cozy-decor",
+    "description": "Game giải đố đưa khối ra khỏi bàn chơi kết hợp với hoạt động trang trí căn phòng ấm cúng.",
+    "tags": [
+      "Xếp khối",
+      "Tìm lối thoát",
+      "Trang trí phòng"
+    ],
+    "url": "/vi/projects/tidy-out-cozy-decor/",
+    "platform": "Android & iOS",
+    "featured": true,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=1sjcUM0Mn6_FcYZk11SfG9CVgjne5tJkR&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/7S5T_XAmFT0o0VqVMRQ3fBGYQoQSSW0JIngJflLPoe0DZ8gKO91ynTucF2GSJSgCCpYdN0pStXZVTBxlH7cd=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/1sjcUM0Mn6_FcYZk11SfG9CVgjne5tJkR/preview",
+    "highlights": [
+      "Di chuyển các khối và tìm thứ tự để mở đường ra.",
+      "Hoàn thành màn chơi để trang trí căn phòng."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.jelly.escape.sort.puzzle"
+      },
+      {
+        "label": "App Store",
+        "url": "https://apps.apple.com/us/app/tiny-escape-cubi-run/id6791928981"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/BxMB83qNdTrubVxZwgQqugiyp_Id51HXntAoh0o0TP3MH-Lwk8KyEBfv1MzJACLw2c8lXqLUjgsPTZoZ6eBxd3w=w526-h296",
+      "https://play-lh.googleusercontent.com/Y6eZUkrZcM-7Ds9dSgGB185a6PCcqJGLZp7hjR2dtGKae67DzrhSjqNwqSYmJ98PY5DKwZTiR-1x6yp7CXCBSw=w526-h296",
+      "https://play-lh.googleusercontent.com/bN0fVdNih8qbHxFPmFbp-vIeJEpWRCKcNCKkapBVchnXFEeC_zU-2ifUBTzsiokY4bn9ao2JTLlXTAVlSZVFriI=w526-h296"
+    ]
+  },
+  {
+    "title": "Maze Dash Classic",
+    "slug": "maze-dash-classic",
+    "description": "Game mê cung arcade tập trung vào thu thập năng lượng, né quái vật và tìm đường qua từng màn chơi.",
+    "tags": [
+      "Arcade",
+      "Mê cung",
+      "Mobile"
+    ],
+    "url": "/vi/projects/maze-dash-classic/",
+    "platform": "Android",
+    "featured": false,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=11NXJk6o_oLgthpzcCxyI8eSfqcMVjjDr&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/QpMdKsosJ2GdHX8vJQJEe-ofjFV_0nhui8Odn8IFMQQ82w9AeHgxNhDwWkRzS-3aOjnqGbcfYb-OooSsu3T8OA=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/11NXJk6o_oLgthpzcCxyI8eSfqcMVjjDr/preview",
+    "highlights": [
+      "Di chuyển trong mê cung, thu thập năng lượng và né quái vật.",
+      "Dùng vật phẩm để thay đổi tình thế khi bị truy đuổi."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.pacmaze.classic.run.game"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/jiagWfxpm7chHNuHdFnB1ukGN846FRRU5mk5f1K6LPpgV0-uV0BQQPR7HV4acJGkxOM7OhkkT6kWar6CHLRg=w526-h296",
+      "https://play-lh.googleusercontent.com/jO4Ryrx23dEy2kcZjpsZW1FGwIPAAO8XcblXzer86tCjVTc1xODIULuUGpC5LWTWZLf6xTADEHnhUhX8DDM5m0k=w526-h296",
+      "https://play-lh.googleusercontent.com/Bs1ZQHcr4WV1-Uj4VjPMDERcvPLyddR6QQLfQ3WNaNvQ4CbEyPNIcefPXM0PA-ireKCbcXcx7Kw-aF-7NnHONg=w526-h296"
+    ]
+  },
+  {
+    "title": "Capy Clue: Missing Piece",
+    "slug": "capy-clue-missing-piece",
+    "description": "Game giải đố tranh ảnh kết hợp xếp hình khối, ghép tranh và tìm manh mối.",
+    "tags": [
+      "Giải đố",
+      "Ghép tranh",
+      "Điều tra"
+    ],
+    "url": "/vi/projects/capy-clue-missing-piece/",
+    "platform": "Android & iOS",
+    "featured": false,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=1KpC1o4YycolCpoiEeW35zghcUPhNUjU7&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/xxrs_GrhfZVFHe1qTf-0tECNAC8CrH52uO1l6f3aUKkL4JckFn1HGVpshOylIrYD16tA033TF8EcRPq0acKznf0=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/1KpC1o4YycolCpoiEeW35zghcUPhNUjU7/preview",
+    "highlights": [
+      "Xếp các khối để khám phá bức tranh ẩn.",
+      "Ghép lại khung cảnh và tìm manh mối trong tranh."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.jigsaw.family.art.free.games"
+      },
+      {
+        "label": "App Store",
+        "url": "https://apps.apple.com/us/app/mystery-piece-craft/id6801069003"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/VHzYcBNPigx4TlU9GN3Gt1egKzwvNMEcOZxlQ3z0zFtLYWSMqn5Kup9iPzIiRp9T5KI9Mv6zjKNlkEAehCwZXpE=w526-h296",
+      "https://play-lh.googleusercontent.com/ZbOXAYyI_ZTGXGgHF1AzpHrRoxZbbhxMsVhuEr8MnO-xG6mwXKQxQN-2Y45-lyJjmgLiqaBFyERJ2DiaKt5DjQ=w526-h296",
+      "https://play-lh.googleusercontent.com/Av4JH_o6JpNlyGDK97weUnbkMkM6glpcfZ5mwqcbpEvuQzJhSyh3SpV-AOGswhOwPTBp7BBA8YgCJ8jmlWbMyA=w526-h296"
+    ]
+  },
+  {
+    "title": "Capy Color Run",
+    "slug": "capy-color-run",
+    "description": "Game giải đố ghép màu, giải phóng món ăn và quản lý khay chuyển động theo thứ tự hợp lý.",
+    "tags": [
+      "Ghép màu",
+      "Giải đố",
+      "Chiến thuật"
+    ],
+    "url": "/vi/projects/capy-color-run/",
+    "platform": "Android & iOS",
+    "featured": false,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=1_wbpGT2lxaYwA195Zh-6vtEQFWb15iBp&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/3y57ty4tdCwpXFHgMYm_m7s2dz6w0gwXHXrAiJTfXcZTaDbt14oTOmZoSdq2UtNRvUAJzETUtQ-2Vz4hR2gv-w=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/1_wbpGT2lxaYwA195Zh-6vtEQFWb15iBp/preview",
+    "highlights": [
+      "Đưa các món ăn lên khay và ghép với hộp cùng màu.",
+      "Quản lý chỗ trống trên khay và chọn hướng thoát."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.satispuzzle.tidy.cozy.cooking.asmr"
+      },
+      {
+        "label": "App Store",
+        "url": "https://apps.apple.com/us/app/foodlane-tray-tangle/id6801085103"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/f6O5AWEY40eof-Ybfj8Lt174Ho31uIP1xu-sOsJYWopQ__xqQwEF7u6HVGMd0wZO-_eUwBL_Z8piGoiQTOj-JQ=w526-h296",
+      "https://play-lh.googleusercontent.com/5wdYSDAT3m8ktRA6-DKI1VRfyLu-ZllRVqT_MmKAj-AR6x21_POgaEyJ_wHD56KK6H02VGaqzjpLqDalUUsMwWc=w526-h296",
+      "https://play-lh.googleusercontent.com/MiaCECppYNq0jGp9M7WzepMnouMTDf75NwerufDhMN4zaTbJ90hzRQqeusM47JpFN3BGEVeosi0oLhXsgRFuzQ=w526-h296"
+    ]
+  },
+  {
+    "title": "Cozy Cake: Tasty Slices",
+    "slug": "cozy-cake-tasty-slices",
+    "description": "Game giải đố thư giãn với hai chế độ đặt đĩa, ghép lát bánh và hoàn thành bàn chơi.",
+    "tags": [
+      "Casual",
+      "Giải đố",
+      "Hai chế độ chơi"
+    ],
+    "url": "/vi/projects/cozy-cake-tasty-slices/",
+    "platform": "iOS",
+    "featured": false,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=1Z2lOHwNCOq05nnm4NJJjddX0fkaGyOA0&sz=w900",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/70/8b/d5/708bd502-a2e9-6db6-3c6f-24826d41be8c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/1Z2lOHwNCOq05nnm4NJJjddX0fkaGyOA0/preview",
+    "highlights": [
+      "Ghép các lát bánh bằng cách chọn vị trí đặt đĩa.",
+      "Chơi ở chế độ Classic hoặc Shooter."
+    ],
+    "store_links": [
+      {
+        "label": "App Store",
+        "url": "https://apps.apple.com/us/app/cozy-cake-tasty-slices/id6803807330"
+      }
+    ],
+    "store_screenshots": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/bd/fa/65/bdfa6585-a225-4633-6d72-9c48f32f384f/1__U00285_U0029.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/ef/1c/dfef1c5c-785f-cd0b-c194-f7951ea9aee4/6__U00287_U0029.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/8a/50/c3/8a50c39e-d266-2de1-f268-3d4d2cb779ec/5__U00286_U0029.png/320x480bb.jpg"
+    ]
+  },
+  {
+    "title": "Cozy Pieces: Satisfy Fit",
+    "slug": "cozy-pieces-satisfy-fit",
+    "description": "Game xếp hình nhiều lớp, mở dần những bức tranh thư giãn sau khi hoàn thành từng bàn chơi.",
+    "tags": [
+      "Xếp hình",
+      "Bàn chơi nhiều lớp",
+      "Sưu tập"
+    ],
+    "url": "/vi/projects/cozy-pieces-satisfy-fit/",
+    "platform": "Android & iOS",
+    "featured": false,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=17opVCOFkazZ2zzU0cz37JIwsKxgFpms6&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/EH0tkI1O2gHqvRWZAYkoIXjue7lwt2Q9AuOP8QzbArlKteCGVstDlsG5U67uya7-wkJ38E_EsJfRACXqbx6x=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/17opVCOFkazZ2zzU0cz37JIwsKxgFpms6/preview",
+    "highlights": [
+      "Đặt hình vào các vùng phù hợp để hoàn tất bàn chơi.",
+      "Dọn từng lớp để mở tranh và vật phẩm sưu tập."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.fill.color.asmr.board.fun.game"
+      },
+      {
+        "label": "App Store",
+        "url": "https://apps.apple.com/us/app/shikapic-match-shapes/id6793470696"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/ZWpYULYJJMLZfX8aMk6kMP-JeYj-XMB_ch5LhwMm1iAtPUWRE744bfUAvAUIVa2d1yQ9dYWPMsODij2PY69uSA=w526-h296",
+      "https://play-lh.googleusercontent.com/CvtRl17ztH-o4R10pWIm3E5ZkQKvgzwnNHpZSB_XwRh82pnGKtJX7AGQiAojhgidumUHF7Hl3Lfp8D77iYKCOA=w526-h296",
+      "https://play-lh.googleusercontent.com/TpF-14K9gc19QR1v0AyroNbu9bx1m3AJbUzEykoQFDaCuky-b0x5AFPjRRSI23J_lEALMo1exPFm6lMQAvx0Mw=w526-h296"
+    ]
+  },
+  {
+    "title": "Escape Out: Arrows Run",
+    "slug": "escape-out-arrows-run",
+    "description": "Game giải đố tìm đường, yêu cầu chọn mũi tên có lối đi thông thoáng để thoát khỏi mê cung.",
+    "tags": [
+      "Giải đố logic",
+      "Mê cung",
+      "Tìm đường"
+    ],
+    "url": "/vi/projects/escape-out-arrows-run/",
+    "platform": "Android",
+    "featured": false,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=15J4vf7oBTbOHicoVw1mcYSPifTIw3tiY&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/IgVGgwSz4MLm7yIBaNKyXD_N8SBUHLci3cxh4jYfGis_b31WDyLUhRLpTM_md-y9dFGBaDGefVO0cscsVysq-w=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/15J4vf7oBTbOHicoVw1mcYSPifTIw3tiY/preview",
+    "highlights": [
+      "Tìm mũi tên có đường đi trống đến mép màn hình.",
+      "Sắp xếp thứ tự di chuyển qua các mê cung ngày càng khó."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.arrows.escape.maze.puzzle.game"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/lHfswHJUhna1qFUeZcs74dJWt7gb52IzhdLZHsJLP60z4EDuM_1xB06Z8HI2kaYAOI37TuUiFOlayxkWhu2L=w526-h296",
+      "https://play-lh.googleusercontent.com/EkgpnTLO1UsUgXn44NZvIGDzOTsMei2_XnwFXIpY1xAJ2IwHLq_UWjs4hT2S0CeFxOZvRjcRSGUHda5Xipsf88Y=w526-h296",
+      "https://play-lh.googleusercontent.com/e6yPck9vo7ybkr0QCJybZb4WZaY95YebA3den_JyfYl5RrYzWUStjSiaIr2neUsokAM1PeQ7olQoeZ2eJFLY_A=w526-h296"
+    ]
+  },
+  {
+    "title": "Hungry Capy: Delivery Run",
+    "slug": "hungry-capy-delivery-run",
+    "description": "Game giao đồ ăn thư giãn với thử thách chuẩn bị đơn hàng, chạy đua thời gian và trang trí cửa hàng.",
+    "tags": [
+      "Nấu ăn",
+      "Mô phỏng",
+      "Trang trí"
+    ],
+    "url": "/vi/projects/hungry-capy-delivery-run/",
+    "platform": "Android & iOS",
+    "featured": false,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=1KgMRFr_ixeYhD_qUH3p__NbBCfaQLSLB&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/UuKigLB99ZcMchGFhaztASmH4cWZN0nVL7P5YB2vpKSDJmNlSalRG1V7fLw9S14309B8cbPDEYbeRMZD1tiXl60=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/1KgMRFr_ixeYhD_qUH3p__NbBCfaQLSLB/preview",
+    "highlights": [
+      "Chuẩn bị và đóng gói đơn ăn trước khi hết giờ.",
+      "Nhận thưởng và tùy chỉnh cửa hàng giao đồ ăn."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=skewer.food.sort.cooking.games"
+      },
+      {
+        "label": "App Store",
+        "url": "https://apps.apple.com/us/app/hungry-capy-delivery-run/id6753977273"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/5KpKxX0tzU5YXiKQ6U29x9C32vTREgOV9xVVL-Uu_wzYX_qLPqooL2JVW4DPTBq0hr_Bqq4ex2yt-x1_989A32Q=w526-h296",
+      "https://play-lh.googleusercontent.com/TkB1E8mbgOnLRP4-hsuFYdLRB4WDwtQscY6r6d8IlQJGyikenEosicSmEgOtJ2-aqM2MYnF0gS9Eds2t70N28g=w526-h296",
+      "https://play-lh.googleusercontent.com/nJ8PmcF8oNQkJUluuC85qPI8REGuF_kc9PZffk0ey4IP2slMMqfUdxtZVSFSMsrr30hk-uvsL6RMpEuj-ecj4YQ=w526-h296"
+    ]
+  },
+  {
+    "title": "Snake Maze: Escape Runner",
+    "slug": "snake-maze-escape-runner",
+    "description": "Game mê cung chủ đề rắn với thử thách thu thập thức ăn, chìa khóa, né bẫy và tìm lối thoát đúng lúc.",
+    "tags": [
+      "Mê cung",
+      "Giải đố arcade",
+      "Rắn"
+    ],
+    "url": "/vi/projects/snake-maze-escape-runner/",
+    "platform": "Android & iOS",
+    "featured": false,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=1EOU3zFBNL7GjoMgGQs56Xg-oBCG0nm8Q&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/jq76W6ju93Al7c-ToG5slh5_C4dOTQ6yEtyqrsg9opNZzITtOhplcG9vHHJZv2eK7XtqI_qAcXZMWfqyYlM8rg=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/1EOU3zFBNL7GjoMgGQs56Xg-oBCG0nm8Q/preview",
+    "highlights": [
+      "Điều khiển rắn qua mê cung và thu thập thức ăn hoặc chìa khóa.",
+      "Né bẫy và tìm cửa thoát trước khi hết thời gian."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.snake.maze.escape.run.clash"
+      },
+      {
+        "label": "App Store",
+        "url": "https://apps.apple.com/us/app/snake-maze-run-escape/id6787068345"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/oK8o1cN4WbsyuX1TkJ6y-CXlduzvz8QG03Y0-wg_V75Ukig4bkGExAvCF_RemPQOlEjrJj1H8uuwNnf9gwFOgA=w526-h296",
+      "https://play-lh.googleusercontent.com/Kba_DczMySLQhRraeN_BzTZFWj0UCOQXuEA4OqGrL-w60Gv4Ju2yTE8MDLAO-N30KRcsTCcVU7Vm9yWT0bqejQ=w526-h296",
+      "https://play-lh.googleusercontent.com/_AG53vTQYdT97OlkJn2XwQTZ7U31rXNYN0FIPaidTWVMU5o3FnZ-ofXnikgx-qXJWZRG0xo6mQ_R7MMxaSoLnw=w526-h296"
+    ]
+  },
+  {
+    "title": "TidyDoku: Cozy Decor",
+    "slug": "tidydoku-cozy-decor",
+    "description": "Game giải đố logic với quy tắc theo hàng, cột và vùng màu, kết hợp mở khóa bộ sưu tập sticker.",
+    "tags": [
+      "Giải đố logic",
+      "Sưu tập",
+      "Thư giãn"
+    ],
+    "url": "/vi/projects/tidydoku-cozy-decor/",
+    "platform": "Android & iOS",
+    "featured": false,
+    "type": "studio",
+    "role": "Thực tập sinh Thiết kế game",
+    "studio": "Rainbow 5s Co., Ltd",
+    "image": "https://drive.google.com/thumbnail?id=1789d3OUDlL9mheD86F7P5oFC3m5G4dLO&sz=w900",
+    "icon": "https://play-lh.googleusercontent.com/P6eiZ8HCH_ufwejxWFs-0XQ4RfDI5VKe8JcCHz4KfKgUzMBs6RSorLSCoO1Yum8V7OoLfLJvUqpQWrJYh8tXfg=s0-br30",
+    "video_title": "Video ghi lại gameplay và tính năng",
+    "video_embed": "https://drive.google.com/file/d/1789d3OUDlL9mheD86F7P5oFC3m5G4dLO/preview",
+    "highlights": [
+      "Đặt các mảnh theo ràng buộc hàng, cột và vùng.",
+      "Giải bàn chơi để mở chủ đề sưu tập và sticker."
+    ],
+    "store_links": [
+      {
+        "label": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.find.connect.stickers.match"
+      },
+      {
+        "label": "App Store",
+        "url": "https://apps.apple.com/us/app/tidydoku-cozy-decor/id6789082602"
+      }
+    ],
+    "store_screenshots": [
+      "https://play-lh.googleusercontent.com/2FxCTEb0EIVrAhPRBVxcJG9y4vxhzoLDhXR7Z1X_dMSdsdMYHyaRBj3kWkBg72_J92qJ9vj2KMu6rq_DFqpDAY0=w526-h296",
+      "https://play-lh.googleusercontent.com/y9JbpmB3MEwpeWeCh0sXV1BQMFzyoIpGXGOWm_kOK3qM9dis-LmLBLgLqhXVU6Sadv9Hg6GXT2bjTniUx3YMwcQ=w526-h296",
+      "https://play-lh.googleusercontent.com/ufbmmskTN67v52TYOPTQ1t5BbHrX8Gm0tcCKXL3zkVBK6n-r21zAIYBGXAZ4m4WAKLB-QLTbXO73qFqkqcwn=w526-h296"
+    ]
+  },
+  {
     "title": "Hex Tower Defense",
     "slug": "hex-tower-defense",
     "description": "Nguyên mẫu game thủ thành chiến thuật, tập trung vào cơ chế người chơi tự tạo đường đi, xây mê cung và hợp nhất tháp trên lưới lục giác.",
-    "tags": ["Thiết kế game", "Thủ thành", "Thiết kế màn chơi", "Hệ thống gameplay", "Mobile"],
+    "tags": [
+      "Thiết kế game",
+      "Thủ thành",
+      "Thiết kế màn chơi",
+      "Hệ thống gameplay",
+      "Mobile"
+    ],
     "url": "/vi/projects/hex-tower-defense/",
     "year": "2026",
     "platform": "Mobile",
@@ -14,7 +472,14 @@
     "title": "Shoe Sort Puzzle",
     "slug": "shoe-sort-puzzle",
     "description": "Game giải đố sắp xếp trên mobile với màn chơi cấu hình bằng JSON, hệ thống booster và kinh tế trong game được cân bằng qua playtesting.",
-    "tags": ["Unity", "C#", "Giải đố", "Mobile", "Thiết kế game", "Thiết kế màn chơi"],
+    "tags": [
+      "Unity",
+      "C#",
+      "Giải đố",
+      "Mobile",
+      "Thiết kế game",
+      "Thiết kế màn chơi"
+    ],
     "url": "/vi/projects/shoe-sort-puzzle/",
     "year": "2025",
     "platform": "Mobile",
@@ -25,7 +490,14 @@
     "title": "Block Puzzle",
     "slug": "block-puzzle",
     "description": "Game xếp khối cổ điển với tiến trình màn chơi, độ khó tăng dần và booster được thiết kế, cân bằng qua nhiều vòng playtesting.",
-    "tags": ["Unity", "C#", "Giải đố", "Mobile", "Thiết kế game", "Cân bằng game"],
+    "tags": [
+      "Unity",
+      "C#",
+      "Giải đố",
+      "Mobile",
+      "Thiết kế game",
+      "Cân bằng game"
+    ],
     "url": "/vi/projects/block-puzzle/",
     "year": "2025",
     "platform": "Mobile",
@@ -36,7 +508,14 @@
     "title": "Bow Hit",
     "slug": "bow-hit",
     "description": "Game bắn cung arcade với cơ chế ngắm bắn chính xác, điều kiện thắng/thua và nhịp độ gameplay được điều chỉnh dựa trên dữ liệu.",
-    "tags": ["Unity", "C#", "Arcade", "Mobile", "Thiết kế game", "Cơ chế gameplay"],
+    "tags": [
+      "Unity",
+      "C#",
+      "Arcade",
+      "Mobile",
+      "Thiết kế game",
+      "Cơ chế gameplay"
+    ],
     "url": "/vi/projects/bow-hit/",
     "year": "2025",
     "platform": "Mobile",

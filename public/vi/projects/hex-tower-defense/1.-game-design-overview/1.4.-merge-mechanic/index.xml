@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cơ chế Hợp Tháp on Tuấn Khoa | Game Designer</title>
-    <link>//localhost:1313/vi/projects/hex-tower-defense/1.-game-design-overview/1.4.-merge-mechanic/</link>
+    <link>/vi/projects/hex-tower-defense/1.-game-design-overview/1.4.-merge-mechanic/</link>
     <description>Recent content in Cơ chế Hợp Tháp on Tuấn Khoa | Game Designer</description>
     <generator>Hugo</generator>
     <language>vi</language>
-    <atom:link href="//localhost:1313/vi/projects/hex-tower-defense/1.-game-design-overview/1.4.-merge-mechanic/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/vi/projects/hex-tower-defense/1.-game-design-overview/1.4.-merge-mechanic/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

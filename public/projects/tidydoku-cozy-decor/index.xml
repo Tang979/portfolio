@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TidyDoku: Cozy Decor on Tuan Khoa | Game Designer</title>
-    <link>//localhost:1313/projects/tidydoku-cozy-decor/</link>
+    <link>/projects/tidydoku-cozy-decor/</link>
     <description>Recent content in TidyDoku: Cozy Decor on Tuan Khoa | Game Designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="//localhost:1313/projects/tidydoku-cozy-decor/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/projects/tidydoku-cozy-decor/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

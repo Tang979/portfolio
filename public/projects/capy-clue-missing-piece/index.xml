@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Capy Clue: Missing Piece on Tuan Khoa | Game Designer</title>
-    <link>//localhost:1313/projects/capy-clue-missing-piece/</link>
+    <link>/projects/capy-clue-missing-piece/</link>
     <description>Recent content in Capy Clue: Missing Piece on Tuan Khoa | Game Designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="//localhost:1313/projects/capy-clue-missing-piece/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/projects/capy-clue-missing-piece/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

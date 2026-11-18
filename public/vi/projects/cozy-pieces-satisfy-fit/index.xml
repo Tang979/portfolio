@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cozy Pieces: Satisfy Fit on Tuấn Khoa | Game Designer</title>
-    <link>//localhost:1313/vi/projects/cozy-pieces-satisfy-fit/</link>
+    <link>/vi/projects/cozy-pieces-satisfy-fit/</link>
     <description>Recent content in Cozy Pieces: Satisfy Fit on Tuấn Khoa | Game Designer</description>
     <generator>Hugo</generator>
     <language>vi</language>
-    <atom:link href="//localhost:1313/vi/projects/cozy-pieces-satisfy-fit/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/vi/projects/cozy-pieces-satisfy-fit/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

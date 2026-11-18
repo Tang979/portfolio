@@ -39,6 +39,7 @@ about:
   experience:
     - title: "Game Designer Intern"
       company: "Rainbow5s"
+      studio: "Rainbow 5s Co., Ltd"
       period: "Jun 2026 – Aug 2026"
       description: "Designed levels, rules, and difficulty progression for casual/puzzle mobile titles (Tidy Room: Decor House, Boomland: Maze Escape, Tidy Out: Cozy Decor). Analyzed gameplay and telemetry data to balance in-game economies, boosters, and UI flows. Conducted playtesting and bug testing, then collaborated with developers and artists to raise gameplay quality."
       active: false

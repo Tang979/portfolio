@@ -39,6 +39,7 @@ about:
   experience:
     - title: "Thực tập sinh Thiết kế Game"
       company: "Rainbow5s"
+      studio: "Rainbow 5s Co., Ltd"
       period: "Tháng 6/2026 – Tháng 8/2026"
       description: "Thiết kế màn chơi, luật chơi và tiến trình độ khó cho các game casual và giải đố trên mobile (Tidy Room: Decor House, Boomland: Maze Escape, Tidy Out: Cozy Decor). Phân tích dữ liệu gameplay để cân bằng kinh tế trong game, hệ thống booster và luồng giao diện. Thực hiện playtesting, kiểm thử lỗi và phối hợp với lập trình viên, nghệ sĩ để cải thiện chất lượng trò chơi."
       active: false

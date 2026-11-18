@@ -22,10 +22,16 @@
         {{ $studioProjects = $studioProjects | append . }}
       {{ end }}
     {{ end }}
+    {{ $studioNames := slice }}
+    {{ range $studioProjects }}
+      {{ with .studio }}
+        {{ $studioNames = $studioNames | append . }}
+      {{ end }}
+    {{ end }}
 
     <!-- ─── Projects: Studio ──────────────────────────────── -->
     {{ if $studioProjects }}
-    <section id="work-studio" class="py-28 relative project-carousel-section">
+    <section id="work-studio" class="py-28 relative">
       <div class="max-w-7xl mx-auto px-6">
 
         <div class="reveal mb-16 project-section-header">
@@ -44,31 +50,48 @@
               {{ end }}
             </p>
           </div>
-          <div class="project-carousel-controls" hidden>
-            <button type="button" class="project-carousel-control" data-carousel-prev disabled
-                    aria-label="{{ if eq .Site.Language.Lang "vi" }}Dự án trước{{ else }}Previous projects{{ end }}">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="m15 18-6-6 6-6"/>
-              </svg>
-            </button>
-            <button type="button" class="project-carousel-control" data-carousel-next
-                    aria-label="{{ if eq .Site.Language.Lang "vi" }}Dự án tiếp theo{{ else }}Next projects{{ end }}">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="m9 18 6-6-6-6"/>
-              </svg>
-            </button>
-          </div>
         </div>
 
-        <div class="project-carousel-viewport" data-project-carousel role="region" tabindex="0"
-             aria-roledescription="carousel"
-             aria-label="{{ if eq .Site.Language.Lang "vi" }}Dự án Studio{{ else }}Studio projects{{ end }}">
-          <div class="project-carousel-track">
-            {{ range $studioProjects }}
-              {{ partial "project-card.html" (dict "project" . "site" $.Site "language" $.Site.Language.Lang) }}
+        {{ range (uniq $studioNames) }}
+          {{ $studioName := . }}
+          {{ $studioKey := $studioName | urlize | replaceRE "[^a-z0-9-]+" "-" | replaceRE "-+" "-" }}
+          {{ $studioGroupProjects := slice }}
+          {{ range $studioProjects }}
+            {{ if eq .studio $studioName }}
+              {{ $studioGroupProjects = $studioGroupProjects | append . }}
             {{ end }}
+          {{ end }}
+
+          <div id="studio-{{ $studioKey }}" class="studio-project-group project-carousel-section">
+            <div class="reveal project-section-header studio-project-group-header">
+              <h3 class="studio-project-group-title">{{ $studioName }}</h3>
+              <div class="project-carousel-controls" hidden>
+                <button type="button" class="project-carousel-control" data-carousel-prev disabled
+                        aria-label="{{ if eq $.Site.Language.Lang "vi" }}Dự án trước{{ else }}Previous projects{{ end }}">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6"/>
+                  </svg>
+                </button>
+                <button type="button" class="project-carousel-control" data-carousel-next
+                        aria-label="{{ if eq $.Site.Language.Lang "vi" }}Dự án tiếp theo{{ else }}Next projects{{ end }}">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-carousel-viewport" data-project-carousel role="region" tabindex="0"
+                 aria-roledescription="carousel"
+                 aria-label="{{ $studioName }} {{ if eq $.Site.Language.Lang "vi" }}dự án{{ else }}projects{{ end }}">
+              <div class="project-carousel-track">
+                {{ range $studioGroupProjects }}
+                  {{ partial "project-card.html" (dict "project" . "site" $.Site "language" $.Site.Language.Lang) }}
+                {{ end }}
+              </div>
+            </div>
           </div>
-        </div>
+        {{ end }}
 
       </div>
     </section>
